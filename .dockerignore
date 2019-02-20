@@ -1,0 +1,3 @@
+packages/ConferenceApp
+packages/apollos-api/.env
+packages/*/node_modules
