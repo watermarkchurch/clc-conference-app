@@ -80,3 +80,10 @@ storyLoader.js
 **/lib
 
 .watchmanconfig
+
+# Optional terraform
+.terraform
+source-*.tar.gz
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfvars
