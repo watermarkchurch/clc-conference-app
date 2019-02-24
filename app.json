@@ -19,7 +19,7 @@
       "required": false
     },
     "ROCK_TOKEN": {
-      "required": true
+      "required": false
     },
     "CONTENTFUL_REST_KEY": {
       "required": false
