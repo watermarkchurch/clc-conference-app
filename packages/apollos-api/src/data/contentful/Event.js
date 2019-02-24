@@ -24,6 +24,9 @@ export const schema = gql`
     ): ContentItemsConnection
 
     parentChannel: ContentChannel
+
+    speakers: [Speaker]
+    location: Location
   }
 `;
 
@@ -34,6 +37,8 @@ export const resolver = {
     title: ({ fields }) => fields.title,
     summary: ({ fields }) => fields.summary,
     htmlContent: ({ fields }) =>
-      fields.description ? marked(fields.description) : null
+      fields.description ? marked(fields.description) : null,
+    speakers: ({ fields }) => fields.speakers,
+    location: ({ fields }) => fields.location
   }
 };
