@@ -27,6 +27,9 @@ export const schema = gql`
 
     speakers: [Speaker]
     location: Location
+    startTime: String
+    endTime: String
+    downloads: [ContentfulAsset]
   }
 `;
 
@@ -39,6 +42,9 @@ export const resolver = {
     htmlContent: ({ fields }) =>
       fields.description ? marked(fields.description) : null,
     speakers: ({ fields }) => fields.speakers,
-    location: ({ fields }) => fields.location
+    location: ({ fields }) => fields.location,
+    startTime: ({ fields }) => fields.startTime,
+    endTime: ({ fields }) => fields.endTime,
+    downloads: ({ fields }) => fields.downloads
   }
 };

@@ -26,7 +26,7 @@ export const resolver = {
     summary: ({ fields }) => fields.summary,
     biography: ({ fields }) => fields.summary,
     onConferenceDirectory: ({ fields }) => fields.onConferenceDirectory,
-    coverImage: ({ fields }) => ({ uri: fields.photo }),
+    coverImage: ({ fields }) => fields.photo,
     talks: ({ fields }) => fields.talks
   }
 };

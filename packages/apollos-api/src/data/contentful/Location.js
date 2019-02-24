@@ -9,7 +9,7 @@ export const schema = gql`
     id: ID!
     title: String
     summary: String
-    map: ImageMedia
+    art: ImageMedia
   }
 `;
 
@@ -19,6 +19,6 @@ export const resolver = {
       createGlobalId(sys.id, parentType.name),
     title: ({ fields }) => fields.title,
     summary: ({ fields }) => fields.summary,
-    map: ({ fields }) => ({ uri: fields.photo })
+    art: ({ fields }) => fields.art
   }
 };

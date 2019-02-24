@@ -34,6 +34,7 @@ export const resolver = {
     title: ({ fields }) => fields.title,
     summary: ({ fields }) => fields.summary,
     htmlContent: ({ fields }) =>
-      fields.description ? marked(fields.description) : null
+      fields.description ? marked(fields.description) : null,
+    coverImage: ({ fields }) => fields.art
   }
 };
