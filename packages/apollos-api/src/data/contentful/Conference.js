@@ -6,11 +6,12 @@ export class dataSource extends ContentfulDataSource {
   getFromCode = async code => {
     const result = await this.get(`entries`, {
       content_type: "conference",
+      include: 9, // TODO: set this level dynamically based on query
       "fields.code": code
     });
-    if (result.items.length === 0)
+    if (result.length === 0)
       throw new Error(`Conference with code ${code} could not be found.`);
-    return result.items[0];
+    return result[0];
   };
 }
 
@@ -21,30 +22,8 @@ export const schema = gql`
     code: String
     days: [ConferenceDay]
     announcements: ContentItemsConnection
-    # tracks: [ConferenceTrack]
+    tracks: [ConferenceTrack]
   }
-
-  # type Track implements ContentChannel & Node {
-  #   id: ID!
-  #   name: String!
-  #   description: String!
-  #   childContentItemsConnection(
-  #     first: Int
-  #     after: String
-  #   ): ContentItemsConnection
-  # }
-
-  # type Breakouts implements ContentChannel & Node {
-  #   id: ID!
-  #   name: String!
-  #   description: String!
-  #   childContentItemsConnection(
-  #     first: Int
-  #     after: String
-  #   ): ContentItemsConnection
-  #   startTime: String!
-  #   endTime: String!
-  # }
 
   extend type Query {
     conference(code: String): Conference
