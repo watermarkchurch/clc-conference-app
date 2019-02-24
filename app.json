@@ -1,0 +1,40 @@
+{
+  "addons": [
+    "cloudinary"
+  ],
+  "buildpacks": [
+
+  ],
+  "env": {
+    "BIBLE_API_KEY": {
+      "required": true
+    },
+    "CLOUDINARY_URL": {
+      "required": true
+    },
+    "ENGINE_API_KEY": {
+      "required": true
+    },
+    "ONE_SIGNAL_REST_KEY": {
+      "required": true
+    },
+    "ROCK_TOKEN": {
+      "required": true
+    },
+    "CONTENTFUL_REST_KEY": {
+      "required": true
+    },
+    "CONTENTFUL_SPACE": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "clc-conference-app",
+  "scripts": {
+  },
+  "stack": "container"
+}
