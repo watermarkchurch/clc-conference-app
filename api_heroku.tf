@@ -47,6 +47,18 @@ variable "one_signal_rest_key" {
   description = "Optional OneSignal rest key. Use if you utilize OneSignal for sending push notifications."
 }
 
+variable "contentful_rest_key" {
+  type = "string"
+  default = ""
+  description = ""
+}
+
+variable "contentful_space" {
+  type = "string"
+  default = ""
+  description = ""
+}
+
 provider "heroku" {
   email   = "${var.heroku_email}"
   api_key = "${var.heroku_api_key}"
@@ -65,6 +77,8 @@ resource "heroku_app" "staging" {
     ENGINE_API_KEY = "${var.engine_api_key}"
     ROCK_TOKEN = "${var.rock_token}"
     ONE_SIGNAL_REST_KEY = "${var.one_signal_rest_key}"
+    CONTENTFUL_REST_KEY = "${var.contentful_rest_key}"
+    CONTENTFUL_SPACE = "${var.contentful_space}"
   }
 
   organization = {
@@ -83,6 +97,8 @@ resource "heroku_app" "production" {
     ENGINE_API_KEY = "${var.engine_api_key}"
     ROCK_TOKEN = "${var.rock_token}"
     ONE_SIGNAL_REST_KEY = "${var.one_signal_rest_key}"
+    CONTENTFUL_REST_KEY = "${var.contentful_rest_key}"
+    CONTENTFUL_SPACE = "${var.contentful_space}"
   }
 
   organization = {
