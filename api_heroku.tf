@@ -131,12 +131,12 @@ resource "heroku_pipeline_coupling" "production" {
 ##
 # 4, Provision Heroku addons
 ##
-resource "heroku_addon" "cloudinary" {
+resource "heroku_addon" "cloudinary-staging" {
   app  = "${heroku_app.staging.name}"
   plan = "cloudinary"
 }
 
-resource "heroku_addon" "cloudinary" {
+resource "heroku_addon" "cloudinary-production" {
   app  = "${heroku_app.production.name}"
   plan = "cloudinary"
 }
@@ -144,12 +144,12 @@ resource "heroku_addon" "cloudinary" {
 # Comment out the following lines to enable CDN creation
 # https://elements.heroku.com/addons/fastly
 
-# resource "heroku_addon" "fastly" {
+# resource "heroku_addon" "fastly-staging" {
 #   app  = "${heroku_app.staging.name}"
 #   plan = "fastly:quick"
 # }
 
-resource "heroku_addon" "fastly" {
+resource "heroku_addon" "fastly-production" {
   app  = "${heroku_app.production.name}"
   plan = "fastly:quick"
 }
