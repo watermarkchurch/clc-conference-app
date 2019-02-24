@@ -47,6 +47,18 @@ variable "one_signal_rest_key" {
   description = "Optional OneSignal rest key. Use if you utilize OneSignal for sending push notifications."
 }
 
+variable "contentful_rest_key" {
+  type = "string"
+  default = ""
+  description = ""
+}
+
+variable "contentful_space" {
+  type = "string"
+  default = ""
+  description = ""
+}
+
 provider "heroku" {
   email   = "${var.heroku_email}"
   api_key = "${var.heroku_api_key}"
@@ -65,6 +77,8 @@ resource "heroku_app" "staging" {
     ENGINE_API_KEY = "${var.engine_api_key}"
     ROCK_TOKEN = "${var.rock_token}"
     ONE_SIGNAL_REST_KEY = "${var.one_signal_rest_key}"
+    CONTENTFUL_REST_KEY = "${var.contentful_rest_key}"
+    CONTENTFUL_SPACE = "${var.contentful_space}"
   }
 
   organization = {
@@ -83,6 +97,8 @@ resource "heroku_app" "production" {
     ENGINE_API_KEY = "${var.engine_api_key}"
     ROCK_TOKEN = "${var.rock_token}"
     ONE_SIGNAL_REST_KEY = "${var.one_signal_rest_key}"
+    CONTENTFUL_REST_KEY = "${var.contentful_rest_key}"
+    CONTENTFUL_SPACE = "${var.contentful_space}"
   }
 
   organization = {
@@ -115,12 +131,12 @@ resource "heroku_pipeline_coupling" "production" {
 ##
 # 4, Provision Heroku addons
 ##
-resource "heroku_addon" "cloudinary" {
+resource "heroku_addon" "cloudinary-staging" {
   app  = "${heroku_app.staging.name}"
   plan = "cloudinary"
 }
 
-resource "heroku_addon" "cloudinary" {
+resource "heroku_addon" "cloudinary-production" {
   app  = "${heroku_app.production.name}"
   plan = "cloudinary"
 }
@@ -128,12 +144,12 @@ resource "heroku_addon" "cloudinary" {
 # Comment out the following lines to enable CDN creation
 # https://elements.heroku.com/addons/fastly
 
-# resource "heroku_addon" "fastly" {
+# resource "heroku_addon" "fastly-staging" {
 #   app  = "${heroku_app.staging.name}"
 #   plan = "fastly:quick"
 # }
 
-resource "heroku_addon" "fastly" {
+resource "heroku_addon" "fastly-production" {
   app  = "${heroku_app.production.name}"
   plan = "fastly:quick"
 }

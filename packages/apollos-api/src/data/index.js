@@ -6,7 +6,7 @@ import * as Analytics from "@apollosproject/data-connector-analytics";
 // import * as Scripture from "@apollosproject/data-connector-bible";
 // import * as LiveStream from "@apollosproject/data-connector-church-online";
 import * as Cloudinary from "@apollosproject/data-connector-cloudinary";
-import * as OneSignal from "@apollosproject/data-connector-onesignal";
+// import * as OneSignal from "@apollosproject/data-connector-onesignal";
 // import * as Pass from "@apollosproject/data-connector-passes";
 // import {
 //   Followings,
@@ -21,14 +21,22 @@ import * as OneSignal from "@apollosproject/data-connector-onesignal";
 //   PersonalDevice,
 //   Template
 // } from "@apollosproject/data-connector-rock";
+import {
+  // peopleSchema,
+  themeSchema
+  // scriptureSchema
+} from "@apollosproject/data-schema";
 
-import { peopleSchema } from "@apollosproject/data-schema";
+import * as ContentfulData from "./contentful";
 
 const data = {
   Cloudinary,
   Analytics,
-  OneSignal,
-  People: { schema: peopleSchema }
+  // OneSignal,
+  // People: { schema: peopleSchema },
+  Theme: { schema: themeSchema },
+  // Scripture: { schema: scriptureSchema },
+  ...ContentfulData
 };
 
 const {

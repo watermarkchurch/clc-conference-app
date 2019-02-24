@@ -7,25 +7,25 @@
   ],
   "env": {
     "BIBLE_API_KEY": {
-      "required": true
+      "required": false
     },
     "CLOUDINARY_URL": {
-      "required": true
+      "required": false
     },
     "ENGINE_API_KEY": {
-      "required": true
+      "required": false
     },
     "ONE_SIGNAL_REST_KEY": {
-      "required": true
+      "required": false
     },
     "ROCK_TOKEN": {
-      "required": true
+      "required": false
     },
     "CONTENTFUL_REST_KEY": {
-      "required": true
+      "required": false
     },
     "CONTENTFUL_SPACE": {
-      "required": true
+      "required": false
     }
   },
   "formation": {
@@ -34,7 +34,6 @@
     }
   },
   "name": "clc-conference-app",
-  "scripts": {
-  },
+  "scripts": {},
   "stack": "container"
 }
