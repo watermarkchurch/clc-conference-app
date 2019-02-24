@@ -37,6 +37,8 @@ const apolloServer = new ApolloServer({
 const app = express();
 
 apolloServer.applyMiddleware({ app });
+
+app.get("/", (req, res) => res.redirect("/graphql"));
 // applyServerMiddleware({ app, dataSources, context });
 
 export default app;
