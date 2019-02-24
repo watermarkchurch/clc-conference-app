@@ -6,6 +6,7 @@ class ContentfulDataSource extends RESTDataSource {
 
   willSendRequest = request => {
     request.params.set("access_token", process.env.CONTENTFUL_REST_KEY);
+    request.params.set("include", 9); // TODO: Set dynamically based on query
   };
 
   parseBody = async request => {

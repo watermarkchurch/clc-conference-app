@@ -6,7 +6,6 @@ export class dataSource extends ContentfulDataSource {
   getFromCode = async code => {
     const result = await this.get(`entries`, {
       content_type: "conference",
-      include: 9, // TODO: set this level dynamically based on query
       "fields.code": code
     });
     if (result.length === 0)
