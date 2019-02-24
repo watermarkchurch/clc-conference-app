@@ -40,14 +40,7 @@ export const resolver = {
       createGlobalId(sys.id, parentType.name),
     title: ({ fields }) => fields.title,
     code: ({ fields }) => fields.code,
-    days: ({ fields, includes }) => {
-      const links = fields.days;
-      return links.map(link => {
-        if (link.sys.type !== "Link") return link;
-        return includes[link.sys.linkType].find(
-          entry => entry.sys.id === link.sys.id
-        );
-      });
-    }
+    days: ({ fields }) => fields.days,
+    announcements: ({ fields }) => fields.announcements
   }
 };

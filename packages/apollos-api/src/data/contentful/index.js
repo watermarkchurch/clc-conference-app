@@ -5,3 +5,4 @@ export * as ConferenceDay from "./ConferenceDay";
 export * as ConferenceTrack from "./ConferenceTrack";
 export * as Event from "./Event";
 export * as Breakouts from "./Breakouts";
+export * as Announcement from "./Announcement";

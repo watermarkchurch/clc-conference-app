@@ -45,26 +45,6 @@ export const schema = gql`
     node: ContentItem
     cursor: String
   }
-
-  type Announcement implements ContentItem & Node {
-    id: ID!
-    title: String
-    coverImage: ImageMedia
-
-    htmlContent: String
-    summary: String
-
-    childContentItemsConnection(
-      first: Int
-      after: String
-    ): ContentItemsConnection
-    siblingContentItemsConnection(
-      first: Int
-      after: String
-    ): ContentItemsConnection
-
-    parentChannel: ContentChannel
-  }
 `;
 
 export const resolver = {
