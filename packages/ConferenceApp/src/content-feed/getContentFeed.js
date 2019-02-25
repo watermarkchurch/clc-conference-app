@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-import { largeCardFragment } from 'apolloschurchapp/src/ui/ContentCardConnected';
+import { largeCardFragment } from 'ConferenceApp/src/ui/ContentCardConnected';
 import { contentItemFragment } from '../content-single/getContentItem';
 
 export default gql`

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { BackgroundView, FeedView } from '@apollosproject/ui-kit';
 
-import ContentCardConnected from 'apolloschurchapp/src/ui/ContentCardConnected';
+import ContentCardConnected from 'ConferenceApp/src/ui/ContentCardConnected';
 
 import getContentFeed from './getContentFeed';
 /**

@@ -1,5 +1,4 @@
 import { Platform } from 'react-native';
-import { createUploadLink } from 'apollo-upload-client';
 import Config from 'react-native-config';
 import { split } from 'apollo-link';
 import { createHttpLink } from 'apollo-link-http';
@@ -16,7 +15,6 @@ export default split(
     const { kind, operation } = getMainDefinition(query);
     return kind === 'OperationDefinition' && operation === 'mutation';
   },
-  createUploadLink({ uri }),
   createHttpLink({
     uri,
     useGETForQueries: true,

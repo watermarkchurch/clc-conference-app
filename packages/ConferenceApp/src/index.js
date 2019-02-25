@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import { BackgroundView, withTheme } from '@apollosproject/ui-kit';
 
@@ -16,16 +16,18 @@ const AppStatusBar = withTheme(({ theme }) => ({
   backgroundColor: theme.colors.paper,
 }))(StatusBar);
 
-const AppNavigator = createStackNavigator(
-  {
-    Tabs,
-    ContentSingle,
-  },
-  {
-    initialRouteName: 'Tabs',
-    mode: 'modal',
-    headerMode: 'screen',
-  }
+const AppNavigator = createAppContainer(
+  createStackNavigator(
+    {
+      Tabs,
+      ContentSingle,
+    },
+    {
+      initialRouteName: 'Tabs',
+      mode: 'modal',
+      headerMode: 'screen',
+    }
+  )
 );
 
 const App = () => (

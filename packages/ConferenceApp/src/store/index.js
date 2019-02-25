@@ -1,7 +1,6 @@
 import { merge, get } from 'lodash';
 import gql from 'graphql-tag';
-import getLoginState from 'apolloschurchapp/src/auth/getLoginState';
-import { track, events } from 'apolloschurchapp/src/analytics';
+import { track, events } from 'ConferenceApp/src/analytics';
 import { client, CACHE_LOADED } from '../client'; // eslint-disable-line
 import updatePushId from '../notifications/updatePushId';
 import getAuthToken from './getAuthToken';
@@ -18,7 +17,6 @@ export const schema = `
   }
 
   type Mutation {
-    logout
     mediaPlayerUpdateState(isPlaying: Boolean, isFullscreen: Boolean, isVisible: Boolean): Boolean
     mediaPlayerSetPlayhead(currentTime: Float): Boolean
     mediaPlayerPlayNow(
@@ -31,8 +29,6 @@ export const schema = `
     ): Boolean
 
     cacheMarkLoaded
-
-    handleLogin(authToken: String!)
 
     updateDevicePushId(pushId: String!)
   }
@@ -96,45 +92,6 @@ export const resolvers = {
     },
   },
   Mutation: {
-    logout: () => {
-      client.resetStore();
-      track({ eventName: events.UserLogout });
-      return null;
-    },
-
-    handleLogin: async (root, { authToken }, { cache }) => {
-      try {
-        await cache.writeQuery({
-          query: getAuthToken,
-          data: { authToken },
-        });
-        await cache.writeQuery({
-          query: getLoginState,
-          data: { isLoggedIn: true },
-        });
-        await cache.writeData({
-          data: { authToken },
-        });
-
-        const { pushId } = cache.readQuery({
-          query: gql`
-            query {
-              pushId
-            }
-          `,
-        });
-        if (pushId) {
-          updatePushId({ pushId });
-        }
-
-        track({ eventName: events.UserLogin });
-      } catch (e) {
-        throw e.message;
-      }
-
-      return null;
-    },
-
     mediaPlayerPlayNow: (root, trackInfo, { cache }) => {
       const query = gql`
         query {

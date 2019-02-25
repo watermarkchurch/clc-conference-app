@@ -3,10 +3,10 @@ import { withProps } from 'recompose';
 import { Platform } from 'react-native';
 
 import { Paragraph, H4 } from '@apollosproject/ui-kit';
-import HTMLView from 'apolloschurchapp/src/ui/HTMLView';
+import HTMLView from 'ConferenceApp/src/ui/HTMLView';
 import defaultRenderer, {
   wrapTextChildren,
-} from 'apolloschurchapp/src/ui/HTMLView/defaultRenderer';
+} from 'ConferenceApp/src/ui/HTMLView/defaultRenderer';
 
 import {
   ScriptureText,

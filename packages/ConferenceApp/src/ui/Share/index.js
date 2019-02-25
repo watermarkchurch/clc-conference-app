@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose, pure } from 'recompose';
-import share from 'apolloschurchapp/src/utils/content/share';
+import share from 'ConferenceApp/src/utils/content/share';
 import { Touchable, Icon, withTheme } from '@apollosproject/ui-kit';
 
 const enhance = compose(

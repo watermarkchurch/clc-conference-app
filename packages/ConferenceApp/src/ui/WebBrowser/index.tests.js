@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 // TODO: how to include test for Android?
 
-import Providers from 'apolloschurchapp/src/Providers';
+import Providers from 'ConferenceApp/src/Providers';
 
 import { WebBrowserConsumer } from '.';
 

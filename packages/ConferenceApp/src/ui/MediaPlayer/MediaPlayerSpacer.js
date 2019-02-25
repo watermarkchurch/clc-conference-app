@@ -1,11 +1,11 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import { get } from 'lodash';
 
 import { styled } from '@apollosproject/ui-kit';
-import { MINI_PLAYER_HEIGHT } from 'apolloschurchapp/src/ui/MediaPlayer';
+import { MINI_PLAYER_HEIGHT } from 'ConferenceApp/src/ui/MediaPlayer';
 
 import MediaPlayerSafeLayout from './MediaPlayerSafeLayout';
 

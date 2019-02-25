@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { client } from 'apolloschurchapp/src/client';
-import Providers from 'apolloschurchapp/src/Providers';
+import { client } from 'ConferenceApp/src/client';
+import Providers from 'ConferenceApp/src/Providers';
 
 import FullscreenPlayer from './FullscreenPlayer';
 

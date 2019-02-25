@@ -1,4 +1,4 @@
-import { client } from 'apolloschurchapp/src/client';
+import { client } from 'ConferenceApp/src/client';
 import gql from 'graphql-tag';
 
 import { resolvers, defaults } from '.';

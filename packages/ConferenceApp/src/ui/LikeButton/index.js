@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import { Query, Mutation } from 'react-apollo';
 
-import Like from 'apolloschurchapp/src/ui/Like';
-import { track, events } from 'apolloschurchapp/src/analytics';
+import Like from 'ConferenceApp/src/ui/Like';
+import { track, events } from 'ConferenceApp/src/analytics';
 
 import updateLikeEntity from './updateLikeEntity';
 import getLikedContentItem from './getLikedContentItem';

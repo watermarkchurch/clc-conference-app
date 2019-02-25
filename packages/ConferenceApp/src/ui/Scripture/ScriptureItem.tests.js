@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Providers from 'apolloschurchapp/src/Providers';
+import Providers from 'ConferenceApp/src/Providers';
 
 import ScriptureItem from './ScriptureItem';
 

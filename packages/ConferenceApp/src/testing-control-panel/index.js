@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { TableView, Divider } from '@apollosproject/ui-kit';
-import { UserWebBrowserConsumer } from 'apolloschurchapp/src/user-web-browser';
+import { UserWebBrowserConsumer } from 'ConferenceApp/src/user-web-browser';
 import ChangeLivestream from './ChangeLivestream';
 import TouchableCell from './TouchableCell';
 

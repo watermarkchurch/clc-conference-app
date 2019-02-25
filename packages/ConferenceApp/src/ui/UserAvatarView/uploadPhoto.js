@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 import ImagePicker from 'react-native-image-picker';
-import { client } from 'apolloschurchapp/src/client';
+import { client } from 'ConferenceApp/src/client';
 import { ReactNativeFile } from 'apollo-upload-client';
 import getUserProfile from '../../tabs/connect/getUserProfile';
 
