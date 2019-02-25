@@ -35,14 +35,18 @@
     "postinstall": "lerna run build"
   },
   "devDependencies": {
+    "@apollosproject/babel-preset-apollos": "^0.8.0-alpha.8",
     "@babel/cli": "7.1.5",
     "@babel/core": "7.1.6",
     "@babel/node": "7.0.0",
     "@babel/parser": "7.1.6",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@babel/runtime": "7.1.5",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "23.6.0",
+    "babel-plugin-module-resolver": "3.1.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
@@ -54,7 +58,6 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-react-native": "^3.2.1",
-    "babel-plugin-module-resolver": "3.1.1",
     "lerna": "^3.0.6",
     "prettier": "^1.14.2"
   }

@@ -1,5 +1,10 @@
 {
   "name": "ConferenceApp",
+  "workspaces": {
+    "nohoist": [
+      "**/**"
+    ]
+  },
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,8 +12,36 @@
     "test": "jest"
   },
   "dependencies": {
+    "@apollosproject/ui-kit": "^0.8.0-alpha.8",
+    "apollo-cache-inmemory": "^1.4.3",
+    "apollo-cache-persist": "^0.1.1",
+    "apollo-client": "^2.4.13",
+    "apollo-link": "^1.2.8",
+    "apollo-link-context": "^1.0.14",
+    "apollo-link-http": "^1.5.11",
+    "apollo-link-schema": "^1.1.6",
+    "apollo-link-state": "^0.4.2",
+    "graphql": "^14.1.1",
+    "graphql-tag": "^2.10.1",
+    "querystring": "^0.2.0",
     "react": "16.6.3",
-    "react-native": "0.58.5"
+    "react-apollo": "^2.4.1",
+    "react-native": "0.58.5",
+    "react-native-airplay-btn": "^1.0.6",
+    "react-native-config": "^0.11.7",
+    "react-native-device-info": "^0.26.4",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
+    "react-native-linear-gradient": "^2.5.3",
+    "react-native-music-control": "^0.9.9",
+    "react-native-onesignal": "^3.2.12",
+    "react-native-safari-view": "^2.1.0",
+    "react-native-screens": "^1.0.0-alpha.22",
+    "react-native-svg": "^9.2.4",
+    "react-native-video": "^4.4.0",
+    "react-native-video-controls": "^2.2.3",
+    "react-native-webview": "^5.2.1",
+    "react-navigation": "^3.3.0",
+    "recompose": "^0.30.0"
   },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",
