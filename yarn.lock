@@ -2386,7 +2386,7 @@ apollo-link-dedup@^1.0.0:
   dependencies:
     apollo-link "^1.2.8"
 
-apollo-link-http-common@^0.2.10:
+apollo-link-http-common@^0.2.10, apollo-link-http-common@^0.2.8:
   version "0.2.10"
   resolved "https://registry.yarnpkg.com/apollo-link-http-common/-/apollo-link-http-common-0.2.10.tgz#b5bbf502ff40a81cc00281ba3b8543b7ad866dfe"
   integrity sha512-KY9nhpAurw3z48OIYV0sCZFXrzWp/wjECsveK+Q9GUhhSe1kEbbUjFfmi+qigg+iELgdp5V8ioRJhinl1vPojw==
@@ -2416,7 +2416,7 @@ apollo-link-state@^0.4.2:
     apollo-utilities "^1.0.8"
     graphql-anywhere "^4.1.0-alpha.0"
 
-apollo-link@^1.0.0, apollo-link@^1.2.3, apollo-link@^1.2.8:
+apollo-link@^1.0.0, apollo-link@^1.2.3, apollo-link@^1.2.6, apollo-link@^1.2.8:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.8.tgz#0f252adefd5047ac1a9f35ba9439d216587dcd84"
   integrity sha512-lfzGRxhK9RmiH3HPFi7TIEBhhDY9M5a2ZDnllcfy5QDk7cCQHQ1WQArcw1FK0g1B+mV4Kl72DSrlvZHZJEolrA==
@@ -2522,6 +2522,15 @@ apollo-tracing@0.5.1:
   dependencies:
     apollo-server-env "2.2.0"
     graphql-extensions "0.5.2"
+
+apollo-upload-client@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/apollo-upload-client/-/apollo-upload-client-10.0.0.tgz#6cc3d0ea2aef40bc237b655f5042809cacee1859"
+  integrity sha512-N0SENiEkZXoY4nl9xxrXFcj/cL0AVkSNQ4aYXSaruCBWE0aKpK6aCe4DBmiEHrK3FAsMxZPEJxBRIWNbsXT8dw==
+  dependencies:
+    apollo-link "^1.2.6"
+    apollo-link-http-common "^0.2.8"
+    extract-files "^5.0.0"
 
 apollo-utilities@1.1.3, apollo-utilities@^1.0.1, apollo-utilities@^1.0.8, apollo-utilities@^1.1.3:
   version "1.1.3"
@@ -4887,6 +4896,11 @@ extglob@^2.0.4:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+extract-files@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/extract-files/-/extract-files-5.0.1.tgz#c9492a8410be643e260a376f0151361993d5f659"
+  integrity sha512-qRW6y9eKF0VbCyOoOEtFhzJ3uykAw8GKwQVXyAIqwocyEWW4m+v+evec34RwtUkkxxHh7NKBLJ6AnXM8W4dH5w==
 
 extsprintf@1.3.0:
   version "1.3.0"

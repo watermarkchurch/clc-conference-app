@@ -16,10 +16,7 @@ const apolloServer = new ApolloServer({
   typeDefs: schema,
   resolvers,
   dataSources,
-  context: (...args) => {
-    console.log('context', args);
-    return context(...args);
-  },
+  context,
   introspection: true,
   formatError: (error) => {
     console.error(error.extensions.exception.stacktrace.join('\n'));

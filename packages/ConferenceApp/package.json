@@ -8,6 +8,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prestart": "babel-node ./scripts/get-introspection-data.js",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
@@ -21,6 +22,7 @@
     "apollo-link-http": "^1.5.11",
     "apollo-link-schema": "^1.1.6",
     "apollo-link-state": "^0.4.2",
+    "apollo-upload-client": "^10.0.0",
     "buffer": "^5.2.1",
     "events": "^3.0.0",
     "graphql": "^14.1.1",

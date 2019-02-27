@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import Config from 'react-native-config';
 
 import { BackgroundView, FeedView } from '@apollosproject/ui-kit';
 import ContentCardConnected from 'ConferenceApp/src/ui/ContentCardConnected';
 
 const getUserFeed = gql`
   query {
-    conference(code: "${Config.CONFERENCE}") {
+    conference {
       announcements {
         edges {
           node {
@@ -19,7 +18,6 @@ const getUserFeed = gql`
             title
             summary
             coverImage {
-              name
               sources {
                 uri
               }
@@ -55,20 +53,18 @@ class Home extends PureComponent {
       <BackgroundView>
         <SafeAreaView>
           <Query query={getUserFeed} fetchPolicy="cache-and-network">
-            {({ loading, error, data, refetch }) =>
-              console.log({ loading, error, data, refetch }) || (
-                <FeedView
-                  ListItemComponent={ContentCardConnected}
-                  content={get(data, 'conference.announcements.edges', []).map(
-                    (edge) => edge.node
-                  )}
-                  isLoading={loading}
-                  error={error}
-                  refetch={refetch}
-                  onPressItem={this.handleOnPress}
-                />
-              )
-            }
+            {({ loading, error, data, refetch }) => (
+              <FeedView
+                ListItemComponent={ContentCardConnected}
+                content={get(data, 'conference.announcements.edges', []).map(
+                  (edge) => edge.node
+                )}
+                isLoading={loading}
+                error={error}
+                refetch={refetch}
+                onPressItem={this.handleOnPress}
+              />
+            )}
           </Query>
         </SafeAreaView>
       </BackgroundView>
