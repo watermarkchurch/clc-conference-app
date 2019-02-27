@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -57,6 +56,18 @@
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		F99A0D9D12EE41A4841B8303 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551A8BA08B9649C2BCDA182A /* libRNSVG.a */; };
+		347862CCAD3D48358248A132 /* DroidSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3DAEDA5F61F407E9B21B2B2 /* DroidSerif-Bold.ttf */; };
+		2B367D60BAC84291BCFCEA32 /* DroidSerif-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE17A113A185434CB08B5EC9 /* DroidSerif-BoldItalic.ttf */; };
+		B962AE51A8EC42079B02BE73 /* DroidSerif-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CBB6EE4C5924A48829B2E0A /* DroidSerif-Italic.ttf */; };
+		D1F67095DA454275BC5292C0 /* DroidSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C260CFA5F2AD4D4E801723E6 /* DroidSerif-Regular.ttf */; };
+		3AF93C74BD0A4451B1D6B8AB /* Inter-UI-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D240B5DA030A4A769BF1184B /* Inter-UI-Black.otf */; };
+		170B61E02BA948D78D1BE120 /* Inter-UI-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D76BEDD5AE5A4838B16E47AD /* Inter-UI-BlackItalic.otf */; };
+		C334EE6B92384C769A913F1A /* Inter-UI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5B79C1329DF454D906A6DFE /* Inter-UI-Bold.otf */; };
+		F0834B516C25481F89623502 /* Inter-UI-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 342672ED1E8D4A1F8BBECB64 /* Inter-UI-BoldItalic.otf */; };
+		3E1111B1262D4D79B7FA58B6 /* Inter-UI-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 862C1E991307485DBBF6348F /* Inter-UI-Italic.otf */; };
+		FBA9CDB4FD694672A07DCDE8 /* Inter-UI-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C1E0876914748D4B41F5F58 /* Inter-UI-Medium.otf */; };
+		AA766BF953C24B84AD55F594 /* Inter-UI-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40114B7933A145AB9FC2B4D9 /* Inter-UI-MediumItalic.otf */; };
+		0D60B2A74DC14BA7AF33CCAE /* Inter-UI-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66958ACA167242B990D7FEA1 /* Inter-UI-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -528,6 +539,18 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F2861DE8BB184FFFBC8CAE96 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		FABF477B041B4A818EED267E /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
+		B3DAEDA5F61F407E9B21B2B2 /* DroidSerif-Bold.ttf */ = {isa = PBXFileReference; name = "DroidSerif-Bold.ttf"; path = "../assets/fonts/DroidSerif-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AE17A113A185434CB08B5EC9 /* DroidSerif-BoldItalic.ttf */ = {isa = PBXFileReference; name = "DroidSerif-BoldItalic.ttf"; path = "../assets/fonts/DroidSerif-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2CBB6EE4C5924A48829B2E0A /* DroidSerif-Italic.ttf */ = {isa = PBXFileReference; name = "DroidSerif-Italic.ttf"; path = "../assets/fonts/DroidSerif-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C260CFA5F2AD4D4E801723E6 /* DroidSerif-Regular.ttf */ = {isa = PBXFileReference; name = "DroidSerif-Regular.ttf"; path = "../assets/fonts/DroidSerif-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D240B5DA030A4A769BF1184B /* Inter-UI-Black.otf */ = {isa = PBXFileReference; name = "Inter-UI-Black.otf"; path = "../assets/fonts/Inter-UI-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D76BEDD5AE5A4838B16E47AD /* Inter-UI-BlackItalic.otf */ = {isa = PBXFileReference; name = "Inter-UI-BlackItalic.otf"; path = "../assets/fonts/Inter-UI-BlackItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E5B79C1329DF454D906A6DFE /* Inter-UI-Bold.otf */ = {isa = PBXFileReference; name = "Inter-UI-Bold.otf"; path = "../assets/fonts/Inter-UI-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		342672ED1E8D4A1F8BBECB64 /* Inter-UI-BoldItalic.otf */ = {isa = PBXFileReference; name = "Inter-UI-BoldItalic.otf"; path = "../assets/fonts/Inter-UI-BoldItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		862C1E991307485DBBF6348F /* Inter-UI-Italic.otf */ = {isa = PBXFileReference; name = "Inter-UI-Italic.otf"; path = "../assets/fonts/Inter-UI-Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1C1E0876914748D4B41F5F58 /* Inter-UI-Medium.otf */ = {isa = PBXFileReference; name = "Inter-UI-Medium.otf"; path = "../assets/fonts/Inter-UI-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		40114B7933A145AB9FC2B4D9 /* Inter-UI-MediumItalic.otf */ = {isa = PBXFileReference; name = "Inter-UI-MediumItalic.otf"; path = "../assets/fonts/Inter-UI-MediumItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		66958ACA167242B990D7FEA1 /* Inter-UI-Regular.otf */ = {isa = PBXFileReference; name = "Inter-UI-Regular.otf"; path = "../assets/fonts/Inter-UI-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -932,6 +955,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				79F520FD2222F982001F0CD8 /* Recovered References */,
+				EE651B2DFC73486087B5CA16 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -957,6 +981,26 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		EE651B2DFC73486087B5CA16 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				B3DAEDA5F61F407E9B21B2B2 /* DroidSerif-Bold.ttf */,
+				AE17A113A185434CB08B5EC9 /* DroidSerif-BoldItalic.ttf */,
+				2CBB6EE4C5924A48829B2E0A /* DroidSerif-Italic.ttf */,
+				C260CFA5F2AD4D4E801723E6 /* DroidSerif-Regular.ttf */,
+				D240B5DA030A4A769BF1184B /* Inter-UI-Black.otf */,
+				D76BEDD5AE5A4838B16E47AD /* Inter-UI-BlackItalic.otf */,
+				E5B79C1329DF454D906A6DFE /* Inter-UI-Bold.otf */,
+				342672ED1E8D4A1F8BBECB64 /* Inter-UI-BoldItalic.otf */,
+				862C1E991307485DBBF6348F /* Inter-UI-Italic.otf */,
+				1C1E0876914748D4B41F5F58 /* Inter-UI-Medium.otf */,
+				40114B7933A145AB9FC2B4D9 /* Inter-UI-MediumItalic.otf */,
+				66958ACA167242B990D7FEA1 /* Inter-UI-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -1603,6 +1647,18 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				347862CCAD3D48358248A132 /* DroidSerif-Bold.ttf in Resources */,
+				2B367D60BAC84291BCFCEA32 /* DroidSerif-BoldItalic.ttf in Resources */,
+				B962AE51A8EC42079B02BE73 /* DroidSerif-Italic.ttf in Resources */,
+				D1F67095DA454275BC5292C0 /* DroidSerif-Regular.ttf in Resources */,
+				3AF93C74BD0A4451B1D6B8AB /* Inter-UI-Black.otf in Resources */,
+				170B61E02BA948D78D1BE120 /* Inter-UI-BlackItalic.otf in Resources */,
+				C334EE6B92384C769A913F1A /* Inter-UI-Bold.otf in Resources */,
+				F0834B516C25481F89623502 /* Inter-UI-BoldItalic.otf in Resources */,
+				3E1111B1262D4D79B7FA58B6 /* Inter-UI-Italic.otf in Resources */,
+				FBA9CDB4FD694672A07DCDE8 /* Inter-UI-Medium.otf in Resources */,
+				AA766BF953C24B84AD55F594 /* Inter-UI-MediumItalic.otf in Resources */,
+				0D60B2A74DC14BA7AF33CCAE /* Inter-UI-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,8 +28,6 @@ export const schema = `
       isVideo: Boolean,
     ): Boolean
 
-    cacheMarkLoaded
-
     updateDevicePushId(pushId: String!)
   }
 
@@ -231,27 +229,6 @@ export const resolvers = {
         updatePushId({ pushId });
       }
       return null;
-    },
-
-    cacheMarkLoaded: (root, args, { cache }) => {
-      cache.writeQuery({
-        query: CACHE_LOADED,
-        data: {
-          cacheLoaded: true,
-        },
-      });
-      const isLoggedIn = resolvers.Query.isLoggedIn();
-      const { pushId } = cache.readQuery({
-        query: gql`
-          query {
-            pushId @client
-          }
-        `,
-      });
-
-      if (isLoggedIn && pushId) {
-        updatePushId({ pushId });
-      }
     },
   },
 };
