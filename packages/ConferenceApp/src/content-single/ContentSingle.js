@@ -11,7 +11,6 @@ import { events } from 'ConferenceApp/src/analytics';
 import ActionContainer from './ActionContainer';
 import getContentItem from './getContentItem';
 
-import DevotionalContentItem from './DevotionalContentItem';
 import UniversalContentItem from './UniversalContentItem';
 
 import NavigationHeader from './NavigationHeader';
@@ -42,15 +41,6 @@ class ContentSingle extends PureComponent {
       [__typename] = this.itemId.split(':');
     }
     switch (__typename) {
-      case 'DevotionalContentItem':
-        return (
-          <DevotionalContentItem
-            id={this.itemId}
-            content={content}
-            loading={loading}
-            error={error}
-          />
-        );
       case 'UniversalContentItem':
       default:
         return (
@@ -87,7 +77,7 @@ class ContentSingle extends PureComponent {
           }}
         />
         {this.renderContent({ content, loading, error })}
-        <ActionContainer itemId={id} />
+        {/* <ActionContainer itemId={id} /> */}
       </ThemeMixin>
     );
   };

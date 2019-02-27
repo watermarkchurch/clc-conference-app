@@ -6,10 +6,6 @@ export default gql`
       ... on ContentItem {
         id
         title
-        parentChannel {
-          id
-          name
-        }
         coverImage {
           sources {
             uri

@@ -15,17 +15,7 @@ export default gql`
                   uri
                 }
               }
-              parentChannel {
-                id
-                name
-                iconName
-              }
               title
-              sharing {
-                url
-                message
-                title
-              }
             }
           }
         }
@@ -39,17 +29,7 @@ export default gql`
                   uri
                 }
               }
-              parentChannel {
-                id
-                name
-                iconName
-              }
               title
-              sharing {
-                url
-                message
-                title
-              }
             }
           }
         }

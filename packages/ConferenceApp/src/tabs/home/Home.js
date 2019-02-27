@@ -1,12 +1,15 @@
 import React, { PureComponent } from 'react';
-import { SafeAreaView } from 'react-native';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import { BackgroundView, FeedView } from '@apollosproject/ui-kit';
-import ContentCardConnected from 'ConferenceApp/src/ui/ContentCardConnected';
+import ContentCardConnected, {
+  largeCardFragment,
+} from 'ConferenceApp/src/ui/ContentCardConnected';
+
+import { contentItemFragment } from 'ConferenceApp/src/content-single/getContentItem';
 
 const getUserFeed = gql`
   query {
@@ -14,24 +17,20 @@ const getUserFeed = gql`
       announcements {
         edges {
           node {
-            id
-            title
-            summary
-            coverImage {
-              sources {
-                uri
-              }
-            }
+            ...largeCardFragment
+            ...contentItemFragment
           }
         }
       }
     }
   }
+  ${largeCardFragment}
+  ${contentItemFragment}
 `;
 
 class Home extends PureComponent {
   static navigationOptions = () => ({
-    header: null,
+    title: 'Updates',
   });
 
   static propTypes = {
@@ -51,22 +50,20 @@ class Home extends PureComponent {
   render() {
     return (
       <BackgroundView>
-        <SafeAreaView>
-          <Query query={getUserFeed} fetchPolicy="cache-and-network">
-            {({ loading, error, data, refetch }) => (
-              <FeedView
-                ListItemComponent={ContentCardConnected}
-                content={get(data, 'conference.announcements.edges', []).map(
-                  (edge) => edge.node
-                )}
-                isLoading={loading}
-                error={error}
-                refetch={refetch}
-                onPressItem={this.handleOnPress}
-              />
-            )}
-          </Query>
-        </SafeAreaView>
+        <Query query={getUserFeed} fetchPolicy="cache-and-network">
+          {({ loading, error, data, refetch }) => (
+            <FeedView
+              ListItemComponent={ContentCardConnected}
+              content={get(data, 'conference.announcements.edges', []).map(
+                (edge) => edge.node
+              )}
+              isLoading={loading}
+              error={error}
+              refetch={refetch}
+              onPressItem={this.handleOnPress}
+            />
+          )}
+        </Query>
       </BackgroundView>
     );
   }

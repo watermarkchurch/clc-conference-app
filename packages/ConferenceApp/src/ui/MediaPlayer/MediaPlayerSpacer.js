@@ -27,7 +27,7 @@ const MediaPlayerSpacer = (props) => (
       get(data, 'mediaPlayer.isVisible') ? (
         <MediaPlayerSafeLayoutWithSpacing {...props} />
       ) : (
-        <SafeAreaView {...props} />
+        <SafeAreaView {...props} forceInset={{ bottom: 'always' }} />
       )
     }
   </Query>
