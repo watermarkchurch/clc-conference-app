@@ -36,29 +36,29 @@ const propertiesToGqlInput = (props = []) =>
     value: props[key],
   }));
 
-export const track = ({ eventName, properties }) =>
-  client.mutate({
-    mutation: trackMutation,
-    variables: {
-      input: {
-        anonymousId,
-        deviceInfo,
-        eventName,
-        properties: propertiesToGqlInput(properties),
-      },
-    },
-  });
+export const track = ({ eventName, properties }) => {};
+// client.mutate({
+//   mutation: trackMutation,
+//   variables: {
+//     input: {
+//       anonymousId,
+//       deviceInfo,
+//       eventName,
+//       properties: propertiesToGqlInput(properties),
+//     },
+//   },
+// });
 
-export const identify = () =>
-  client.mutate({
-    mutation: identifyMutation,
-    variables: {
-      input: {
-        anonymousId,
-        deviceInfo,
-      },
-    },
-  });
+export const identify = () => {};
+// client.mutate({
+//   mutation: identifyMutation,
+//   variables: {
+//     input: {
+//       anonymousId,
+//       deviceInfo,
+//     },
+//   },
+// });
 
 export const events = {
   LikeContent: 'Like Content',

@@ -22,13 +22,6 @@ const ContentCardConnected = ({
       {({ data: { node = {} } = {}, loading, error }) => {
         if (error) return <ErrorCard error={error} />;
 
-        const metrics = [
-          {
-            icon: node.isLiked ? 'like-solid' : 'like',
-            value: node.likedCount,
-          },
-        ];
-
         const coverImage = get(node, 'coverImage.sources', undefined);
 
         return (
@@ -36,7 +29,6 @@ const ContentCardConnected = ({
             {...node}
             {...otherProps}
             coverImage={coverImage}
-            metrics={metrics}
             tile={tile}
             isLoading={loading}
           />

@@ -8,7 +8,6 @@ import { ErrorCard, ThemeMixin } from '@apollosproject/ui-kit';
 import TrackEventWhenLoaded from 'ConferenceApp/src/analytics/TrackEventWhenLoaded';
 import { events } from 'ConferenceApp/src/analytics';
 
-import ActionContainer from './ActionContainer';
 import getContentItem from './getContentItem';
 
 import UniversalContentItem from './UniversalContentItem';
@@ -77,7 +76,6 @@ class ContentSingle extends PureComponent {
           }}
         />
         {this.renderContent({ content, loading, error })}
-        {/* <ActionContainer itemId={id} /> */}
       </ThemeMixin>
     );
   };

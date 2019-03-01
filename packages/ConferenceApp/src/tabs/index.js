@@ -3,10 +3,12 @@ import { createBottomTabNavigator } from 'react-navigation';
 import TabBar from './tabBar';
 
 import Home from './home';
+import Schedule from './schedule';
 
 const TabNavigator = createBottomTabNavigator(
   {
     Home,
+    Schedule,
   },
   {
     tabBarComponent: TabBar,
