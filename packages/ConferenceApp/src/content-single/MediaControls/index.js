@@ -93,6 +93,7 @@ class MediaControls extends PureComponent {
     return (
       <Query
         query={getContentMedia}
+        fetchPolicy="cache-and-network"
         variables={{ contentId: this.props.contentId }}
       >
         {this.renderControls}

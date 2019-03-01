@@ -82,6 +82,7 @@ class HorizontalContentFeed extends Component {
     return (
       <Query
         query={getHorizontalContent}
+        fetchPolicy="cache-and-network"
         variables={{ itemId: this.props.contentId }}
       >
         {this.renderFeed}

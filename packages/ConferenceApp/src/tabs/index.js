@@ -4,11 +4,13 @@ import TabBar from './tabBar';
 
 import Home from './home';
 import Schedule from './schedule';
+import Speakers from './speakers';
 
 const TabNavigator = createBottomTabNavigator(
   {
     Home,
     Schedule,
+    Speakers,
   },
   {
     tabBarComponent: TabBar,

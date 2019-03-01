@@ -1,8 +1,16 @@
-import gql from "graphql-tag";
-import { createGlobalId } from "@apollosproject/server-core";
-import ContentfulDataSource from "./ContentfulDataSource";
+import gql from 'graphql-tag';
+import { createGlobalId } from '@apollosproject/server-core';
+import ContentfulDataSource from './ContentfulDataSource';
 
-export class dataSource extends ContentfulDataSource {}
+export class dataSource extends ContentfulDataSource {
+  getAll = async () => {
+    const result = await this.get(`entries`, {
+      content_type: 'speaker',
+      'fields.isOnConferenceDirectory': true,
+    });
+    return result;
+  };
+}
 
 export const schema = gql`
   type Speaker implements Node {
@@ -16,9 +24,16 @@ export const schema = gql`
 
     talks: [ContentItem]
   }
+
+  extend type Query {
+    speakers: [Speaker]
+  }
 `;
 
 export const resolver = {
+  Query: {
+    speakers: (_, args, { dataSources }) => dataSources.Speaker.getAll(),
+  },
   Speaker: {
     id: ({ sys }, args, context, { parentType }) =>
       createGlobalId(sys.id, parentType.name),
@@ -27,6 +42,6 @@ export const resolver = {
     biography: ({ fields }) => fields.summary,
     onConferenceDirectory: ({ fields }) => fields.onConferenceDirectory,
     coverImage: ({ fields }) => fields.photo,
-    talks: ({ fields }) => fields.talks
-  }
+    talks: ({ fields }) => fields.talks,
+  },
 };

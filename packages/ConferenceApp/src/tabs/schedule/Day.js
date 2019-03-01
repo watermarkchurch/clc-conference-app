@@ -9,9 +9,19 @@ import {
   BackgroundView,
   FeedView,
   Cell,
+  CellContent,
   CellText,
   Divider,
+  styled,
 } from '@apollosproject/ui-kit';
+
+const TimeContainer = styled({
+  width: 75,
+})(CellContent);
+
+const EventInfo = styled({
+  width: '100%',
+})(CellContent);
 
 const getEvents = gql`
   query getEvents($id: ID!) {
@@ -22,6 +32,15 @@ const getEvents = gql`
             node {
               id
               title
+              summary
+              ... on Event {
+                startTime
+                endTime
+              }
+              ... on Breakouts {
+                startTime
+                endTime
+              }
             }
           }
         }
@@ -54,29 +73,34 @@ class Day extends PureComponent {
           variables={{ id: this.props.id }}
           fetchPolicy="cache-and-network"
         >
-          {({ loading, data, error, refetch }) =>
-            console.log({ loading, error, data }) || (
-              <FeedView
-                ListItemComponent={({ title }) => (
-                  <>
-                    <Cell>
+          {({ loading, data, error, refetch }) => (
+            <FeedView
+              ListItemComponent={({ title, summary, startTime, endTime }) => (
+                <React.Fragment>
+                  <Cell>
+                    <TimeContainer>
+                      <CellText>{startTime}</CellText>
+                      <CellText>{endTime}</CellText>
+                    </TimeContainer>
+                    <EventInfo>
                       <CellText>{title}</CellText>
-                    </Cell>
-                    <Divider />
-                  </>
-                )}
-                content={get(
-                  data,
-                  'node.childContentItemsConnection.edges',
-                  []
-                ).map((edge) => edge.node)}
-                isLoading={loading}
-                error={error}
-                refetch={refetch}
-                onPressItem={this.handleOnPress}
-              />
-            )
-          }
+                      <CellText>{summary}</CellText>
+                    </EventInfo>
+                  </Cell>
+                  <Divider />
+                </React.Fragment>
+              )}
+              content={get(
+                data,
+                'node.childContentItemsConnection.edges',
+                []
+              ).map((edge) => edge.node)}
+              isLoading={loading}
+              error={error}
+              refetch={refetch}
+              onPressItem={this.handleOnPress}
+            />
+          )}
         </Query>
       </BackgroundView>
     );

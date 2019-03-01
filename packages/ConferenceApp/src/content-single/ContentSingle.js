@@ -58,7 +58,7 @@ class ContentSingle extends PureComponent {
 
     const content = data.node || {};
 
-    const { theme = {}, id } = content;
+    const { theme = {} } = content;
 
     return (
       <ThemeMixin
@@ -82,7 +82,11 @@ class ContentSingle extends PureComponent {
 
   render() {
     return (
-      <Query query={getContentItem} variables={this.queryVariables}>
+      <Query
+        query={getContentItem}
+        variables={this.queryVariables}
+        fetchPolicy="cache-and-network"
+      >
         {this.renderWithData}
       </Query>
     );

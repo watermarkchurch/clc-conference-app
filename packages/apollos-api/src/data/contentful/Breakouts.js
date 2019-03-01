@@ -24,6 +24,9 @@ export const schema = gql`
     ): ContentItemsConnection
 
     parentChannel: ContentChannel
+
+    startTime: String
+    endTime: String
   }
 `;
 
@@ -35,5 +38,8 @@ export const resolver = {
     summary: ({ fields }) => fields.summary,
     htmlContent: ({ fields }) =>
       fields.description ? marked(fields.description) : null,
+    childContentItemsConnection: ({ fields }) => fields.breakouts,
+    startTime: ({ fields }) => fields.startTime,
+    endTime: ({ fields }) => fields.endTime,
   },
 };
