@@ -4,6 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import SplashScreen from 'react-native-splash-screen';
 
+import { resolvers, schema } from '../store';
 import httpLink from './httpLink';
 import cache, { ensureCacheHydration } from './cache';
 
@@ -14,6 +15,8 @@ export const client = new ApolloClient({
   cache,
   queryDeduplication: true,
   shouldBatch: true,
+  resolvers,
+  typeDefs: schema,
 });
 
 class ClientProvider extends PureComponent {

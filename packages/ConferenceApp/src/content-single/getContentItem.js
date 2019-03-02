@@ -21,6 +21,10 @@ export default gql`
       ... on ContentItem {
         ...contentItemFragment
       }
+      ... on Speaker {
+        id
+        title
+      }
     }
   }
   ${contentItemFragment}

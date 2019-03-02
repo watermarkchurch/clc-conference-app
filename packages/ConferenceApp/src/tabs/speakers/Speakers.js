@@ -11,13 +11,15 @@ import {
   Divider,
 } from '@apollosproject/ui-kit';
 
+import { contentItemFragment } from '../../content-single/getContentItem';
+
 const getSpeakers = gql`
   query {
     speakers {
-      id
-      name
+      ...contentItemFragment
     }
   }
+  ${contentItemFragment}
 `;
 
 class Speakers extends PureComponent {
@@ -37,17 +39,17 @@ class Speakers extends PureComponent {
         <Query query={getSpeakers} fetchPolicy="cache-and-network">
           {({ loading, data, error, refetch }) => (
             <FeedView
-              ListItemComponent={({ name }) => (
+              ListItemComponent={({ title }) => (
                 <React.Fragment>
                   <Cell>
                     <CellContent>
-                      <CellText>{name}</CellText>
+                      <CellText>{title}</CellText>
                     </CellContent>
                   </Cell>
                   <Divider />
                 </React.Fragment>
               )}
-              content={data.speakers}
+              content={data.speakers || []}
               isLoading={loading}
               error={error}
               refetch={refetch}

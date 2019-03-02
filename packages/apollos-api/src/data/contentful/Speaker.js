@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import { createGlobalId } from '@apollosproject/server-core';
+import marked from 'marked';
 import ContentfulDataSource from './ContentfulDataSource';
 
 export class dataSource extends ContentfulDataSource {
@@ -13,16 +14,24 @@ export class dataSource extends ContentfulDataSource {
 }
 
 export const schema = gql`
-  type Speaker implements Node {
+  type Speaker implements Node & ContentItem {
     id: ID!
-    name: String
-    summary: String
-    biography: String
-    onConferenceDirectory: Boolean
-
+    title: String
     coverImage: ImageMedia
 
-    talks: [ContentItem]
+    htmlContent: String
+    summary: String
+
+    childContentItemsConnection(
+      first: Int
+      after: String
+    ): ContentItemsConnection
+    siblingContentItemsConnection(
+      first: Int
+      after: String
+    ): ContentItemsConnection
+
+    parentChannel: ContentChannel
   }
 
   extend type Query {
@@ -37,11 +46,11 @@ export const resolver = {
   Speaker: {
     id: ({ sys }, args, context, { parentType }) =>
       createGlobalId(sys.id, parentType.name),
-    name: ({ fields }) => fields.name,
+    title: ({ fields }) => fields.name,
     summary: ({ fields }) => fields.summary,
-    biography: ({ fields }) => fields.summary,
-    onConferenceDirectory: ({ fields }) => fields.onConferenceDirectory,
+    htmlContent: ({ fields }) =>
+      fields.biography ? marked(fields.biography) : '',
     coverImage: ({ fields }) => fields.photo,
-    talks: ({ fields }) => fields.talks,
+    childContentItemsConnection: ({ fields }) => fields.talks,
   },
 };
