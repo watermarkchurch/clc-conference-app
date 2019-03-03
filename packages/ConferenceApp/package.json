@@ -13,7 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@apollosproject/ui-kit": "^0.8.0-alpha.8",
+    "@apollosproject/ui-kit": "^0.8.0-alpha.9",
     "apollo-cache-inmemory": "1.5.1",
     "apollo-cache-persist": "0.1.1",
     "apollo-client": "2.5.1",
@@ -58,11 +58,27 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "24.1.0",
     "jest": "24.1.0",
-    "metro-react-native-babel-preset": "0.52.0",
-    "react-test-renderer": "16.6.3"
+    "metro-react-native-babel-preset": "0.53.0",
+    "react-test-renderer": "16.8.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "collectCoverage": true,
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|rn-*|react-clone-referenced-element|react-navigation|@apollosproject))"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/?(*.)(test|tests).{js,jsx,mjs}"
+    ],
+    "modulePaths": [
+      "<rootDir>/src/"
+    ],
+    "modulePathIgnorePatterns": [
+      "node_modules/.*/node_modules/react-native"
+    ],
+    "setupFiles": [
+      "./jest.setup.js"
+    ]
   },
   "rnpm": {
     "assets": [

@@ -11,7 +11,7 @@ import ContentCardConnected, {
 
 import { contentItemFragment } from 'ConferenceApp/src/content-single/getContentItem';
 
-const getUserFeed = gql`
+export const getUserFeed = gql`
   query {
     conference {
       announcements {
