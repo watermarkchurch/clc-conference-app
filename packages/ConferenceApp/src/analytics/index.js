@@ -1,3 +1,4 @@
+/* eslint-disable */
 import gql from 'graphql-tag';
 import DeviceInfo from 'react-native-device-info';
 import { Platform } from 'react-native';
@@ -31,7 +32,7 @@ const identifyMutation = gql`
 `;
 
 const propertiesToGqlInput = (props = []) =>
-  Object.keys(props).map((key) => ({
+  Object.keys(props).map(key => ({
     field: key,
     value: props[key],
   }));
