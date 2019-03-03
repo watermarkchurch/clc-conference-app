@@ -3,6 +3,17 @@ package com.conferenceapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
+import com.reactnativecommunity.webview.RNCWebViewPackage;
+import com.brentvatne.react.ReactVideoPackage;
+import com.horcrux.svg.SvgPackage;
+import com.swmansion.rnscreens.RNScreensPackage;
+import com.tanguyantoine.react.MusicControl;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.learnium.RNDeviceInfo.RNDeviceInfo;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -22,7 +33,18 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage()
+          new MainReactPackage(),
+            new RNGestureHandlerPackage(),
+            new SplashScreenReactPackage(),
+            new ReactNativeOneSignalPackage(),
+            new RNCWebViewPackage(),
+            new ReactVideoPackage(),
+            new SvgPackage(),
+            new RNScreensPackage(),
+            new MusicControl(),
+            new LinearGradientPackage(),
+            new RNDeviceInfo(),
+            new ReactNativeConfigPackage()
       );
     }
 

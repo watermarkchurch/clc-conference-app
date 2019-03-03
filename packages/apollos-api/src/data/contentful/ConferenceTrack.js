@@ -1,6 +1,6 @@
-import gql from "graphql-tag";
-import { createGlobalId } from "@apollosproject/server-core";
-import ContentfulDataSource from "./ContentfulDataSource";
+import gql from 'graphql-tag';
+import { createGlobalId } from '@apollosproject/server-core';
+import ContentfulDataSource from './ContentfulDataSource';
 
 export class dataSource extends ContentfulDataSource {}
 
@@ -20,6 +20,6 @@ export const resolver = {
     id: ({ sys }, args, context, { parentType }) =>
       createGlobalId(sys.id, parentType.name),
     title: ({ fields }) => fields.title,
-    childContentItemsConnection: ({ fields }) => fields.scheduleItem
-  }
+    childContentItemsConnection: ({ fields }) => fields.scheduleItem,
+  },
 };

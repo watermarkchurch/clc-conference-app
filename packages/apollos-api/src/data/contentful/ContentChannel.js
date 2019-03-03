@@ -1,5 +1,5 @@
-import gql from "graphql-tag";
-import ContentfulDataSource from "./ContentfulDataSource";
+import gql from 'graphql-tag';
+import ContentfulDataSource from './ContentfulDataSource';
 
 export class dataModel extends ContentfulDataSource {}
 
@@ -16,6 +16,6 @@ export const schema = gql`
 
 export const resolver = {
   ContentChannel: {
-    __resolveType: ({ sys }) => sys.type
-  }
+    __resolveType: ({ sys }) => sys.type,
+  },
 };

@@ -1,7 +1,7 @@
-import gql from "graphql-tag";
-import { createGlobalId } from "@apollosproject/server-core";
-import marked from "marked";
-import ContentfulDataSource from "./ContentfulDataSource";
+import gql from 'graphql-tag';
+import { createGlobalId } from '@apollosproject/server-core';
+import marked from 'marked';
+import ContentfulDataSource from './ContentfulDataSource';
 
 export class dataSource extends ContentfulDataSource {}
 
@@ -45,6 +45,6 @@ export const resolver = {
     location: ({ fields }) => fields.location,
     startTime: ({ fields }) => fields.startTime,
     endTime: ({ fields }) => fields.endTime,
-    downloads: ({ fields }) => fields.downloads
-  }
+    downloads: ({ fields }) => fields.downloads,
+  },
 };

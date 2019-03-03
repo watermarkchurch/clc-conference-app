@@ -1,14 +1,14 @@
-import { ApolloServer } from "apollo-server-express";
-import express from "express";
+import { ApolloServer } from 'apollo-server-express';
+import express from 'express';
 
 import {
   resolvers,
   schema,
   testSchema,
   context,
-  dataSources
+  dataSources,
   // applyServerMiddleware
-} from "./data";
+} from './data';
 
 export { resolvers, schema, testSchema };
 
@@ -18,27 +18,27 @@ const apolloServer = new ApolloServer({
   dataSources,
   context,
   introspection: true,
-  formatError: error => {
-    console.error(error.extensions.exception.stacktrace.join("\n"));
+  formatError: (error) => {
+    console.error(error.extensions.exception.stacktrace.join('\n'));
     return error;
   },
   playground: {
     settings: {
-      "editor.cursorShape": "line"
-    }
+      'editor.cursorShape': 'line',
+    },
   },
   cacheControl: {
     stripFormattedExtensions: false,
     calculateHttpHeaders: true,
-    defaultMaxAge: 600
-  }
+    defaultMaxAge: 600,
+  },
 });
 
 const app = express();
 
 apolloServer.applyMiddleware({ app });
 
-app.get("/", (req, res) => res.redirect("/graphql"));
+app.get('/', (req, res) => res.redirect('/graphql'));
 // applyServerMiddleware({ app, dataSources, context });
 
 export default app;
