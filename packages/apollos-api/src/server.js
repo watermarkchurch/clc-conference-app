@@ -27,6 +27,9 @@ const apolloServer = new ApolloServer({
       'editor.cursorShape': 'line',
     },
   },
+  engine: {
+    apiKey: process.env.ENGINE_API_KEY,
+  },
   cacheControl: {
     stripFormattedExtensions: false,
     calculateHttpHeaders: true,
