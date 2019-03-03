@@ -20,7 +20,7 @@
     "release": "standard-version --release-as minor"
   },
   "engines": {
-    "node": "^11.6.0"
+    "node": "^8.15.0"
   },
   "jest": {
     "collectCoverage": true,
