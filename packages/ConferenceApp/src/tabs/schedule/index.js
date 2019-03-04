@@ -1,4 +1,5 @@
 import { createStackNavigator } from 'react-navigation';
+import { withTheme } from '@apollosproject/ui-kit';
 
 import tabBarIcon from '../tabBarIcon';
 
@@ -14,8 +15,10 @@ export const HomeNavigator = createStackNavigator(
 );
 
 HomeNavigator.navigationOptions = {
-  tabBarIcon: tabBarIcon('calendar'),
+  tabBarIcon: tabBarIcon('schedule'),
   tabBarLabel: 'Schedule',
 };
 
-export default HomeNavigator;
+export default withTheme(({ theme }) => ({ screenProps: { theme } }))(
+  HomeNavigator
+);

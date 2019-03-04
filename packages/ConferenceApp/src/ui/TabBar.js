@@ -14,13 +14,18 @@ const withStyles = compose(
   ),
   withTheme(({ theme, indicatorColor }) => ({
     indicatorColor: indicatorColor || theme.colors.secondary,
+    inactiveOpacity: 0.5,
   }))
 );
+
+const Label = styled(({ theme }) => ({
+  color: theme.colors.text.primary,
+}))(({ route, ...props }) => <H6 {...props}>{route.title}</H6>);
 
 export default compose(
   withStyles,
   withProps({
-    renderLabel: ({ route }) => <H6>{route.title}</H6>, // eslint-disable-line
+    renderLabel: Label,
     renderIndicator: Indicator,
   })
 )(TabBar);

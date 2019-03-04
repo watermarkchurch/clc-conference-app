@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon } from '@apollosproject/ui-kit';
+import Icon from '../ui/Icon';
 
 const tabBarIcon = (name) => {
   function TabBarIcon({ tintColor }) {
