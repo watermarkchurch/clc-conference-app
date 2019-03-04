@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-
 import {
   BackgroundView,
   TabView,
   ActivityIndicator,
+  H6,
 } from '@apollosproject/ui-kit';
+import TabBar from '../../ui/TabBar';
+
 import Day from './Day';
 
 const getDays = gql`
@@ -35,6 +37,12 @@ class Schedule extends PureComponent {
               <TabView
                 routes={days.map((day) => ({ key: day.id, title: day.title }))}
                 renderScene={({ route }) => <Day id={route.key} />}
+                renderTabBar={(props) => (
+                  <TabBar
+                    {...props}
+                    renderLabel={({ route }) => <H6>{route.title}</H6>}
+                  />
+                )}
               />
             );
           }}
