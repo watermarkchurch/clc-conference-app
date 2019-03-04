@@ -16,7 +16,7 @@ export const Navigator = createStackNavigator(
 
 Navigator.navigationOptions = {
   tabBarIcon: tabBarIcon('star'),
-  tabBarLabel: 'Favorites',
+  tabBarLabel: 'My CLC',
 };
 
 export default withTheme(({ theme }) => ({ screenProps: { theme } }))(
