@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { compose, pure } from 'recompose';
-import { camelCase, kebabCase } from 'lodash';
+import { camelCase } from 'lodash';
 
 import * as Icons from './icons';
 
@@ -20,7 +20,7 @@ const Icon = enhance(({ name, size, ...otherProps }) => {
 });
 
 Icon.propTypes = {
-  name: PropTypes.oneOf(Object.keys(Icons).map(kebabCase)).isRequired,
+  name: PropTypes.string.isRequired,
   size: PropTypes.number,
   fill: PropTypes.string,
 };
