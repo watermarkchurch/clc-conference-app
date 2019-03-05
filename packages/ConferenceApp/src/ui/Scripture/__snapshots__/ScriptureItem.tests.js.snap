@@ -38,7 +38,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "AvenirNext-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -48,7 +48,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -60,10 +60,11 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
         <Text
           style={
             Object {
-              "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "color": "#868686",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
+              "textTransform": "uppercase",
             }
           }
         >
@@ -104,7 +105,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -138,7 +139,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -193,7 +194,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -227,7 +228,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -261,7 +262,7 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -299,8 +300,8 @@ exports[`the ScriptureItem component renders Genesis 1:1-5 1`] = `
         italic={false}
         style={
           Object {
-            "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "color": "#868686",
+            "fontFamily": "AvenirNext-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -351,7 +352,7 @@ exports[`the ScriptureItem component renders John 3:16-17 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "AvenirNext-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -361,7 +362,7 @@ exports[`the ScriptureItem component renders John 3:16-17 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -373,10 +374,11 @@ exports[`the ScriptureItem component renders John 3:16-17 1`] = `
         <Text
           style={
             Object {
-              "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "color": "#868686",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
+              "textTransform": "uppercase",
             }
           }
         >
@@ -417,7 +419,7 @@ exports[`the ScriptureItem component renders John 3:16-17 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -446,7 +448,7 @@ exports[`the ScriptureItem component renders John 3:16-17 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -479,8 +481,8 @@ exports[`the ScriptureItem component renders John 3:16-17 1`] = `
         italic={false}
         style={
           Object {
-            "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "color": "#868686",
+            "fontFamily": "AvenirNext-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -529,7 +531,7 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "AvenirNext-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -539,7 +541,7 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -551,10 +553,11 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
         <Text
           style={
             Object {
-              "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "color": "#868686",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
+              "textTransform": "uppercase",
             }
           }
         >
@@ -595,7 +598,7 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -650,7 +653,7 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -733,7 +736,7 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -808,7 +811,7 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -846,8 +849,8 @@ exports[`the ScriptureItem component renders Mark 1:1-4 1`] = `
         italic={false}
         style={
           Object {
-            "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "color": "#868686",
+            "fontFamily": "AvenirNext-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -896,7 +899,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "AvenirNext-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -906,7 +909,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -918,10 +921,11 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
         <Text
           style={
             Object {
-              "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "color": "#868686",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
+              "textTransform": "uppercase",
             }
           }
         >
@@ -943,7 +947,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "AvenirNext-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -973,7 +977,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1025,7 +1029,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1077,7 +1081,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1129,7 +1133,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1215,7 +1219,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1301,7 +1305,7 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1342,8 +1346,8 @@ exports[`the ScriptureItem component renders Psalm 23 1`] = `
         italic={false}
         style={
           Object {
-            "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "color": "#868686",
+            "fontFamily": "AvenirNext-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -1394,7 +1398,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "AvenirNext-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -1404,7 +1408,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -1416,10 +1420,11 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
         <Text
           style={
             Object {
-              "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "color": "#868686",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
+              "textTransform": "uppercase",
             }
           }
         >
@@ -1441,7 +1446,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "AvenirNext-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -1471,7 +1476,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1523,7 +1528,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1575,7 +1580,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1610,7 +1615,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1683,7 +1688,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1790,7 +1795,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1842,7 +1847,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1932,7 +1937,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -1984,7 +1989,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2036,7 +2041,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2088,7 +2093,7 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2129,8 +2134,8 @@ exports[`the ScriptureItem component renders Psalm 32 1`] = `
         italic={false}
         style={
           Object {
-            "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "color": "#868686",
+            "fontFamily": "AvenirNext-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -2179,7 +2184,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "AvenirNext-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -2189,7 +2194,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -2201,10 +2206,11 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
         <Text
           style={
             Object {
-              "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "color": "#868686",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
+              "textTransform": "uppercase",
             }
           }
         >
@@ -2226,7 +2232,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "AvenirNext-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -2256,7 +2262,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2308,7 +2314,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2360,7 +2366,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2412,7 +2418,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2464,7 +2470,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2516,7 +2522,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2568,7 +2574,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2620,7 +2626,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2659,7 +2665,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "AvenirNext-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -2689,7 +2695,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2741,7 +2747,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2793,7 +2799,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2845,7 +2851,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2897,7 +2903,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -2949,7 +2955,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -3001,7 +3007,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -3053,7 +3059,7 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -3094,8 +3100,8 @@ exports[`the ScriptureItem component renders Psalm 119:129 - 144 1`] = `
         italic={false}
         style={
           Object {
-            "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "color": "#868686",
+            "fontFamily": "AvenirNext-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -3144,7 +3150,7 @@ exports[`the ScriptureItem component renders Revelation 22:20-21 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "AvenirNext-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -3154,7 +3160,7 @@ exports[`the ScriptureItem component renders Revelation 22:20-21 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -3166,10 +3172,11 @@ exports[`the ScriptureItem component renders Revelation 22:20-21 1`] = `
         <Text
           style={
             Object {
-              "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "color": "#868686",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
+              "textTransform": "uppercase",
             }
           }
         >
@@ -3210,7 +3217,7 @@ exports[`the ScriptureItem component renders Revelation 22:20-21 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -3313,7 +3320,7 @@ exports[`the ScriptureItem component renders Revelation 22:20-21 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -3351,8 +3358,8 @@ exports[`the ScriptureItem component renders Revelation 22:20-21 1`] = `
         italic={false}
         style={
           Object {
-            "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "color": "#868686",
+            "fontFamily": "AvenirNext-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -3401,7 +3408,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
         style={
           Object {
             "color": "#303030",
-            "fontFamily": "InterUI-Bold",
+            "fontFamily": "AvenirNext-Bold",
             "fontSize": 16,
             "lineHeight": 23.04,
           }
@@ -3411,7 +3418,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
           style={
             Object {
               "color": "#303030",
-              "fontFamily": "InterUI-Bold",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 16,
               "lineHeight": 23.04,
             }
@@ -3423,10 +3430,11 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
         <Text
           style={
             Object {
-              "color": "#505050",
-              "fontFamily": "InterUI-Bold",
+              "color": "#868686",
+              "fontFamily": "AvenirNext-Bold",
               "fontSize": 12,
               "lineHeight": 17.28,
+              "textTransform": "uppercase",
             }
           }
         >
@@ -3467,7 +3475,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
                 italic={false}
                 style={
                   Object {
-                    "color": "#505050",
+                    "color": "#868686",
                     "fontFamily": "DroidSerif",
                     "fontSize": 9.6,
                     "lineHeight": 26,
@@ -3503,7 +3511,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "AvenirNext-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -3533,7 +3541,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -3585,7 +3593,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -3654,7 +3662,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
               italic={false}
               style={
                 Object {
-                  "color": "#505050",
+                  "color": "#868686",
                   "fontFamily": "DroidSerif",
                   "fontSize": 9.6,
                   "lineHeight": 26,
@@ -3710,7 +3718,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "AvenirNext-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -3761,7 +3769,7 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
             style={
               Object {
                 "color": "#303030",
-                "fontFamily": "InterUI-Bold",
+                "fontFamily": "AvenirNext-Bold",
                 "fontSize": 16,
                 "lineHeight": 23.04,
                 "paddingBottom": 11.52,
@@ -3797,8 +3805,8 @@ exports[`the ScriptureItem component renders Song of Solomon 1:1-4 1`] = `
         italic={false}
         style={
           Object {
-            "color": "#505050",
-            "fontFamily": "InterUI-Regular",
+            "color": "#868686",
+            "fontFamily": "AvenirNext-Regular",
             "fontSize": 9.6,
             "lineHeight": 10.37,
           }
@@ -3847,7 +3855,7 @@ exports[`the ScriptureItem component renders a loading state 1`] = `
         style={
           Object {
             "alignSelf": "stretch",
-            "backgroundColor": "#A5A5A5",
+            "backgroundColor": "#868686",
             "borderRadius": 16,
             "height": 16,
             "marginVertical": 5,
@@ -3859,7 +3867,7 @@ exports[`the ScriptureItem component renders a loading state 1`] = `
         style={
           Object {
             "alignSelf": "stretch",
-            "backgroundColor": "#A5A5A5",
+            "backgroundColor": "#868686",
             "borderRadius": 16,
             "height": 16,
             "marginVertical": 5,
@@ -3871,7 +3879,7 @@ exports[`the ScriptureItem component renders a loading state 1`] = `
         style={
           Object {
             "alignSelf": "stretch",
-            "backgroundColor": "#A5A5A5",
+            "backgroundColor": "#868686",
             "borderRadius": 16,
             "height": 16,
             "marginVertical": 5,
@@ -3883,7 +3891,7 @@ exports[`the ScriptureItem component renders a loading state 1`] = `
         style={
           Object {
             "alignSelf": "stretch",
-            "backgroundColor": "#A5A5A5",
+            "backgroundColor": "#868686",
             "borderRadius": 16,
             "height": 16,
             "marginVertical": 5,
@@ -3895,7 +3903,7 @@ exports[`the ScriptureItem component renders a loading state 1`] = `
         style={
           Object {
             "alignSelf": "stretch",
-            "backgroundColor": "#A5A5A5",
+            "backgroundColor": "#868686",
             "borderRadius": 16,
             "height": 16,
             "marginVertical": 5,

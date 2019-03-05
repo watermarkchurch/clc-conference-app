@@ -36,8 +36,8 @@ exports[`the ScriptureList component renders a scripture List 1`] = `
     <Text
       style={
         Object {
-          "color": "#00676D",
-          "fontFamily": "InterUI-Bold",
+          "color": "#EF5E24",
+          "fontFamily": "AvenirNext-Bold",
           "fontSize": 16,
           "lineHeight": 23.04,
           "paddingBottom": 24,
@@ -51,7 +51,7 @@ exports[`the ScriptureList component renders a scripture List 1`] = `
         padded={true}
         style={
           Object {
-            "color": "#17B582",
+            "color": "#F8A61A",
           }
         }
       >
