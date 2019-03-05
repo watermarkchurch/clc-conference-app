@@ -18,6 +18,7 @@ const HTMLContent = ({ contentId }) => {
     >
       {({ data: { node: { htmlContent } = {} } = {}, loading, error }) => {
         if (error) return <ErrorCard error={error} />;
+        if (!loading && !htmlContent) return null;
         return (
           <HTMLView isLoading={!htmlContent && loading}>{htmlContent}</HTMLView>
         );
