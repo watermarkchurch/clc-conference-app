@@ -4,7 +4,6 @@ import { withTheme } from '@apollosproject/ui-kit';
 import tabBarIcon from '../tabBarIcon';
 import Tracks from './Tracks';
 
-
 export const Navigator = createStackNavigator(
   {
     Tracks,

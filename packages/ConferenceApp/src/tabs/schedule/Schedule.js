@@ -6,7 +6,6 @@ import {
   TabView,
   ActivityIndicator,
   H6,
-  withTheme,
   ThemeMixin,
   withThemeMixin,
 } from '@apollosproject/ui-kit';
@@ -41,7 +40,7 @@ class Schedule extends PureComponent {
       ...headerOptions.headerStyle,
       backgroundColor: screenProps.theme.colors.primary,
     },
-    headerTitle: props => (
+    headerTitle: (props) => (
       <ThemeMixin mixin={{ type: 'dark' }}>
         <headerOptions.headerTitle {...props} />
       </ThemeMixin>
@@ -56,9 +55,9 @@ class Schedule extends PureComponent {
             if (loading && !days.length) return <ActivityIndicator />;
             return (
               <TabView
-                routes={days.map(day => ({ key: day.id, title: day.title }))}
+                routes={days.map((day) => ({ key: day.id, title: day.title }))}
                 renderScene={({ route }) => <Day id={route.key} />}
-                renderTabBar={props => (
+                renderTabBar={(props) => (
                   <ThemedTabBar
                     {...props}
                     renderLabel={({ route }) => <H6>{route.title}</H6>}
