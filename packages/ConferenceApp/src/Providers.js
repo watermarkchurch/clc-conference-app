@@ -1,5 +1,12 @@
-import { nest } from 'recompose';
+import React from 'react';
 import { Providers } from '@apollosproject/ui-kit';
 import ClientProvider from './client';
+import theme from './theme';
 
-export default nest(ClientProvider, Providers);
+const AppProvider = (props) => (
+  <Providers themeInput={theme}>
+    <ClientProvider {...props} />
+  </Providers>
+);
+
+export default AppProvider;

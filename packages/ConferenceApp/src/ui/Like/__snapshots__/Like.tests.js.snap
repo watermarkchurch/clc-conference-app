@@ -121,7 +121,7 @@ exports[`the Like component should render a Like 1`] = `
           fill={
             Array [
               0,
-              4279743874,
+              4294485530,
             ]
           }
           fillOpacity={1}
@@ -287,7 +287,7 @@ exports[`the Like component should render a UnLike 1`] = `
           fill={
             Array [
               0,
-              4279743874,
+              4294485530,
             ]
           }
           fillOpacity={1}

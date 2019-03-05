@@ -5,23 +5,9 @@ import { withNavigation } from 'react-navigation';
 import { get } from 'lodash';
 import gql from 'graphql-tag';
 
-import {
-  BackgroundView,
-  FeedView,
-  Cell,
-  CellContent,
-  CellText,
-  Divider,
-  styled,
-} from '@apollosproject/ui-kit';
+import { BackgroundView, FeedView } from '@apollosproject/ui-kit';
 
-const TimeContainer = styled({
-  width: 75,
-})(CellContent);
-
-const EventInfo = styled({
-  width: '100%',
-})(CellContent);
+import ScheduleItem from '../../ui/ScheduleItem';
 
 const getEvents = gql`
   query getEvents($id: ID!) {
@@ -33,6 +19,13 @@ const getEvents = gql`
               id
               title
               summary
+              htmlContent
+              htmlContent
+              childContentItemsConnection {
+                pageInfo {
+                  startCursor
+                }
+              }
               ... on Event {
                 startTime
                 endTime
@@ -75,20 +68,15 @@ class Day extends PureComponent {
         >
           {({ loading, data, error, refetch }) => (
             <FeedView
-              ListItemComponent={({ title, summary, startTime, endTime }) => (
-                <React.Fragment>
-                  <Cell>
-                    <TimeContainer>
-                      <CellText>{startTime}</CellText>
-                      <CellText>{endTime}</CellText>
-                    </TimeContainer>
-                    <EventInfo>
-                      <CellText>{title}</CellText>
-                      <CellText>{summary}</CellText>
-                    </EventInfo>
-                  </Cell>
-                  <Divider />
-                </React.Fragment>
+              renderItem={({ item }) => (
+                <ScheduleItem
+                  {...item}
+                  onPress={
+                    item.childContentItemsConnection || item.htmlContent
+                      ? () => this.handleOnPress(item)
+                      : null
+                  }
+                />
               )}
               content={get(
                 data,

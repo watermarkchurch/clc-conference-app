@@ -11,6 +11,8 @@ import ContentCardConnected, {
 
 import { contentItemFragment } from 'ConferenceApp/src/content-single/getContentItem';
 
+import headerOptions from '../headerOptions';
+
 export const getUserFeed = gql`
   query {
     conference {
@@ -30,7 +32,8 @@ export const getUserFeed = gql`
 
 class Home extends PureComponent {
   static navigationOptions = () => ({
-    title: 'Updates',
+    title: 'Home',
+    ...headerOptions,
   });
 
   static propTypes = {

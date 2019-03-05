@@ -12,8 +12,6 @@ import {
 import TabBar from '../../ui/TabBar';
 import headerOptions from '../headerOptions';
 
-import Day from './Day';
-
 const getDays = gql`
   query {
     conference {
@@ -28,17 +26,17 @@ const getDays = gql`
 const ThemedTabBar = withThemeMixin(({ theme }) => ({
   type: 'dark',
   colors: {
-    paper: theme.colors.primary,
+    paper: theme.colors.tertiary,
   },
 }))(TabBar);
 
-class Schedule extends PureComponent {
+class Favorites extends PureComponent {
   static navigationOptions = ({ screenProps }) => ({
-    title: 'Schedule',
+    title: 'My CLC.',
     ...headerOptions,
     headerStyle: {
       ...headerOptions.headerStyle,
-      backgroundColor: screenProps.theme.colors.primary,
+      backgroundColor: screenProps.theme.colors.tertiary,
     },
     headerTitle: (props) => (
       <ThemeMixin mixin={{ type: 'dark' }}>
@@ -56,7 +54,7 @@ class Schedule extends PureComponent {
             return (
               <TabView
                 routes={days.map((day) => ({ key: day.id, title: day.title }))}
-                renderScene={({ route }) => <Day id={route.key} />}
+                renderScene={() => null}
                 renderTabBar={(props) => (
                   <ThemedTabBar
                     {...props}
@@ -72,4 +70,4 @@ class Schedule extends PureComponent {
   }
 }
 
-export default Schedule;
+export default Favorites;
