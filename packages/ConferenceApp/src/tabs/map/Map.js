@@ -1,7 +1,11 @@
 import React, { PureComponent } from 'react';
 import { styled } from '@apollosproject/ui-kit';
-import { ScrollView, Image } from 'react-native';
+import { ScrollView, Image, StyleSheet } from 'react-native';
 import headerOptions from '../headerOptions';
+
+const styles = StyleSheet.create({
+  contentContainerStyle: { width: '100%', height: '100%' },
+});
 
 const SizedImage = styled({
   resizeMode: 'cover',
@@ -28,7 +32,7 @@ class Map extends PureComponent {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         maximumZoomScale={1.0001}
-        contentContainerStyle={{ width: '100%', height: '100%' }}
+        contentContainerStyle={styles.contentContainerStyle}
         bouncesZoom
       >
         <SizedImage source={require('./map.jpg')} />
