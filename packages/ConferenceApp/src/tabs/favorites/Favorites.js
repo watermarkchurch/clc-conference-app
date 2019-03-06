@@ -1,34 +1,17 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import {
-  BackgroundView,
-  TabView,
-  ActivityIndicator,
-  H6,
-  ThemeMixin,
-  withThemeMixin,
-} from '@apollosproject/ui-kit';
-import TabBar from '../../ui/TabBar';
+import { BackgroundView, ThemeMixin, FeedView } from '@apollosproject/ui-kit';
+import ContentCardConnected from '../../ui/ContentCardConnected';
 import headerOptions from '../headerOptions';
 
-const getDays = gql`
+const getFavorites = gql`
   query {
-    conference {
-      days {
-        id
-        title
-      }
+    likedContent @client {
+      id
     }
   }
 `;
-
-const ThemedTabBar = withThemeMixin(({ theme }) => ({
-  type: 'dark',
-  colors: {
-    paper: theme.colors.tertiary,
-  },
-}))(TabBar);
 
 class Favorites extends PureComponent {
   static navigationOptions = ({ screenProps }) => ({
@@ -45,25 +28,26 @@ class Favorites extends PureComponent {
     ),
   });
 
+  handleOnPress = (item) =>
+    this.props.navigation.navigate('ContentSingle', {
+      itemId: item.id,
+      transitionKey: item.transitionKey,
+    });
+
   render() {
     return (
       <BackgroundView>
-        <Query query={getDays} fetchPolicy="cache-and-network">
-          {({ loading, data: { conference: { days = [] } = {} } = {} }) => {
-            if (loading && !days.length) return <ActivityIndicator />;
-            return (
-              <TabView
-                routes={days.map((day) => ({ key: day.id, title: day.title }))}
-                renderScene={() => null}
-                renderTabBar={(props) => (
-                  <ThemedTabBar
-                    {...props}
-                    renderLabel={({ route }) => <H6>{route.title}</H6>}
-                  />
-                )}
-              />
-            );
-          }}
+        <Query query={getFavorites} fetchPolicy="cache-and-network">
+          {({ loading, error, data: { likedContent = [] } = {}, refetch }) => (
+            <FeedView
+              ListItemComponent={ContentCardConnected}
+              content={likedContent}
+              isLoading={loading}
+              error={error}
+              refetch={refetch}
+              onPressItem={this.handleOnPress}
+            />
+          )}
         </Query>
       </BackgroundView>
     );

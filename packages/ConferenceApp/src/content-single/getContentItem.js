@@ -18,6 +18,8 @@ export default gql`
   query getContentItem($itemId: ID!) {
     node(id: $itemId) {
       __typename
+      id
+      isLiked @client
       ... on ContentItem {
         ...contentItemFragment
       }

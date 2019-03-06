@@ -14,6 +14,8 @@ import UniversalContentItem from './UniversalContentItem';
 
 import NavigationHeader from './NavigationHeader';
 
+import ActionContainer from './ActionContainer';
+
 class ContentSingle extends PureComponent {
   static propTypes = {
     navigation: PropTypes.shape({
@@ -76,6 +78,7 @@ class ContentSingle extends PureComponent {
           }}
         />
         {this.renderContent({ content, loading, error })}
+        <ActionContainer {...this.queryVariables} />
       </ThemeMixin>
     );
   };

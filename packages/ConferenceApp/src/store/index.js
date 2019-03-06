@@ -1,5 +1,6 @@
 import { merge, get } from 'lodash';
 import gql from 'graphql-tag';
+import moment from 'moment';
 import { track, events } from '../analytics';
 import { CACHE_LOADED } from '../client'; // eslint-disable-line
 import updatePushId from '../notifications/updatePushId';
@@ -11,6 +12,11 @@ export const schema = `
     mediaPlayer: MediaPlayerState
     devicePushId: String
     cacheLoaded: Boolean
+    likedContent: [Node]
+  }
+
+  extend type Node {
+    isLiked: Boolean
   }
 
   type Mutation {
@@ -27,6 +33,18 @@ export const schema = `
 
     cacheMarkLoaded
     updateDevicePushId(pushId: String!)
+
+    updateLikeEntity(input: LikeEntityInput!)
+  }
+
+  enum LIKE_OPERATION {
+    Like
+    Unlike
+  }
+
+  input LikeEntityInput {
+    nodeId: ID!
+    operation: LIKE_OPERATION!
   }
 
   type MediaPlayerState {
@@ -69,6 +87,7 @@ export const defaults = {
     showVideo: true,
     muted: false,
   },
+  likedContent: [],
 };
 
 let trackId = 0;
@@ -80,8 +99,62 @@ const getIsLoggedIn = gql`
 `;
 
 export const resolvers = {
-  Query: {},
+  Query: {
+    node: (root, { id }, { cache }) => {
+      const query = gql`
+        query {
+          likedContent @client {
+            id
+          }
+        }
+      `;
+
+      let likedContent = [];
+
+      try {
+        ({ likedContent } = cache.readQuery({ query }));
+      } catch (e) {
+        likedContent = [];
+      }
+
+      return { isLiked: !!likedContent.find((content) => content.id === id) };
+    },
+  },
   Mutation: {
+    updateLikeEntity: (root, { input }, { cache }) => {
+      const query = gql`
+        query {
+          likedContent @client {
+            id
+          }
+        }
+      `;
+
+      let likedContent = [];
+
+      try {
+        ({ likedContent } = cache.readQuery({ query }));
+      } catch (e) {
+        likedContent = [];
+      }
+
+      const node = {
+        id: input.nodeId,
+        __typename: input.nodeId.split(':')[0],
+        isLiked: input.operation === 'Like',
+      };
+
+      const isLiked = likedContent.find(({ id }) => id === input.nodeId);
+
+      if (input.operation === 'Unlike' && isLiked) {
+        likedContent = likedContent.filter(({ id }) => id !== input.nodeId);
+      } else if (!isLiked) {
+        likedContent.push(node);
+      }
+
+      cache.writeQuery({ query, data: { likedContent } });
+      return node;
+    },
     mediaPlayerPlayNow: (root, trackInfo, { cache }) => {
       const query = gql`
         query {
