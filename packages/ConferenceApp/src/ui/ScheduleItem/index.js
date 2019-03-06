@@ -13,6 +13,8 @@ import {
 
 import Icon from '../Icon';
 
+import Liked from './Liked';
+
 const TimeContainer = styled({
   width: 75,
   alignItems: 'flex-start',
@@ -34,7 +36,8 @@ const ScheduleCellRowPositioner = styled({
 })(Cell);
 
 const Caret = styled(({ theme }) => ({
-  alignSelf: 'flex-end',
+  alignSelf: 'center',
+  marginTop: 12,
   marginRight: -theme.sizing.baseUnit,
   opacity: 0.5,
 }))((props) => <Icon name="arrow-right" {...props} />);
@@ -43,7 +46,7 @@ const SecondaryText = styled({ opacity: 0.5 })(UIText);
 
 const formatTime = (time) => moment(time).format('h:mma');
 
-const ScheduleItem = ({ startTime, endTime, title, summary, onPress }) => {
+const ScheduleItem = ({ id, startTime, endTime, title, summary, onPress }) => {
   let cell = (
     <ScheduleCell>
       <ScheduleCellRowPositioner>
@@ -55,6 +58,7 @@ const ScheduleItem = ({ startTime, endTime, title, summary, onPress }) => {
           <UIText>{title}</UIText>
           {summary ? <SecondaryText>{summary}</SecondaryText> : null}
         </EventInfo>
+        <Liked id={id} />
         {onPress ? <Caret /> : null}
       </ScheduleCellRowPositioner>
     </ScheduleCell>
@@ -69,6 +73,7 @@ const ScheduleItem = ({ startTime, endTime, title, summary, onPress }) => {
 };
 
 ScheduleItem.propTypes = {
+  id: PropTypes.string,
   startTime: PropTypes.string,
   endTime: PropTypes.string,
   title: PropTypes.string,
