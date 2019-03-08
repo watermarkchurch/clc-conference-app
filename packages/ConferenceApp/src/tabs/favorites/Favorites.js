@@ -1,17 +1,15 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import GradientView from 'react-native-linear-gradient';
-import { compose } from 'recompose';
-import Color from 'color';
 import {
   BackgroundView,
   ThemeMixin,
   FeedView,
   PaddedView,
   H5,
+  BodyText,
+  Button,
   styled,
-  withTheme,
   FlexedView,
 } from '@apollosproject/ui-kit';
 import ContentCardConnected from '../../ui/ContentCardConnected';
@@ -51,18 +49,20 @@ class Favorites extends PureComponent {
       ...headerOptions.headerStyle,
       backgroundColor: screenProps.theme.colors.tertiary,
     },
-    headerTitle: props => (
+    headerTitle: (props) => (
       <ThemeMixin mixin={{ type: 'dark' }}>
         <headerOptions.headerTitle {...props} />
       </ThemeMixin>
     ),
   });
 
-  handleOnPress = item =>
+  handleOnPress = (item) =>
     this.props.navigation.navigate('ContentSingle', {
       itemId: item.id,
       transitionKey: item.transitionKey,
     });
+
+  handleSchedulePress = () => this.props.navigation.navigate('Schedule');
 
   render() {
     return (
@@ -81,6 +81,20 @@ class Favorites extends PureComponent {
                   <ListHeader>
                     <H5>Your favorites</H5>
                   </ListHeader>
+                }
+                ListEmptyComponent={
+                  <PaddedView>
+                    <PaddedView horizontal={false}>
+                      <BodyText>
+                        Find workshops, sessions and showcases to customize your
+                        schedule.
+                      </BodyText>
+                    </PaddedView>
+                    <Button
+                      onPress={this.handleSchedulePress}
+                      title="Explore the schedule"
+                    />
+                  </PaddedView>
                 }
                 ListItemComponent={ContentCardConnected}
                 content={likedContent}
