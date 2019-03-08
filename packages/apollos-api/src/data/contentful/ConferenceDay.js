@@ -22,6 +22,9 @@ export const resolver = {
       createGlobalId(sys.id, parentType.name),
     title: ({ fields }) => fields.title,
     date: ({ fields }) => fields.date,
-    childContentItemsConnection: ({ fields }) => fields.scheduleItem,
+    childContentItemsConnection: ({ fields: { scheduleItem = [] } = {} }) =>
+      scheduleItem.sort(
+        (a, b) => new Date(a.fields.startTime) - new Date(b.fields.startTime)
+      ),
   },
 };

@@ -2,7 +2,8 @@ import gql from 'graphql-tag';
 
 export default gql`
   mutation updateLikeEntity($itemId: ID!, $operation: LIKE_OPERATION!) {
-    updateLikeEntity(input: { nodeId: $itemId, operation: $operation }) {
+    updateLikeEntity(input: { nodeId: $itemId, operation: $operation })
+      @client {
       id
       isLiked
     }

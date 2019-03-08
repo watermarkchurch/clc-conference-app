@@ -9,7 +9,6 @@ import { track, events } from 'ConferenceApp/src/analytics';
 
 import updateLikeEntity from './updateLikeEntity';
 import getLikedContentItem from './getLikedContentItem';
-import updateLikedContent from './updateLikedContent';
 
 const GetLikeData = ({ itemId, children }) => (
   <Query query={getLikedContentItem} variables={{ itemId }}>
@@ -25,41 +24,8 @@ GetLikeData.propTypes = {
   children: PropTypes.func.isRequired,
 };
 
-const UpdateLikeStatus = ({
-  itemId,
-  item = { __typename: null },
-  isLiked,
-  children,
-}) => (
-  <Mutation
-    mutation={updateLikeEntity}
-    optimisticResponse={{
-      updateLikeEntity: {
-        id: itemId, // unknown at this time
-        isLiked: !isLiked,
-        __typename: item && item.__typename,
-      },
-    }}
-    update={(
-      cache,
-      {
-        data: {
-          updateLikeEntity: { isLiked: liked },
-        },
-      }
-    ) => {
-      updateLikedContent({ liked, cache, item });
-      cache.writeQuery({
-        query: getLikedContentItem,
-        data: {
-          node: {
-            ...item,
-            isLiked: liked,
-          },
-        },
-      });
-    }}
-  >
+const UpdateLikeStatus = ({ itemId, isLiked, children }) => (
+  <Mutation mutation={updateLikeEntity}>
     {(createNewInteraction) =>
       itemId
         ? children({
@@ -97,15 +63,16 @@ UpdateLikeStatus.propTypes = {
   }),
 };
 
-const LikeButton = ({ itemId }) => (
+const LikeButton = ({ itemId, ...otherProps }) => (
   <GetLikeData itemId={itemId}>
-    {({ isLiked, item }) => (
-      <UpdateLikeStatus itemId={itemId} item={item} isLiked={isLiked}>
+    {({ isLiked }) => (
+      <UpdateLikeStatus itemId={itemId} isLiked={isLiked}>
         {({ toggleLike, isLiked: newLikeValue }) => (
           <Like
             itemId={itemId}
             isLiked={newLikeValue}
             toggleLike={toggleLike}
+            {...otherProps}
           />
         )}
       </UpdateLikeStatus>

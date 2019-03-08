@@ -20,7 +20,6 @@ const getEvents = gql`
               title
               summary
               htmlContent
-              htmlContent
               childContentItemsConnection {
                 pageInfo {
                   startCursor

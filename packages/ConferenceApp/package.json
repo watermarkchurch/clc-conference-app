@@ -28,7 +28,6 @@
     "apollo-link-context": "1.0.14",
     "apollo-link-http": "1.5.11",
     "apollo-link-schema": "1.1.6",
-    "apollo-link-state": "0.4.2",
     "apollo-upload-client": "10.0.0",
     "buffer": "^5.2.1",
     "events": "^3.0.0",

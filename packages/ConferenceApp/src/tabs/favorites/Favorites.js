@@ -3,32 +3,43 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import {
   BackgroundView,
-  TabView,
-  ActivityIndicator,
-  H6,
   ThemeMixin,
-  withThemeMixin,
+  FeedView,
+  PaddedView,
+  H5,
+  BodyText,
+  Button,
+  styled,
+  FlexedView,
 } from '@apollosproject/ui-kit';
-import TabBar from '../../ui/TabBar';
+import ContentCardConnected from '../../ui/ContentCardConnected';
 import headerOptions from '../headerOptions';
+import UpNext from './UpNext';
 
-const getDays = gql`
+const ListHeader = styled({ paddingBottom: 0 })(PaddedView);
+
+const getFavorites = gql`
   query {
+    likedContent @client {
+      id
+    }
     conference {
-      days {
+      upNext {
         id
         title
+        summary
+        ... on Event {
+          startTime
+          endTime
+        }
+        ... on Breakouts {
+          startTime
+          endTime
+        }
       }
     }
   }
 `;
-
-const ThemedTabBar = withThemeMixin(({ theme }) => ({
-  type: 'dark',
-  colors: {
-    paper: theme.colors.tertiary,
-  },
-}))(TabBar);
 
 class Favorites extends PureComponent {
   static navigationOptions = ({ screenProps }) => ({
@@ -45,25 +56,55 @@ class Favorites extends PureComponent {
     ),
   });
 
+  handleOnPress = (item) =>
+    this.props.navigation.navigate('ContentSingle', {
+      itemId: item.id,
+      transitionKey: item.transitionKey,
+    });
+
+  handleSchedulePress = () => this.props.navigation.navigate('Schedule');
+
   render() {
     return (
       <BackgroundView>
-        <Query query={getDays} fetchPolicy="cache-and-network">
-          {({ loading, data: { conference: { days = [] } = {} } = {} }) => {
-            if (loading && !days.length) return <ActivityIndicator />;
-            return (
-              <TabView
-                routes={days.map((day) => ({ key: day.id, title: day.title }))}
-                renderScene={() => null}
-                renderTabBar={(props) => (
-                  <ThemedTabBar
-                    {...props}
-                    renderLabel={({ route }) => <H6>{route.title}</H6>}
-                  />
-                )}
+        <Query query={getFavorites} fetchPolicy="cache-and-network">
+          {({
+            loading,
+            error,
+            data: { likedContent = [], conference: { upNext = {} } = {} } = {},
+            refetch,
+          }) => (
+            <FlexedView>
+              <UpNext isLoading={loading} {...upNext || {}} />
+              <FeedView
+                ListHeaderComponent={
+                  <ListHeader>
+                    <H5>Your favorites</H5>
+                  </ListHeader>
+                }
+                ListEmptyComponent={
+                  <PaddedView>
+                    <PaddedView horizontal={false}>
+                      <BodyText>
+                        Find workshops, sessions and showcases to customize your
+                        schedule.
+                      </BodyText>
+                    </PaddedView>
+                    <Button
+                      onPress={this.handleSchedulePress}
+                      title="Explore the schedule"
+                    />
+                  </PaddedView>
+                }
+                ListItemComponent={ContentCardConnected}
+                content={likedContent}
+                isLoading={loading}
+                error={error}
+                refetch={refetch}
+                onPressItem={this.handleOnPress}
               />
-            );
-          }}
+            </FlexedView>
+          )}
         </Query>
       </BackgroundView>
     );
