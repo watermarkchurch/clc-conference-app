@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-
+import { View } from 'react-native';
 import {
   Cell,
-  CellContent,
   Divider,
   styled,
   UIText,
+  H5,
   Touchable,
 } from '@apollosproject/ui-kit';
 
@@ -15,25 +15,32 @@ import Icon from '../Icon';
 
 import Liked from './Liked';
 
-const TimeContainer = styled({
-  width: 75,
+const TimeContainer = styled(({ theme }) => ({
+  width: 80,
   alignItems: 'flex-start',
-  paddingRight: 0,
-})(CellContent);
+  paddingLeft: theme.sizing.baseUnit / 2,
+}))(View);
 
-const EventInfo = styled({
-  width: '100%',
-  alignItems: 'flex-start',
-  justifyContent: 'flex-start',
-})(CellContent);
+const EventInfo = styled(({ theme }) => ({
+  paddingRight: theme.sizing.baseUnit / 2,
+  flexGrow: 1,
+  flexShrink: 1,
+}))(View);
 
 const ScheduleCell = styled(({ theme }) => ({
   height: theme.sizing.baseUnit * 5,
 }))(Cell);
 
 const ScheduleCellRowPositioner = styled({
-  alignItems: 'flex-start',
-})(Cell);
+  flexDirection: 'row',
+})(View);
+
+const Actions = styled({
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  width: 50,
+})(View);
 
 const Caret = styled(({ theme }) => ({
   alignSelf: 'center',
@@ -46,20 +53,30 @@ const SecondaryText = styled({ opacity: 0.5 })(UIText);
 
 const formatTime = (time) => moment(time).format('h:mma');
 
-const ScheduleItem = ({ id, startTime, endTime, title, summary, onPress }) => {
+const ScheduleItem = ({
+  id,
+  startTime,
+  endTime,
+  title,
+  summary,
+  onPress,
+  ...other
+}) => {
   let cell = (
-    <ScheduleCell>
+    <ScheduleCell {...other}>
       <ScheduleCellRowPositioner>
         <TimeContainer>
           <UIText>{formatTime(startTime)}</UIText>
           <SecondaryText>{formatTime(endTime)}</SecondaryText>
         </TimeContainer>
         <EventInfo>
-          <UIText>{title}</UIText>
+          <H5>{title}</H5>
           {summary ? <SecondaryText>{summary}</SecondaryText> : null}
         </EventInfo>
-        <Liked id={id} />
-        {onPress ? <Caret /> : null}
+        <Actions>
+          <Liked id={id} />
+          {onPress ? <Caret /> : null}
+        </Actions>
       </ScheduleCellRowPositioner>
     </ScheduleCell>
   );

@@ -28,8 +28,8 @@ const LikedIcon = compose(
 
 const Liked = ({ id }) => (
   <Query query={query} variables={{ id }}>
-    {({ data: { node: { isLiked = false } = {} } = {} }) =>
-      isLiked ? <LikedIcon /> : null
+    {({ data: { node = {} } = {} }) =>
+      node && node.isLiked ? <LikedIcon /> : null
     }
   </Query>
 );

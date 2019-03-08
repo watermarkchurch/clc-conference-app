@@ -1,14 +1,44 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import { BackgroundView, ThemeMixin, FeedView } from '@apollosproject/ui-kit';
+import GradientView from 'react-native-linear-gradient';
+import { compose } from 'recompose';
+import Color from 'color';
+import {
+  BackgroundView,
+  ThemeMixin,
+  FeedView,
+  PaddedView,
+  H5,
+  styled,
+  withTheme,
+  FlexedView,
+} from '@apollosproject/ui-kit';
 import ContentCardConnected from '../../ui/ContentCardConnected';
 import headerOptions from '../headerOptions';
+import UpNext from './UpNext';
+
+const ListHeader = styled({ paddingBottom: 0 })(PaddedView);
 
 const getFavorites = gql`
   query {
     likedContent @client {
       id
+    }
+    conference {
+      upNext {
+        id
+        title
+        summary
+        ... on Event {
+          startTime
+          endTime
+        }
+        ... on Breakouts {
+          startTime
+          endTime
+        }
+      }
     }
   }
 `;
@@ -21,14 +51,14 @@ class Favorites extends PureComponent {
       ...headerOptions.headerStyle,
       backgroundColor: screenProps.theme.colors.tertiary,
     },
-    headerTitle: (props) => (
+    headerTitle: props => (
       <ThemeMixin mixin={{ type: 'dark' }}>
         <headerOptions.headerTitle {...props} />
       </ThemeMixin>
     ),
   });
 
-  handleOnPress = (item) =>
+  handleOnPress = item =>
     this.props.navigation.navigate('ContentSingle', {
       itemId: item.id,
       transitionKey: item.transitionKey,
@@ -38,15 +68,28 @@ class Favorites extends PureComponent {
     return (
       <BackgroundView>
         <Query query={getFavorites} fetchPolicy="cache-and-network">
-          {({ loading, error, data: { likedContent = [] } = {}, refetch }) => (
-            <FeedView
-              ListItemComponent={ContentCardConnected}
-              content={likedContent}
-              isLoading={loading}
-              error={error}
-              refetch={refetch}
-              onPressItem={this.handleOnPress}
-            />
+          {({
+            loading,
+            error,
+            data: { likedContent = [], conference: { upNext = {} } = {} } = {},
+            refetch,
+          }) => (
+            <FlexedView>
+              <UpNext isLoading={loading} {...upNext || {}} />
+              <FeedView
+                ListHeaderComponent={
+                  <ListHeader>
+                    <H5>Your favorites</H5>
+                  </ListHeader>
+                }
+                ListItemComponent={ContentCardConnected}
+                content={likedContent}
+                isLoading={loading}
+                error={error}
+                refetch={refetch}
+                onPressItem={this.handleOnPress}
+              />
+            </FlexedView>
           )}
         </Query>
       </BackgroundView>

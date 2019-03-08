@@ -17,6 +17,14 @@ export const baseCardFragment = gql`
     ...coverImageFragment
     title
     summary
+    ... on Event {
+      startTime
+      endTime
+    }
+    ... on Breakouts {
+      startTime
+      endTime
+    }
   }
   ${coverImageFragment}
 `;

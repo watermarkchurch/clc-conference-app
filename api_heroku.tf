@@ -4,58 +4,58 @@
 # 1. Variables
 ##
 variable "heroku_email" {
-  type = "string"
+  type        = "string"
   description = "Your Heroku Email"
 }
 
 variable "heroku_api_key" {
-  type = "string"
+  type        = "string"
   description = "Your Heroku API key (find it in your Heroku account settings)"
 }
 
 variable "heroku_team" {
-  type = "string"
+  type        = "string"
   description = "Name of the Team (must already exist)"
 }
 
 variable "app_name" {
-  type = "string"
+  type        = "string"
   description = "Your app's name. Name must start with a letter, end with a letter or digit and can only contain lowercase letters, digits, and dashes."
 }
 
 variable "bible_api_key" {
-  type = "string"
-  default = ""
+  type        = "string"
+  default     = ""
   description = "Optional Bible.API key. Use if you render scripture."
 }
 
 variable "engine_api_key" {
-  type = "string"
-  default = ""
+  type        = "string"
+  default     = ""
   description = "Optional Apollo Engine API Key. Apollo Engine is an APM for GraphQL services."
 }
 
 variable "rock_token" {
-  type = "string"
-  default = ""
+  type        = "string"
+  default     = ""
   description = "Your Rock Token. See apollos-data documentation for required permissions."
 }
 
 variable "one_signal_rest_key" {
-  type = "string"
-  default = ""
+  type        = "string"
+  default     = ""
   description = "Optional OneSignal rest key. Use if you utilize OneSignal for sending push notifications."
 }
 
 variable "contentful_rest_key" {
-  type = "string"
-  default = ""
+  type        = "string"
+  default     = ""
   description = ""
 }
 
 variable "contentful_space" {
-  type = "string"
-  default = ""
+  type        = "string"
+  default     = ""
   description = ""
 }
 
@@ -64,21 +64,20 @@ provider "heroku" {
   api_key = "${var.heroku_api_key}"
 }
 
-
 ##
 # 2. Create Heroku apps for staging and production
 ##
 resource "heroku_app" "staging" {
   region = "us"
-  name = "${var.app_name}-staging"
+  name   = "${var.app_name}-staging"
 
   config_vars {
-    BIBLE_API_KEY = "${var.bible_api_key}"
-    ENGINE_API_KEY = "${var.engine_api_key}"
-    ROCK_TOKEN = "${var.rock_token}"
+    BIBLE_API_KEY       = "${var.bible_api_key}"
+    ENGINE_API_KEY      = "${var.engine_api_key}"
+    ROCK_TOKEN          = "${var.rock_token}"
     ONE_SIGNAL_REST_KEY = "${var.one_signal_rest_key}"
     CONTENTFUL_REST_KEY = "${var.contentful_rest_key}"
-    CONTENTFUL_SPACE = "${var.contentful_space}"
+    CONTENTFUL_SPACE    = "${var.contentful_space}"
   }
 
   organization = {
@@ -90,15 +89,15 @@ resource "heroku_app" "staging" {
 
 resource "heroku_app" "production" {
   region = "us"
-  name = "${var.app_name}-production"
+  name   = "${var.app_name}-production"
 
   config_vars {
-    BIBLE_API_KEY = "${var.bible_api_key}"
-    ENGINE_API_KEY = "${var.engine_api_key}"
-    ROCK_TOKEN = "${var.rock_token}"
+    BIBLE_API_KEY       = "${var.bible_api_key}"
+    ENGINE_API_KEY      = "${var.engine_api_key}"
+    ROCK_TOKEN          = "${var.rock_token}"
     ONE_SIGNAL_REST_KEY = "${var.one_signal_rest_key}"
     CONTENTFUL_REST_KEY = "${var.contentful_rest_key}"
-    CONTENTFUL_SPACE = "${var.contentful_space}"
+    CONTENTFUL_SPACE    = "${var.contentful_space}"
   }
 
   organization = {

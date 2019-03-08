@@ -3,10 +3,16 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { get } from 'lodash';
 
-import { ContentCard, ErrorCard } from '@apollosproject/ui-kit';
+import { ContentCard, ErrorCard, styled, Card } from '@apollosproject/ui-kit';
+import ScheduleItem from '../ScheduleItem';
 import getContentCard from './query';
 
 export { tileCardFragment, largeCardFragment } from './query';
+
+const ScheduleItemWithSpacing = styled(({ theme }) => ({
+  paddingVertical: theme.sizing.baseUnit,
+  height: null,
+}))(ScheduleItem);
 
 const ContentCardConnected = ({
   contentId,
@@ -21,6 +27,14 @@ const ContentCardConnected = ({
     <Query query={getContentCard} variables={{ contentId, tile: !!tile }}>
       {({ data: { node = {} } = {}, loading, error }) => {
         if (error) return <ErrorCard error={error} />;
+
+        if (node.__typename === 'Event' || node.__typename === 'Breakouts') {
+          return (
+            <Card isLoading={isLoading || loading}>
+              <ScheduleItemWithSpacing {...node} />
+            </Card>
+          );
+        }
 
         const coverImage = get(node, 'coverImage.sources', undefined);
 
