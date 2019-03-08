@@ -1,6 +1,5 @@
 import { merge, get } from 'lodash';
 import gql from 'graphql-tag';
-import moment from 'moment';
 import { track, events } from '../analytics';
 import { CACHE_LOADED } from '../client'; // eslint-disable-line
 import updatePushId from '../notifications/updatePushId';

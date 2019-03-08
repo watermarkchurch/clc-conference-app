@@ -8,7 +8,6 @@ import { CachePersistor } from 'apollo-cache-persist';
 import { defaults } from '../store';
 import introspectionQueryResultData from './fragmentTypes.json';
 
-
 // TODO: Disabling cache versioning. Better not make breaking changes :)
 // We reset our apollo cache on every build:
 // TODO: this could be optimized by only reseting cache when our schema or client-side schema changes,

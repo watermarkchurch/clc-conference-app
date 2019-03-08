@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { withNavigation } from 'react-navigation';
 import { compose } from 'recompose';
 import GradientView from 'react-native-linear-gradient';
+import PropTypes from 'prop-types';
 
 import {
   TouchableScale,
@@ -55,5 +56,9 @@ class UpNext extends PureComponent {
     );
   }
 }
+
+UpNext.propTypes = {
+  id: PropTypes.string,
+};
 
 export default withNavigation(UpNext);
