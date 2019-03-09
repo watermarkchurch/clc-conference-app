@@ -82,7 +82,7 @@ class Favorites extends PureComponent {
                     <H5>Your favorites</H5>
                   </ListHeader>
                 }
-                ListEmptyComponent={
+                ListEmptyComponent={() => (
                   <PaddedView>
                     <PaddedView horizontal={false}>
                       <BodyText>
@@ -95,7 +95,7 @@ class Favorites extends PureComponent {
                       title="Explore the schedule"
                     />
                   </PaddedView>
-                }
+                )}
                 ListItemComponent={ContentCardConnected}
                 content={likedContent}
                 isLoading={loading}

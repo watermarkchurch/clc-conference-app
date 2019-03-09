@@ -118,6 +118,25 @@ export const resolvers = {
 
       return { isLiked: !!likedContent.find((content) => content.id === id) };
     },
+    likedContent: (a, b, { cache }) => {
+      const query = gql`
+        query {
+          likedContent @client {
+            id
+          }
+        }
+      `;
+
+      let likedContent = [];
+
+      try {
+        ({ likedContent = [] } = cache.readQuery({ query }));
+      } catch (e) {
+        likedContent = [];
+      }
+
+      return likedContent;
+    },
   },
   Mutation: {
     updateLikeEntity: (root, { input }, { cache }) => {
