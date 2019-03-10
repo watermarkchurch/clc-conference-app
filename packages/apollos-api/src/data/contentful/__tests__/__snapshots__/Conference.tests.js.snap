@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Conference UpNext gets nested liked events 1`] = `
+Object {
+  "data": Object {
+    "conference": Object {
+      "upNext": Object {
+        "endTime": "2019-04-03T00:00-05:00",
+        "id": "Event:0cadc8706009779ee2d54b650930695e7669398b5e6ad4d34a375a728a696382",
+        "startTime": "2019-04-03T11:00-05:00",
+        "title": "Volunteers: Proper Care and Feeding (and Finding!)",
+      },
+    },
+  },
+  "errors": undefined,
+  "extensions": Object {
+    "cacheControl": Object {
+      "hints": Array [
+        Object {
+          "maxAge": 600,
+          "path": Array [
+            "conference",
+          ],
+        },
+        Object {
+          "maxAge": 600,
+          "path": Array [
+            "conference",
+            "upNext",
+          ],
+        },
+      ],
+      "version": 1,
+    },
+  },
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {
+        "Cache-Control": Array [
+          "max-age=600, public",
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`Conference UpNext gets the first event 1`] = `
+Object {
+  "data": Object {
+    "conference": Object {
+      "upNext": Object {
+        "endTime": "2019-04-01T12:30-05:00",
+        "id": "Event:b2a8ecde85596a465387ee155335c69451ff6f0cabd4e4eb9b6f5e7239cf3eb0",
+        "startTime": "2019-04-01T11:00-05:00",
+        "title": "PRE-CONFERENCE WORKSHOP REGISTRATION OPENS",
+      },
+    },
+  },
+  "errors": undefined,
+  "extensions": Object {
+    "cacheControl": Object {
+      "hints": Array [
+        Object {
+          "maxAge": 600,
+          "path": Array [
+            "conference",
+          ],
+        },
+        Object {
+          "maxAge": 600,
+          "path": Array [
+            "conference",
+            "upNext",
+          ],
+        },
+      ],
+      "version": 1,
+    },
+  },
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {
+        "Cache-Control": Array [
+          "max-age=600, public",
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`Conference UpNext gets the second event 1`] = `
+Object {
+  "data": Object {
+    "conference": Object {
+      "upNext": Object {
+        "endTime": "2019-04-01T13:00-05:00",
+        "id": "Event:4c9a0152c5d5bc3ed8eacb1356e954c005fae3f2f1041d319ccea92926e2f26f",
+        "startTime": "2019-04-01T12:30-05:00",
+        "title": "Workshop Kickoff",
+      },
+    },
+  },
+  "errors": undefined,
+  "extensions": Object {
+    "cacheControl": Object {
+      "hints": Array [
+        Object {
+          "maxAge": 600,
+          "path": Array [
+            "conference",
+          ],
+        },
+        Object {
+          "maxAge": 600,
+          "path": Array [
+            "conference",
+            "upNext",
+          ],
+        },
+      ],
+      "version": 1,
+    },
+  },
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {
+        "Cache-Control": Array [
+          "max-age=600, public",
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`Conference gets the conference 1`] = `
+Object {
+  "data": Object {
+    "conference": Object {
+      "code": "CLC2019",
+      "id": "Conference:ddb7ea3e5e7bb7b45de5ceaa99de49ce8dfcf17f1f6a4bcaca552551b7633462",
+      "title": "Church Leaders Conference 2019",
+    },
+  },
+  "errors": undefined,
+  "extensions": Object {
+    "cacheControl": Object {
+      "hints": Array [
+        Object {
+          "maxAge": 600,
+          "path": Array [
+            "conference",
+          ],
+        },
+      ],
+      "version": 1,
+    },
+  },
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {
+        "Cache-Control": Array [
+          "max-age=600, public",
+        ],
+      },
+    },
+  },
+}
+`;
