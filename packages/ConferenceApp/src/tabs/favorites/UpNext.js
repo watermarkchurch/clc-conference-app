@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { withNavigation } from 'react-navigation';
 import { compose } from 'recompose';
 import GradientView from 'react-native-linear-gradient';
+import { Query } from 'react-apollo';
 import PropTypes from 'prop-types';
 
 import {
@@ -12,6 +13,7 @@ import {
   withThemeMixin,
   withTheme,
 } from '@apollosproject/ui-kit';
+import gql from 'graphql-tag';
 import ContentCardConnected from '../../ui/ContentCardConnected';
 
 const HeaderBackgroundView = compose(
@@ -33,32 +35,60 @@ const CardBackground = withTheme(({ theme }) => ({
   ],
 }))(GradientView);
 
+const query = gql`
+  query($likedIds: [ID]) {
+    conference {
+      upNext(likedIds: $likedIds) {
+        id
+        title
+        summary
+        ... on Event {
+          startTime
+          endTime
+        }
+        ... on Breakouts {
+          startTime
+          endTime
+        }
+      }
+    }
+  }
+`;
+
 class UpNext extends PureComponent {
-  handleOnPress = () =>
-    this.props.id
+  handleOnPress = (id) =>
+    id
       ? this.props.navigation.navigate('ContentSingle', {
-          itemId: this.props.id,
+          itemId: id,
         })
       : null;
 
   render() {
     return (
-      <React.Fragment>
-        <HeaderBackgroundView vertical={false}>
-          <H5>Up Next for You</H5>
-        </HeaderBackgroundView>
-        <CardBackground>
-          <TouchableScale onPress={this.handleOnPress}>
-            <ContentCardConnected contentId={this.props.id} />
-          </TouchableScale>
-        </CardBackground>
-      </React.Fragment>
+      <Query
+        query={query}
+        variables={{ likedIds: this.props.likedIds }}
+        fetchPolicy={'network-only'}
+      >
+        {({ data: { conference: { upNext = {} } = {} } = {} }) => (
+          <React.Fragment>
+            <HeaderBackgroundView vertical={false}>
+              <H5>Up Next for You</H5>
+            </HeaderBackgroundView>
+            <CardBackground>
+              <TouchableScale onPress={() => this.handleOnPress(upNext.id)}>
+                <ContentCardConnected contentId={upNext.id} />
+              </TouchableScale>
+            </CardBackground>
+          </React.Fragment>
+        )}
+      </Query>
     );
   }
 }
 
 UpNext.propTypes = {
-  id: PropTypes.string,
+  likedIds: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default withNavigation(UpNext);

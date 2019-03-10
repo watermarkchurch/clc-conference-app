@@ -12,7 +12,7 @@ import {
 
 export { resolvers, schema, testSchema };
 
-const apolloServer = new ApolloServer({
+export const apolloServer = new ApolloServer({
   typeDefs: schema,
   resolvers,
   dataSources,

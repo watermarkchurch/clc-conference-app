@@ -23,21 +23,6 @@ const getFavorites = gql`
     likedContent @client {
       id
     }
-    conference {
-      upNext {
-        id
-        title
-        summary
-        ... on Event {
-          startTime
-          endTime
-        }
-        ... on Breakouts {
-          startTime
-          endTime
-        }
-      }
-    }
   }
 `;
 
@@ -68,21 +53,19 @@ class Favorites extends PureComponent {
     return (
       <BackgroundView>
         <Query query={getFavorites} fetchPolicy="cache-and-network">
-          {({
-            loading,
-            error,
-            data: { likedContent = [], conference: { upNext = {} } = {} } = {},
-            refetch,
-          }) => (
+          {({ loading, error, data: { likedContent = [] }, refetch }) => (
             <FlexedView>
-              <UpNext isLoading={loading} {...upNext || {}} />
+              <UpNext
+                isLoading={loading}
+                likedIds={likedContent.map((id) => id)}
+              />
               <FeedView
                 ListHeaderComponent={
                   <ListHeader>
                     <H5>Your favorites</H5>
                   </ListHeader>
                 }
-                ListEmptyComponent={
+                ListEmptyComponent={() => (
                   <PaddedView>
                     <PaddedView horizontal={false}>
                       <BodyText>
@@ -95,7 +78,7 @@ class Favorites extends PureComponent {
                       title="Explore the schedule"
                     />
                   </PaddedView>
-                }
+                )}
                 ListItemComponent={ContentCardConnected}
                 content={likedContent}
                 isLoading={loading}
