@@ -65,13 +65,19 @@ const ScheduleItem = ({
   let cell = (
     <ScheduleCell {...other}>
       <ScheduleCellRowPositioner>
-        <TimeContainer>
-          <UIText>{formatTime(startTime)}</UIText>
-          <SecondaryText>{formatTime(endTime)}</SecondaryText>
-        </TimeContainer>
+        {startTime ? (
+          <TimeContainer>
+            <UIText>{formatTime(startTime)}</UIText>
+            <SecondaryText>{formatTime(endTime)}</SecondaryText>
+          </TimeContainer>
+        ) : null}
         <EventInfo>
           <H5>{title}</H5>
-          {summary ? <SecondaryText>{summary}</SecondaryText> : null}
+          {summary ? (
+            <SecondaryText numberOfLines={title.length > 33 ? 1 : 2}>
+              {summary}
+            </SecondaryText>
+          ) : null}
         </EventInfo>
         <Actions>
           <Liked id={id} />

@@ -38,7 +38,8 @@ export const resolver = {
     id: ({ sys }, args, context, { parentType }) =>
       createGlobalId(sys.id, parentType.name),
     title: ({ fields }) => fields.title,
-    summary: ({ fields }) => fields.summary,
+    summary: (node, args, { dataSources }) =>
+      dataSources.ContentItem.createSummary(node),
     htmlContent: ({ fields }) =>
       fields.description ? marked(fields.description) : null,
     speakers: ({ fields }) => fields.speakers,
