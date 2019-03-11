@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
+import SafeAreaView from 'react-native-safe-area-view';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 import {
@@ -11,7 +12,8 @@ import {
 } from '@apollosproject/ui-kit';
 import MediaControls from '../MediaControls';
 import HTMLContent from '../HTMLContent';
-import HorizontalContentFeed from '../HorizontalContentFeed';
+import ChildContentFeed from '../ChildContentFeed';
+import Speakers from './Speakers';
 
 const FlexedScrollView = styled({ flex: 1 })(ScrollView);
 
@@ -25,16 +27,19 @@ const UniversalContentItem = ({ content, loading }) => {
           source={coverImageSources}
         />
       ) : null}
-      <BackgroundView>
-        <MediaControls contentId={content.id} />
-        <PaddedView>
-          <H2 padded isLoading={!content.title && loading}>
-            {content.title}
-          </H2>
-          <HTMLContent contentId={content.id} />
-        </PaddedView>
-        <HorizontalContentFeed contentId={content.id} />
-      </BackgroundView>
+      <SafeAreaView forceInset={{ bottom: 'always' }}>
+        <BackgroundView>
+          <MediaControls contentId={content.id} />
+          <PaddedView>
+            <H2 padded isLoading={!content.title && loading}>
+              {content.title}
+            </H2>
+            <HTMLContent contentId={content.id} />
+          </PaddedView>
+          <Speakers contentId={content.id} />
+          <ChildContentFeed contentId={content.id} />
+        </BackgroundView>
+      </SafeAreaView>
     </FlexedScrollView>
   );
 };

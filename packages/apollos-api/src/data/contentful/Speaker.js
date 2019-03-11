@@ -11,6 +11,13 @@ export class dataSource extends ContentfulDataSource {
     });
     return result;
   };
+
+  getLinkedEntries = async ({ sys }) => {
+    const result = await this.get(`entries`, {
+      links_to_entry: sys.id,
+    });
+    return result;
+  };
 }
 
 export const schema = gql`
@@ -47,10 +54,12 @@ export const resolver = {
     id: ({ sys }, args, context, { parentType }) =>
       createGlobalId(sys.id, parentType.name),
     title: ({ fields }) => fields.name,
-    summary: ({ fields }) => fields.summary,
+    summary: (node, args, { dataSources }) =>
+      dataSources.ContentItem.createSummary(node),
     htmlContent: ({ fields }) =>
       fields.biography ? marked(fields.biography) : '',
     coverImage: ({ fields }) => fields.photo,
-    childContentItemsConnection: ({ fields }) => fields.talks,
+    childContentItemsConnection: (node, args, { dataSources }) =>
+      dataSources.Speaker.getLinkedEntries(node),
   },
 };

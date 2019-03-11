@@ -1,5 +1,7 @@
 import gql from 'graphql-tag';
 import { camelCase, upperFirst } from 'lodash';
+import natural from 'natural';
+import sanitizeHtmlNode from 'sanitize-html';
 
 import ContentfulDataSource from './ContentfulDataSource';
 
@@ -10,6 +12,22 @@ export class dataSource extends ContentfulDataSource {
     this.get(`entries`, {
       content_type: type,
     });
+
+  createSummary = ({ fields: { description: content, summary } }) => {
+    if (summary) return summary;
+    if (!content || typeof content !== 'string') return '';
+    // Protect against 0 length sentences (tokenizer will throw an error)
+    if (content.split(' ').length === 1) return '';
+
+    const raw = sanitizeHtmlNode(content, {
+      allowedTags: [],
+      allowedAttributes: [],
+    });
+
+    const tokenizer = new natural.SentenceTokenizer();
+    const firstSentence = tokenizer.tokenize(raw)[0];
+    return firstSentence;
+  };
 }
 
 export const schema = gql`

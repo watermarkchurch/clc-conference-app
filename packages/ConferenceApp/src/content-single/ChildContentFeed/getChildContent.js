@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query getHorizontalContent($itemId: ID!) {
+  query getChildContent($itemId: ID!) {
     node(id: $itemId) {
       ... on ContentItem {
         id
@@ -16,20 +16,7 @@ export default gql`
                 }
               }
               title
-            }
-          }
-        }
-        siblingContentItemsConnection {
-          edges {
-            node {
-              id
-              coverImage {
-                name
-                sources {
-                  uri
-                }
-              }
-              title
+              summary
             }
           }
         }

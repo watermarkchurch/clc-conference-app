@@ -57,7 +57,7 @@ class Favorites extends PureComponent {
             <FlexedView>
               <UpNext
                 isLoading={loading}
-                likedIds={likedContent.map((id) => id)}
+                likedIds={likedContent.map(({ id }) => id)}
               />
               <FeedView
                 ListHeaderComponent={
