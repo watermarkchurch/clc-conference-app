@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
+import { get } from 'lodash';
 
 import {
   FeedView,
@@ -72,7 +73,7 @@ class Speakers extends PureComponent {
                 <Touchable onPress={() => this.handleOnPress(item)}>
                   <React.Fragment>
                     <Cell>
-                      <Avatar source={item.coverImage.sources} />
+                      <Avatar source={get(item, 'coverImage.sources', [])} />
                       <CellText>{item.title}</CellText>
                     </Cell>
                     <Divider />
