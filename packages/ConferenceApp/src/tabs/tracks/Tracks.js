@@ -29,14 +29,14 @@ class Tracks extends PureComponent {
       ...headerOptions.headerStyle,
       backgroundColor: screenProps.theme.colors.secondary,
     },
-    headerTitle: props => (
+    headerTitle: (props) => (
       <ThemeMixin mixin={{ type: 'dark' }}>
         <headerOptions.headerTitle {...props} />
       </ThemeMixin>
     ),
   });
 
-  handleOnPress = item =>
+  handleOnPress = (item) =>
     this.props.navigation.navigate('ContentSingle', {
       itemId: item.id,
       transitionKey: item.transitionKey,

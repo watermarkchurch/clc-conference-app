@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { get } from 'lodash';
 
-import { Cell, CellText, H4, PaddedView, styled } from '@apollosproject/ui-kit';
+import { Cell, CellText, styled } from '@apollosproject/ui-kit';
 
 const LightText = styled({ opacity: 0.5 })(Text);
 
