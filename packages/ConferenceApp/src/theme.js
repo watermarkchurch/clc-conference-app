@@ -4,7 +4,7 @@ const colors = {
   primary: '#EF5E24',
   secondary: '#F8A61A',
   tertiary: '#3E2B2E',
-  screen: '#FCFCFC',
+  screen: '#F5F5F5',
   paper: '#FFFFFF',
   alert: '#c64f55',
 

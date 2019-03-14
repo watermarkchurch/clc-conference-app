@@ -23,11 +23,12 @@ Object {
           ],
         },
         Object {
-          "maxAge": 600,
+          "maxAge": 0,
           "path": Array [
             "conference",
             "upNext",
           ],
+          "scope": undefined,
         },
       ],
       "version": 1,
@@ -35,11 +36,7 @@ Object {
   },
   "http": Object {
     "headers": Headers {
-      Symbol(map): Object {
-        "Cache-Control": Array [
-          "max-age=600, public",
-        ],
-      },
+      Symbol(map): Object {},
     },
   },
 }
@@ -68,11 +65,12 @@ Object {
           ],
         },
         Object {
-          "maxAge": 600,
+          "maxAge": 0,
           "path": Array [
             "conference",
             "upNext",
           ],
+          "scope": undefined,
         },
       ],
       "version": 1,
@@ -80,11 +78,7 @@ Object {
   },
   "http": Object {
     "headers": Headers {
-      Symbol(map): Object {
-        "Cache-Control": Array [
-          "max-age=600, public",
-        ],
-      },
+      Symbol(map): Object {},
     },
   },
 }
@@ -113,11 +107,12 @@ Object {
           ],
         },
         Object {
-          "maxAge": 600,
+          "maxAge": 0,
           "path": Array [
             "conference",
             "upNext",
           ],
+          "scope": undefined,
         },
       ],
       "version": 1,
@@ -125,11 +120,7 @@ Object {
   },
   "http": Object {
     "headers": Headers {
-      Symbol(map): Object {
-        "Cache-Control": Array [
-          "max-age=600, public",
-        ],
-      },
+      Symbol(map): Object {},
     },
   },
 }
