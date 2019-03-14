@@ -49,7 +49,7 @@ const Caret = styled(({ theme }) => ({
   opacity: 0.5,
 }))((props) => <Icon name="arrow-right" {...props} />);
 
-const SecondaryText = styled({ opacity: 0.5 })(UIText);
+const SecondaryText = styled({ opacity: 0.6 })(UIText);
 
 const formatTime = (time) => moment(time).format('h:mma');
 

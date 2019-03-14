@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { get } from 'lodash';
 
 import {
-  FeedView,
+  TableView,
   Cell,
   CellText,
   Divider,
@@ -61,33 +61,45 @@ class Speakers extends PureComponent {
         fetchPolicy="cache-and-network"
         variables={{ itemId: contentId }}
       >
-        {({ loading, data, error, refetch }) =>
-          data.node && data.node.speakers ? (
-            <FeedView
-              ListHeaderComponent={
-                <PaddedView vertical={false}>
-                  <H4 padded>Speakers</H4>
-                </PaddedView>
-              }
-              renderItem={({ item }) => (
-                <Touchable onPress={() => this.handleOnPress(item)}>
-                  <React.Fragment>
-                    <Cell>
-                      <Avatar source={get(item, 'coverImage.sources', [])} />
-                      <CellText>{item.title}</CellText>
-                    </Cell>
-                    <Divider />
-                  </React.Fragment>
-                </Touchable>
-              )}
-              content={data.node.speakers || []}
-              isLoading={loading}
-              error={error}
-              refetch={refetch}
-              onPressItem={this.handleOnPress}
-            />
-          ) : null
-        }
+        {({ loading, data: { node } = {} }) => {
+          const speakers = get(node, 'speakers') || [];
+
+          if (node !== null && !speakers.length) return null;
+
+          return (
+            <>
+              <PaddedView vertical={false}>
+                <H4 isLoading={loading && !speakers.length} padded>
+                  Speakers
+                </H4>
+              </PaddedView>
+              <TableView>
+                {(
+                  speakers ||
+                  (loading && !speakers.length ? [{ id: 'loading' }] : [])
+                ).map((item) => (
+                  <Touchable
+                    onPress={() => this.handleOnPress(item)}
+                    key={item.id}
+                  >
+                    <>
+                      <Cell>
+                        <Avatar
+                          isLoading={loading && !speakers.length}
+                          source={get(item, 'coverImage.sources', [])}
+                        />
+                        <CellText isLoading={loading && !speakers.length}>
+                          {item.title}
+                        </CellText>
+                      </Cell>
+                      <Divider />
+                    </>
+                  </Touchable>
+                ))}
+              </TableView>
+            </>
+          );
+        }}
       </Query>
     );
   }

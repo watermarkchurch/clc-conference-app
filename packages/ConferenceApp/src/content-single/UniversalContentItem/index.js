@@ -10,38 +10,39 @@ import {
   PaddedView,
   H2,
 } from '@apollosproject/ui-kit';
-import MediaControls from '../MediaControls';
 import HTMLContent from '../HTMLContent';
 import ChildContentFeed from '../ChildContentFeed';
 import Speakers from './Speakers';
+import Time from './Time';
 
 const FlexedScrollView = styled({ flex: 1 })(ScrollView);
 
 const UniversalContentItem = ({ content, loading }) => {
   const coverImageSources = get(content, 'coverImage.sources', []);
   return (
-    <FlexedScrollView>
-      {coverImageSources.length ||
-      (loading && get(content, 'coverImage') !== null) ? (
-        <GradientOverlayImage
-          isLoading={!coverImageSources.length && loading}
-          source={coverImageSources}
-        />
-      ) : null}
-      <SafeAreaView forceInset={{ bottom: 'always' }}>
-        <BackgroundView>
-          <MediaControls contentId={content.id} />
+    <BackgroundView>
+      <FlexedScrollView>
+        {coverImageSources.length ||
+        (loading && get(content, 'coverImage') !== null) ? (
+          <GradientOverlayImage
+            isLoading={!coverImageSources.length && loading}
+            source={coverImageSources}
+          />
+        ) : null}
+        <SafeAreaView forceInset={{ bottom: 'always' }}>
           <PaddedView>
             <H2 padded isLoading={!content.title && loading}>
               {content.title}
             </H2>
             <HTMLContent contentId={content.id} />
           </PaddedView>
+          <Time contentId={content.id} />
           <Speakers contentId={content.id} />
           <ChildContentFeed contentId={content.id} />
-        </BackgroundView>
-      </SafeAreaView>
-    </FlexedScrollView>
+        </SafeAreaView>
+        <PaddedView />
+      </FlexedScrollView>
+    </BackgroundView>
   );
 };
 
