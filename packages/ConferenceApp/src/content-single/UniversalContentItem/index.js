@@ -21,7 +21,8 @@ const UniversalContentItem = ({ content, loading }) => {
   const coverImageSources = get(content, 'coverImage.sources', []);
   return (
     <FlexedScrollView>
-      {coverImageSources.length || loading ? (
+      {coverImageSources.length ||
+      (loading && get(content, 'coverImage') !== null) ? (
         <GradientOverlayImage
           isLoading={!coverImageSources.length && loading}
           source={coverImageSources}

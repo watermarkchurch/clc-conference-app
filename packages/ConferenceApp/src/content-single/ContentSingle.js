@@ -37,6 +37,7 @@ class ContentSingle extends PureComponent {
   }
 
   renderContent = ({ content, loading, error }) => {
+    console.log({ content, loading, error });
     let { __typename } = content;
     if (!__typename && this.itemId) {
       [__typename] = this.itemId.split(':');
