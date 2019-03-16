@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bg1.png",
+      "filename" : "CLC19 SplashScreen RJ BG.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "background.png",
+      "filename" : "CLC19 SplashScreen RJ BG-2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bg3x.png",
+      "filename" : "CLC19 SplashScreen RJ BG-1.png",
       "scale" : "3x"
     }
   ],
