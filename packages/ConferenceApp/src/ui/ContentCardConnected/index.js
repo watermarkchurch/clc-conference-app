@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { get } from 'lodash';
 
-import { ContentCard, ErrorCard } from '@apollosproject/ui-kit';
+import {
+  ContentCard,
+  ErrorCard,
+  Card,
+  CardContent,
+  CardImage,
+  H3,
+  BodyText,
+} from '@apollosproject/ui-kit';
 import Time from 'ConferenceApp/src/content-single/UniversalContentItem/Time';
 import getContentCard from './query';
 
@@ -39,14 +47,16 @@ const ContentCardConnected = ({
         const coverImage = get(node, 'coverImage.sources', undefined);
 
         return (
-          <ContentCard
-            {...node}
-            {...otherProps}
-            coverImage={coverImage}
-            tile={tile}
-            isLoading={loading}
-            footer={footer}
-          />
+          <Card isLoading={loading}>
+            {coverImage || loading ? <CardImage source={coverImage} /> : null}
+            <CardContent>
+              {node.title || loading ? <H3>{node.title}</H3> : null}
+              {node.summary || loading ? (
+                <BodyText>{node.summary}</BodyText>
+              ) : null}
+            </CardContent>
+            {footer}
+          </Card>
         );
       }}
     </Query>
