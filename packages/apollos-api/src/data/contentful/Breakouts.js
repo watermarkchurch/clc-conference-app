@@ -42,5 +42,6 @@ export const resolver = {
     childContentItemsConnection: ({ fields }) => fields.breakouts,
     startTime: ({ fields }) => fields.startTime,
     endTime: ({ fields }) => fields.endTime,
+    coverImage: ({ fields }) => fields.art,
   },
 };

@@ -47,5 +47,6 @@ export const resolver = {
     startTime: ({ fields }) => fields.startTime,
     endTime: ({ fields }) => fields.endTime,
     downloads: ({ fields }) => fields.downloads,
+    coverImage: ({ fields }) => fields.art,
   },
 };

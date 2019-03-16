@@ -6,7 +6,11 @@ import { withNavigation } from 'react-navigation';
 import { get } from 'lodash';
 import gql from 'graphql-tag';
 
-import ContentCardConnected from 'ConferenceApp/src/ui/ContentCardConnected';
+import ContentCardConnected, {
+  largeCardFragment,
+} from 'ConferenceApp/src/ui/ContentCardConnected';
+
+import { contentItemFragment } from '../../content-single/getContentItem';
 
 import headerOptions from '../headerOptions';
 
@@ -14,11 +18,13 @@ const getTracks = gql`
   query getTracks {
     conference {
       tracks {
-        id
-        title
+        ...largeCardFragment
+        ...contentItemFragment
       }
     }
   }
+  ${largeCardFragment}
+  ${contentItemFragment}
 `;
 
 class Tracks extends PureComponent {
@@ -48,18 +54,6 @@ class Tracks extends PureComponent {
         <Query query={getTracks} fetchPolicy="cache-and-network">
           {({ loading, data, error, refetch }) => (
             <FeedView
-              // renderItem={({ item }) => (
-              //   <Touchable onPress={() => this.handleOnPress(item)}>
-              //     <>
-              //       <Cell>
-              //         <CellContent>
-              //           <H5>{item.title}</H5>
-              //         </CellContent>
-              //       </Cell>
-              //       <Divider />
-              //     </>
-              //   </Touchable>
-              // )}
               content={get(data, 'conference.tracks', []) || []}
               isLoading={loading}
               error={error}

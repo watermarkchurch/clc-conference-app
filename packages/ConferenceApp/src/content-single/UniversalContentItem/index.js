@@ -12,10 +12,16 @@ import {
 } from '@apollosproject/ui-kit';
 import HTMLContent from '../HTMLContent';
 import ChildContentFeed from '../ChildContentFeed';
+import Location from './Location';
 import Speakers from './Speakers';
 import Time from './Time';
 
 const FlexedScrollView = styled({ flex: 1 })(ScrollView);
+
+const ContentContainer = styled(({ hasCoverImage, theme }) => ({
+  paddingTop: hasCoverImage ? 0 : theme.sizing.baseUnit,
+  paddingBottom: 0,
+}))(PaddedView);
 
 const UniversalContentItem = ({ content, loading }) => {
   const coverImageSources = get(content, 'coverImage.sources', []);
@@ -30,15 +36,18 @@ const UniversalContentItem = ({ content, loading }) => {
           />
         ) : null}
         <SafeAreaView forceInset={{ bottom: 'always' }}>
-          <PaddedView>
+          <ContentContainer
+            hasCoverImage={coverImageSources && coverImageSources.length}
+          >
             <H2 padded isLoading={!content.title && loading}>
               {content.title}
             </H2>
             <HTMLContent contentId={content.id} />
-          </PaddedView>
+          </ContentContainer>
           <Time contentId={content.id} />
-          <Speakers contentId={content.id} />
+          <Location contentId={content.id} />
           <ChildContentFeed contentId={content.id} />
+          <Speakers contentId={content.id} />
         </SafeAreaView>
         <PaddedView />
       </FlexedScrollView>

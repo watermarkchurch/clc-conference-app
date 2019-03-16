@@ -16,6 +16,8 @@ import NavigationHeader from './NavigationHeader';
 
 import ActionContainer from './ActionContainer';
 
+import Location from './Location';
+
 class ContentSingle extends PureComponent {
   static propTypes = {
     navigation: PropTypes.shape({
@@ -37,12 +39,20 @@ class ContentSingle extends PureComponent {
   }
 
   renderContent = ({ content, loading, error }) => {
-    console.log({ content, loading, error });
     let { __typename } = content;
     if (!__typename && this.itemId) {
       [__typename] = this.itemId.split(':');
     }
     switch (__typename) {
+      case 'Location':
+        return (
+          <Location
+            id={this.itemId}
+            content={content}
+            loading={loading}
+            error={error}
+          />
+        );
       case 'UniversalContentItem':
       default:
         return (
@@ -79,7 +89,9 @@ class ContentSingle extends PureComponent {
           }}
         />
         {this.renderContent({ content, loading, error })}
-        <ActionContainer {...this.queryVariables} />
+        {content.__typename !== 'Location' ? (
+          <ActionContainer {...this.queryVariables} />
+        ) : null}
       </ThemeMixin>
     );
   };

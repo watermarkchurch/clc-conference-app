@@ -12,9 +12,10 @@ import {
   styled,
   withThemeMixin,
   withTheme,
+  Card,
 } from '@apollosproject/ui-kit';
 import gql from 'graphql-tag';
-import ContentCardConnected from '../../ui/ContentCardConnected';
+import ScheduleItem from '../../ui/ScheduleItem';
 
 const HeaderBackgroundView = compose(
   styled(({ theme }) => ({
@@ -34,6 +35,11 @@ const CardBackground = withTheme(({ theme }) => ({
     theme.colors.transparent,
   ],
 }))(GradientView);
+
+const ScheduleItemWithSpacing = styled(({ theme }) => ({
+  paddingVertical: theme.sizing.baseUnit,
+  height: null,
+}))(ScheduleItem);
 
 const query = gql`
   query($likedIds: [ID]) {
@@ -77,7 +83,9 @@ class UpNext extends PureComponent {
             </HeaderBackgroundView>
             <CardBackground>
               <TouchableScale onPress={() => this.handleOnPress(upNext.id)}>
-                <ContentCardConnected contentId={upNext.id} />
+                <Card>
+                  <ScheduleItemWithSpacing {...upNext} />
+                </Card>
               </TouchableScale>
             </CardBackground>
           </React.Fragment>
