@@ -38,5 +38,6 @@ export const resolver = {
     htmlContent: ({ fields }) =>
       fields.description ? marked(fields.description) : null,
     childContentItemsConnection: ({ fields }) => fields.scheduleItems,
+    coverImage: ({ fields }) => fields.art,
   },
 };

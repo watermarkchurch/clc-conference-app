@@ -27,6 +27,14 @@ export default gql`
         id
         title
       }
+      ... on Location {
+        id
+        map {
+          sources {
+            uri
+          }
+        }
+      }
     }
   }
   ${contentItemFragment}

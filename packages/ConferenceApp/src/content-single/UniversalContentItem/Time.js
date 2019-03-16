@@ -7,7 +7,10 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { get } from 'lodash';
 
-import { Cell, CellText, styled } from '@apollosproject/ui-kit';
+import { Cell, CellText, Divider, styled } from '@apollosproject/ui-kit';
+import Icon from '../../ui/Icon';
+
+const OpaqueIcon = styled({ opacity: 0.8 })(Icon);
 
 const LightText = styled({ opacity: 0.5 })(Text);
 
@@ -46,6 +49,7 @@ class Time extends PureComponent {
           return (
             <>
               <Cell>
+                <OpaqueIcon name="time" size={14} />
                 <CellText isLoading={!get(data, 'node.startTime') && loading}>
                   {moment(get(data, 'node.startTime')).format('dddd hh:mma')}
                   {' - '}
@@ -55,6 +59,7 @@ class Time extends PureComponent {
                   </LightText>
                 </CellText>
               </Cell>
+              <Divider />
             </>
           );
         }}

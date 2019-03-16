@@ -25,6 +25,8 @@ class HorizontalContentFeed extends Component {
   renderItem = (item) => (
     <ScheduleItem
       {...item}
+      startTime={null}
+      endTime={null}
       key={item.id}
       onPress={() => this.handleOnPressItem(item)}
     />

@@ -5,3 +5,4 @@ export home from './home';
 export star from './star';
 export starSolid from './starSolid';
 export arrowRight from './arrowRight';
+export time from './time';

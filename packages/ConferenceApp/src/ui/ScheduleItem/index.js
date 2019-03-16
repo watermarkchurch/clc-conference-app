@@ -42,12 +42,12 @@ const Actions = styled({
   width: 50,
 })(View);
 
-const Caret = styled(({ theme }) => ({
+export const Caret = styled(({ theme }) => ({
   alignSelf: 'center',
-  marginTop: 12,
-  marginRight: -theme.sizing.baseUnit,
+  marginTop: 9,
+  marginRight: -theme.sizing.baseUnit * 0.5,
   opacity: 0.5,
-}))((props) => <Icon name="arrow-right" {...props} />);
+}))((props) => <Icon name="arrow-right" size={20} {...props} />);
 
 const SecondaryText = styled({ opacity: 0.6 })(UIText);
 

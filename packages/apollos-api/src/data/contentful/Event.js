@@ -44,8 +44,27 @@ export const resolver = {
       fields.description ? marked(fields.description) : null,
     speakers: ({ fields }) => fields.speakers,
     location: ({ fields }) => fields.location,
-    startTime: ({ fields }) => fields.startTime,
-    endTime: ({ fields }) => fields.endTime,
+    startTime: async ({ fields, sys }, args, { dataSources }) => {
+      if (fields.startTime) return fields.startTime;
+      // a little contrived...
+      try {
+        const breakout = await dataSources.Breakouts.getFromEvent(sys.id);
+        return breakout.fields.startTime;
+      } catch (e) {
+        return null;
+      }
+    },
+    endTime: async ({ fields, sys }, args, { dataSources }) => {
+      if (fields.endTime) return fields.endTime;
+      // a little contrived...
+      try {
+        const breakout = await dataSources.Breakouts.getFromEvent(sys.id);
+        return breakout.fields.endTime;
+      } catch (e) {
+        return null;
+      }
+    },
     downloads: ({ fields }) => fields.downloads,
+    coverImage: ({ fields }) => fields.art,
   },
 };
