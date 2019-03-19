@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import { StatusBar } from 'react-native';
 import {
   BackgroundView,
   TabView,
@@ -46,6 +47,16 @@ class Schedule extends PureComponent {
       </ThemeMixin>
     ),
   });
+
+  componentDidMount() {
+    this._navListener = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('light-content');
+    });
+  }
+
+  componentWillUnmount() {
+    this._navListener.remove();
+  }
 
   render() {
     return (

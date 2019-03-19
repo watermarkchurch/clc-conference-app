@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
-import { Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, StatusBar } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
 import { Query } from 'react-apollo';
@@ -59,6 +59,16 @@ class Home extends PureComponent {
       navigate: PropTypes.func,
     }),
   };
+
+  componentDidMount() {
+    this._navListener = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+    });
+  }
+
+  componentWillUnmount() {
+    this._navListener.remove();
+  }
 
   handleOnPress = (item) =>
     this.props.navigation.navigate('ContentSingle', {
