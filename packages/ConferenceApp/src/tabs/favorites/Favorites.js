@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Query } from 'react-apollo';
+import { StatusBar } from 'react-native';
 import gql from 'graphql-tag';
 import {
   BackgroundView,
@@ -40,6 +41,16 @@ class Favorites extends PureComponent {
       </ThemeMixin>
     ),
   });
+
+  componentDidMount() {
+    this._navListener = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('light-content');
+    });
+  }
+
+  componentWillUnmount() {
+    this._navListener.remove();
+  }
 
   handleOnPress = (item) =>
     this.props.navigation.navigate('ContentSingle', {

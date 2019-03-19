@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { BackgroundView, ThemeMixin, FeedView } from '@apollosproject/ui-kit';
 import { Query } from 'react-apollo';
+import { StatusBar } from 'react-native';
 
 import { withNavigation } from 'react-navigation';
 import { get } from 'lodash';
@@ -41,6 +42,16 @@ class Tracks extends PureComponent {
       </ThemeMixin>
     ),
   });
+
+  componentDidMount() {
+    this._navListener = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('light-content');
+    });
+  }
+
+  componentWillUnmount() {
+    this._navListener.remove();
+  }
 
   handleOnPress = (item) =>
     this.props.navigation.navigate('ContentSingle', {

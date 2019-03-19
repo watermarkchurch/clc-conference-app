@@ -1,20 +1,20 @@
 import { createStackNavigator } from 'react-navigation';
 
 import tabBarIcon from '../tabBarIcon';
-import Map from './Map';
+import Info from './Info';
 
 export const Navigator = createStackNavigator(
   {
-    Map,
+    Info,
   },
   {
-    initialRouteName: 'Map',
+    initialRouteName: 'Info',
   }
 );
 
 Navigator.navigationOptions = {
-  tabBarIcon: tabBarIcon('map'),
-  tabBarLabel: 'Map',
+  tabBarIcon: tabBarIcon('info'),
+  tabBarLabel: 'Info',
 };
 
 export default Navigator;

@@ -74,7 +74,7 @@ const ScheduleItem = ({
         <EventInfo>
           <H5 numberOfLines={2}>{title}</H5>
           {summary ? (
-            <SecondaryText numberOfLines={title.length > 33 ? 1 : 2}>
+            <SecondaryText numberOfLines={title.length > 30 ? 1 : 2}>
               {summary}
             </SecondaryText>
           ) : null}

@@ -1,10 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
+import { Image, StyleSheet, StatusBar } from 'react-native';
+import SafeAreaView from 'react-native-safe-area-view';
+
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import { BackgroundView, FeedView } from '@apollosproject/ui-kit';
+import { BackgroundView, FeedView, styled } from '@apollosproject/ui-kit';
 import ContentCardConnected, {
   largeCardFragment,
 } from 'ConferenceApp/src/ui/ContentCardConnected';
@@ -30,9 +33,22 @@ export const getUserFeed = gql`
   ${contentItemFragment}
 `;
 
+const LogoTitle = styled(({ theme }) => ({
+  height: theme.sizing.baseUnit * 2,
+  margin: theme.sizing.baseUnit / 2,
+  alignSelf: 'center',
+  resizeMode: 'contain',
+}))(Image);
+
+const BackgroundTexture = styled({
+  ...StyleSheet.absoluteFillObject,
+  resizeMode: 'cover',
+})(Image);
+
 class Home extends PureComponent {
   static navigationOptions = () => ({
     title: 'Home',
+    header: null,
     ...headerOptions,
   });
 
@@ -44,6 +60,16 @@ class Home extends PureComponent {
     }),
   };
 
+  componentDidMount() {
+    this._navListener = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+    });
+  }
+
+  componentWillUnmount() {
+    this._navListener.remove();
+  }
+
   handleOnPress = (item) =>
     this.props.navigation.navigate('ContentSingle', {
       itemId: item.id,
@@ -52,21 +78,27 @@ class Home extends PureComponent {
 
   render() {
     return (
-      <BackgroundView>
-        <Query query={getUserFeed} fetchPolicy="cache-and-network">
-          {({ loading, error, data, refetch }) => (
-            <FeedView
-              ListItemComponent={ContentCardConnected}
-              content={get(data, 'conference.announcements.edges', []).map(
-                (edge) => edge.node
-              )}
-              isLoading={loading}
-              error={error}
-              refetch={refetch}
-              onPressItem={this.handleOnPress}
-            />
-          )}
-        </Query>
+      <BackgroundView style={StyleSheet.absoluteFill}>
+        <BackgroundTexture source={require('./texture.png')} />
+        <SafeAreaView style={StyleSheet.absoluteFill}>
+          <Query query={getUserFeed} fetchPolicy="cache-and-network">
+            {({ loading, error, data, refetch }) => (
+              <FeedView
+                ListItemComponent={ContentCardConnected}
+                ListHeaderComponent={
+                  <LogoTitle source={require('./CLC-center.png')} />
+                }
+                content={get(data, 'conference.announcements.edges', []).map(
+                  (edge) => edge.node
+                )}
+                isLoading={loading}
+                error={error}
+                refetch={refetch}
+                onPressItem={this.handleOnPress}
+              />
+            )}
+          </Query>
+        </SafeAreaView>
       </BackgroundView>
     );
   }
