@@ -17,6 +17,7 @@ const LightText = styled({ opacity: 0.5 })(Text);
 const query = gql`
   query getTime($itemId: ID!) {
     node(id: $itemId) {
+      id
       ... on Event {
         startTime
         endTime
