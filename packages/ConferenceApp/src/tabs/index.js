@@ -4,7 +4,7 @@ import TabBar from './tabBar';
 
 import Home from './home';
 import Schedule from './schedule';
-import Map from './map';
+import Info from './info';
 import Favorites from './favorites';
 import Tracks from './tracks';
 
@@ -14,7 +14,7 @@ const TabNavigator = createBottomTabNavigator(
     Schedule,
     Favorites,
     Tracks,
-    Map,
+    Info,
   },
   {
     tabBarComponent: TabBar,
