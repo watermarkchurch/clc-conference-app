@@ -10,6 +10,7 @@ import {
   CardContent,
   CardImage,
   H3,
+  H4,
   BodyText,
   H6,
   styled,
@@ -24,6 +25,13 @@ const LabelText = styled(({ theme }) => ({
   fontSize: 10,
 }))(H6);
 
+const FloatingFooterText = styled(({ theme }) => ({
+  position: 'absolute',
+  bottom: theme.sizing.baseUnit,
+  left: theme.sizing.baseUnit,
+  right: theme.sizing.baseUnit,
+}))(H4);
+
 const ContentCardConnected = ({
   contentId,
   isLoading,
@@ -31,13 +39,19 @@ const ContentCardConnected = ({
   ...otherProps
 }) => {
   if (!contentId || isLoading)
-    return <ContentCard {...otherProps} isLoading tile={tile} />;
+    return (
+      <ContentCard
+        {...otherProps}
+        contentId={contentId}
+        isLoading={isLoading}
+        tile={tile}
+      />
+    );
 
   return (
     <Query query={getContentCard} variables={{ contentId, tile: !!tile }}>
       {({ data: { node = {} } = {}, loading, error }) => {
         if (error) return <ErrorCard error={error} />;
-
         // if (node.__typename === 'Event' || node.__typename === 'Breakouts') {
         //   // return (
         //   //   <Card isLoading={isLoading || loading}>
@@ -49,12 +63,31 @@ const ContentCardConnected = ({
         let footer = null;
         if (node.startTime && !tile) {
           footer = <Time contentId={node.id} condensed />;
+        } else if (tile) {
+          footer = <FloatingFooterText>{node.title}</FloatingFooterText>;
         }
 
         const coverImage = get(node, 'coverImage.sources', undefined);
 
+        if (tile && node.__typename === 'Location')
+          return (
+            <ContentCard
+              {...otherProps}
+              {...node}
+              title={null}
+              footer={footer}
+              coverImage={coverImage}
+              isLoading={isLoading}
+              tile={tile}
+              theme={{
+                type: 'dark',
+                colors: { primary: '#000000' },
+              }}
+            />
+          );
+
         return (
-          <Card isLoading={loading}>
+          <Card isLoading={loading} tile={tile}>
             {coverImage || loading ? <CardImage source={coverImage} /> : null}
             <CardContent>
               {node.label ? <LabelText>{node.label}</LabelText> : null}
