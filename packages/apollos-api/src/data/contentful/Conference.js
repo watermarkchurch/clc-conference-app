@@ -27,6 +27,7 @@ export const schema = gql`
     days: [ConferenceDay]
     announcements: ContentItemsConnection @cacheControl(maxAge: 0)
     tracks: [ConferenceTrack]
+    maps: [Location]
     upNext(likedIds: [ID]): ContentItem @cacheControl(maxAge: 0)
   }
 
@@ -47,8 +48,8 @@ export const resolver = {
     code: ({ fields }) => fields.code,
     days: ({ fields }) => fields.days,
     announcements: ({ fields }) => fields.announcements,
-    tracks: ({ fields }) =>
-      console.log('tracks', fields.tracks.length) || fields.tracks,
+    tracks: ({ fields }) => fields.tracks,
+    maps: ({ fields }) => fields.maps,
     upNext: ({ fields }, { likedIds = [] }) => {
       const currentTime = moment();
 

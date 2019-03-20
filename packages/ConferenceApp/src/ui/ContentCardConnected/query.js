@@ -35,7 +35,6 @@ export const tileCardFragment = gql`
     ...baseCardFragment
   }
   ${baseCardFragment}
-  ${coverImageFragment}
 `;
 
 export const largeCardFragment = gql`
