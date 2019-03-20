@@ -16,6 +16,7 @@ import {
   styled,
   Touchable,
 } from '@apollosproject/ui-kit';
+import { Caret } from '../../ui/ScheduleItem';
 
 const query = gql`
   query getSpeakers($itemId: ID!) {
@@ -91,6 +92,7 @@ class Speakers extends PureComponent {
                         <CellText isLoading={loading && !speakers.length}>
                           {item.title}
                         </CellText>
+                        <Caret />
                       </Cell>
                       <Divider />
                     </>

@@ -11,11 +11,18 @@ import {
   CardImage,
   H3,
   BodyText,
+  H6,
+  styled,
 } from '@apollosproject/ui-kit';
 import Time from 'ConferenceApp/src/content-single/UniversalContentItem/Time';
 import getContentCard from './query';
 
 export { tileCardFragment, largeCardFragment } from './query';
+
+const LabelText = styled(({ theme }) => ({
+  color: theme.colors.primary,
+  fontSize: 10,
+}))(H6);
 
 const ContentCardConnected = ({
   contentId,
@@ -50,6 +57,7 @@ const ContentCardConnected = ({
           <Card isLoading={loading}>
             {coverImage || loading ? <CardImage source={coverImage} /> : null}
             <CardContent>
+              {node.label ? <LabelText>{node.label}</LabelText> : null}
               {node.title || loading ? <H3>{node.title}</H3> : null}
               {node.summary || loading ? (
                 <BodyText>{node.summary}</BodyText>

@@ -30,6 +30,7 @@ export const schema = gql`
     startTime: String
     endTime: String
     downloads: [ContentfulAsset]
+    label: String
   }
 `;
 
@@ -66,5 +67,6 @@ export const resolver = {
     },
     downloads: ({ fields }) => fields.downloads,
     coverImage: ({ fields }) => fields.art,
+    label: ({ fields }) => fields.eventType,
   },
 };
