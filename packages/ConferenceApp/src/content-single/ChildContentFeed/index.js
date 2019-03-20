@@ -63,7 +63,10 @@ class HorizontalContentFeed extends Component {
       <Query
         query={getChildContent}
         fetchPolicy="cache-and-network"
-        variables={{ itemId: this.props.contentId }}
+        variables={{
+          itemId: this.props.contentId,
+          showLabel: !this.props.contentId.includes('Breakouts'),
+        }}
       >
         {this.renderFeed}
       </Query>

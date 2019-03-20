@@ -5,6 +5,9 @@ export const contentItemFragment = gql`
     id
     title
     summary
+    ... on Event {
+      label
+    }
     coverImage {
       name
       sources {
