@@ -1,8 +1,11 @@
 import { merge, get } from 'lodash';
 import gql from 'graphql-tag';
+import { largeCardFragment } from 'ConferenceApp/src/ui/ContentCardConnected';
+import { contentItemFragment } from 'ConferenceApp/src/content-single/getContentItem';
 import { track, events } from '../analytics';
 import { CACHE_LOADED } from '../client'; // eslint-disable-line
 import updatePushId from '../notifications/updatePushId';
+
 // TODO: this will require more organization...ie...not keeping everything in one file.
 // But this is simple while our needs our small.
 
@@ -135,7 +138,28 @@ export const resolvers = {
         likedContent = [];
       }
 
-      return likedContent;
+      const contentQuery = gql`
+        query($id: ID!) {
+          node(id: $id) {
+            ...largeCardFragment
+            ...contentItemFragment
+          }
+        }
+        ${largeCardFragment}
+        ${contentItemFragment}
+      `;
+
+      try {
+        return likedContent.map((content) => {
+          const data = cache.readQuery({
+            query: contentQuery,
+            variables: { id: content.id },
+          });
+          return data.node;
+        });
+      } catch (e) {
+        return likedContent;
+      }
     },
   },
   Mutation: {

@@ -13,6 +13,7 @@ import {
   styled,
   FlexedView,
 } from '@apollosproject/ui-kit';
+import moment from 'moment';
 import ContentCardConnected from '../../ui/ContentCardConnected';
 import headerOptions from '../headerOptions';
 import UpNext from './UpNext';
@@ -23,6 +24,12 @@ const getFavorites = gql`
   query {
     likedContent @client {
       id
+      ... on Event {
+        startTime
+      }
+      ... on Breakouts {
+        startTime
+      }
     }
   }
 `;
@@ -58,6 +65,9 @@ class Favorites extends PureComponent {
       transitionKey: item.transitionKey,
     });
 
+  sortLikedContent = (content = []) =>
+    content.sort((a, b) => moment(a.startTime) - moment(b.startTime));
+
   handleSchedulePress = () => this.props.navigation.navigate('Schedule');
 
   render() {
@@ -91,7 +101,7 @@ class Favorites extends PureComponent {
                   </PaddedView>
                 )}
                 ListItemComponent={ContentCardConnected}
-                content={likedContent}
+                content={this.sortLikedContent(likedContent || [])}
                 isLoading={loading}
                 error={error}
                 refetch={refetch}

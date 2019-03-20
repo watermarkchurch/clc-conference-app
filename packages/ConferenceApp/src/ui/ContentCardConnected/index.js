@@ -47,8 +47,8 @@ const ContentCardConnected = ({
         // }
 
         let footer = null;
-        if (node.startTime) {
-          footer = <Time contentId={node.id} />;
+        if (node.startTime && !tile) {
+          footer = <Time contentId={node.id} condensed />;
         }
 
         const coverImage = get(node, 'coverImage.sources', undefined);
