@@ -20,6 +20,7 @@ export const baseCardFragment = gql`
     ... on Event {
       startTime
       endTime
+      label
     }
     ... on Breakouts {
       startTime

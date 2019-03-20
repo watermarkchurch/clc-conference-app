@@ -9,6 +9,7 @@ import {
   BackgroundView,
   PaddedView,
   H2,
+  H6,
 } from '@apollosproject/ui-kit';
 import HTMLContent from '../HTMLContent';
 import ChildContentFeed from '../ChildContentFeed';
@@ -23,6 +24,8 @@ const ContentContainer = styled(({ hasCoverImage, theme }) => ({
   paddingBottom: 0,
 }))(PaddedView);
 
+const LabelText = styled(({ theme }) => ({ color: theme.colors.primary }))(H6);
+
 const UniversalContentItem = ({ content, loading }) => {
   const coverImageSources = get(content, 'coverImage.sources', []);
   return (
@@ -35,13 +38,14 @@ const UniversalContentItem = ({ content, loading }) => {
             source={coverImageSources}
           />
         ) : null}
-        <SafeAreaView forceInset={{ bottom: 'always' }}>
+        <SafeAreaView forceInset={{ bottom: 'always', top: 'always' }}>
           <ContentContainer
             hasCoverImage={coverImageSources && coverImageSources.length}
           >
-            <H2 padded isLoading={!content.title && loading}>
-              {content.title}
-            </H2>
+            <PaddedView horizontal={false}>
+              {content.label ? <LabelText>{content.label}</LabelText> : null}
+              <H2 isLoading={!content.title && loading}>{content.title}</H2>
+            </PaddedView>
             <HTMLContent contentId={content.id} />
           </ContentContainer>
           <Time contentId={content.id} />

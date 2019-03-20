@@ -8,12 +8,18 @@ import {
   styled,
   UIText,
   H5,
+  H6,
   Touchable,
 } from '@apollosproject/ui-kit';
 
 import Icon from '../Icon';
 
 import Liked from './Liked';
+
+const LabelText = styled(({ theme }) => ({
+  color: theme.colors.primary,
+  fontSize: 10,
+}))(H6);
 
 const TimeContainer = styled(({ theme }) => ({
   width: 80,
@@ -59,6 +65,7 @@ const ScheduleItem = ({
   endTime,
   title,
   summary,
+  label,
   onPress,
   ...other
 }) => {
@@ -72,8 +79,9 @@ const ScheduleItem = ({
           </TimeContainer>
         ) : null}
         <EventInfo>
+          {label ? <LabelText>{label}</LabelText> : null}
           <H5 numberOfLines={2}>{title}</H5>
-          {summary ? (
+          {summary && !label ? (
             <SecondaryText numberOfLines={title.length > 30 ? 1 : 2}>
               {summary}
             </SecondaryText>
@@ -102,6 +110,7 @@ ScheduleItem.propTypes = {
   title: PropTypes.string,
   summary: PropTypes.string,
   onPress: PropTypes.func,
+  label: PropTypes.string,
 };
 
 export default ScheduleItem;
