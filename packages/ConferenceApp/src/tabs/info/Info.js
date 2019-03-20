@@ -50,30 +50,29 @@ class Info extends PureComponent {
     this._navListener.remove();
   }
 
-  renderMaps = ({ data: { conference } = {}, loading }) =>
-    console.log({ conference, loading }, get(conference, 'maps') || []) || (
-      <HorizontalTileFeed
-        content={get(conference, 'maps') || []}
-        isLoading={loading}
-        loadingStateObject={loadingStateObject}
-        renderItem={({ item }) => (
-          <TouchableScale
-            onPress={() => {
-              this.props.navigation.push('ContentSingle', {
-                itemId: item.id,
-              });
-            }}
-          >
-            <ContentCardConnected
-              contentId={item.id}
-              isLoading={loading}
-              tile
-              inHorizontalList
-            />
-          </TouchableScale>
-        )}
-      />
-    );
+  renderMaps = ({ data: { conference } = {}, loading }) => (
+    <HorizontalTileFeed
+      content={get(conference, 'maps') || []}
+      isLoading={loading}
+      loadingStateObject={loadingStateObject}
+      renderItem={({ item }) => (
+        <TouchableScale
+          onPress={() => {
+            this.props.navigation.push('ContentSingle', {
+              itemId: item.id,
+            });
+          }}
+        >
+          <ContentCardConnected
+            contentId={item.id}
+            isLoading={loading}
+            tile
+            inHorizontalList
+          />
+        </TouchableScale>
+      )}
+    />
+  );
 
   render() {
     return (
