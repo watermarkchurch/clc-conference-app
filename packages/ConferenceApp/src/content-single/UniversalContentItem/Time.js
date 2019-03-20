@@ -33,6 +33,7 @@ const query = gql`
 class Time extends PureComponent {
   static propTypes = {
     contentId: PropTypes.string,
+    condensed: PropTypes.bool,
   };
 
   render() {
@@ -52,12 +53,16 @@ class Time extends PureComponent {
               <Cell>
                 <OpaqueIcon name="time" size={14} />
                 <CellText isLoading={!get(data, 'node.startTime') && loading}>
-                  {moment(get(data, 'node.startTime')).format('dddd hh:mma')}
+                  {moment(get(data, 'node.startTime')).format(
+                    this.props.condensed ? 'ddd h:mma' : 'dddd h:mma'
+                  )}
                   {' - '}
-                  {moment(get(data, 'node.endTime')).format('hh:mma')}{' '}
-                  <LightText>
-                    {moment(get(data, 'node.startTime')).fromNow()}
-                  </LightText>
+                  {moment(get(data, 'node.endTime')).format('h:mma')}{' '}
+                  {!this.props.condensed ? (
+                    <LightText>
+                      {moment(get(data, 'node.startTime')).fromNow()}
+                    </LightText>
+                  ) : null}
                 </CellText>
               </Cell>
               <Divider />
