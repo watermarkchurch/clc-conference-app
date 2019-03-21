@@ -20,7 +20,7 @@ export default class NotificationsInit extends Component {
 
   componentDidMount() {
     OneSignal.init(Config.ONE_SIGNAL_KEY, {
-      kOSSettingsKeyAutoPrompt: true,
+      kOSSettingsKeyAutoPrompt: false,
     });
     OneSignal.addEventListener('received', this.onReceived);
     OneSignal.addEventListener('opened', this.onOpened);
@@ -47,15 +47,7 @@ export default class NotificationsInit extends Component {
     NavigationService.navigate(route, args);
   };
 
-  onReceived = (notification) => {
-    console.log('Notification received: ', notification);
-  };
-
   onOpened = (openResult) => {
-    console.log('Message: ', openResult.notification.payload.body);
-    console.log('Data: ', openResult.notification.payload.additionalData);
-    console.log('isActive: ', openResult.notification.isAppInFocus);
-    console.log('openResult: ', openResult);
     // URL looks like this
     // ConferenceApp://AppStackNavigator/Connect
     // ConferenceApp://SomethingElse/Connect

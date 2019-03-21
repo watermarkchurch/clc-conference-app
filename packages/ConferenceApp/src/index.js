@@ -10,6 +10,7 @@ import { NotificationsManager } from './notifications';
 import NavigationService from './NavigationService';
 import ContentSingle from './content-single';
 import Tabs from './tabs';
+import Onboarding, { Prompt as OnboardingPrompt } from './onboarding';
 
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: 'dark-content',
@@ -21,6 +22,7 @@ const AppNavigator = createAppContainer(
     {
       Tabs,
       ContentSingle,
+      Onboarding,
     },
     {
       initialRouteName: 'Tabs',
@@ -39,6 +41,7 @@ const App = () => (
           NavigationService.setTopLevelNavigator(navigatorRef);
         }}
       />
+      <OnboardingPrompt />
       <NotificationsManager />
       <MediaPlayer />
     </BackgroundView>
