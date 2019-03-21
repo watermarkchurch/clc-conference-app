@@ -111,7 +111,7 @@ export const resolvers = {
         likedContent = [];
       }
 
-      return { isLiked: !!likedContent.find(content => content.id === id) };
+      return { isLiked: !!likedContent.find((content) => content.id === id) };
     },
     likedContent: (a, b, { cache }) => {
       const query = gql`
@@ -142,7 +142,7 @@ export const resolvers = {
       `;
 
       try {
-        return likedContent.map(content => {
+        return likedContent.map((content) => {
           const data = cache.readQuery({
             query: contentQuery,
             variables: { id: content.id },
