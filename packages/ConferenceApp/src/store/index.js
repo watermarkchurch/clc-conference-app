@@ -3,8 +3,6 @@ import gql from 'graphql-tag';
 import { largeCardFragment } from 'ConferenceApp/src/ui/ContentCardConnected';
 import { contentItemFragment } from 'ConferenceApp/src/content-single/getContentItem';
 import { track, events } from '../analytics';
-import { CACHE_LOADED } from '../client'; // eslint-disable-line
-import updatePushId from '../notifications/updatePushId';
 
 // TODO: this will require more organization...ie...not keeping everything in one file.
 // But this is simple while our needs our small.
@@ -93,12 +91,6 @@ export const defaults = {
 };
 
 let trackId = 0;
-
-const getIsLoggedIn = gql`
-  query {
-    isLoggedIn @client
-  }
-`;
 
 export const resolvers = {
   Query: {
@@ -318,51 +310,55 @@ export const resolvers = {
       });
       return null;
     },
-    updateDevicePushId: async (root, { pushId }, { cache, client }) => {
-      const query = gql`
+    updateDevicePushId: async () =>
+      // const query = gql`
+      //   query {
+      //     pushId @client
+      //   }
+      // `;
+      // cache.writeQuery({
+      //   query,
+      //   data: {
+      //     pushId,
+      //   },
+      // });
+
+      // const { data: { isLoggedIn } = {} } = await client.query({
+      //   query: getIsLoggedIn,
+      // });
+
+      // if (isLoggedIn) {
+      //   updatePushId({ pushId });
+      // }
+      null,
+    cacheMarkLoaded: (root, args, { client }) => {
+      const CACHE_LOADED = gql`
         query {
-          pushId @client
+          cacheLoaded @client
         }
       `;
-      cache.writeQuery({
-        query,
-        data: {
-          pushId,
-        },
-      });
 
-      const { data: { isLoggedIn } = {} } = await client.query({
-        query: getIsLoggedIn,
-      });
-
-      if (isLoggedIn) {
-        updatePushId({ pushId });
-      }
-      return null;
-    },
-
-    cacheMarkLoaded: async (root, args, { cache, client }) => {
-      cache.writeQuery({
+      client.writeQuery({
         query: CACHE_LOADED,
         data: {
           cacheLoaded: true,
         },
       });
-      const { data: { isLoggedIn } = {} } = await client.query({
-        query: getIsLoggedIn,
-      });
+      // const { data: { isLoggedIn } = {} } = await client.query({
+      //   query: getIsLoggedIn,
+      // });
 
-      const { pushId } = cache.readQuery({
-        query: gql`
-          query {
-            pushId @client
-          }
-        `,
-      });
+      // const { pushId } = cache.readQuery({
+      //   query: gql`
+      //     query {
+      //       pushId @client
+      //     }
+      //   `,
+      // });
 
-      if (isLoggedIn && pushId) {
-        updatePushId({ pushId });
-      }
+      // if (isLoggedIn && pushId) {
+      //   updatePushId({ pushId });
+      // }
       return null;
     },
   },

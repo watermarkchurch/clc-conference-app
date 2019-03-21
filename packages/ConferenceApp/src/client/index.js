@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import SplashScreen from 'react-native-splash-screen';
+import gql from 'graphql-tag';
 
 import { resolvers, schema } from '../store';
 import httpLink from './httpLink';
@@ -19,10 +20,18 @@ export const client = new ApolloClient({
   typeDefs: schema,
 });
 
+export const CACHE_LOADED = gql`
+  query {
+    cacheLoaded @client
+  }
+`;
+
 class ClientProvider extends PureComponent {
   static propTypes = {
     client: PropTypes.shape({
       cache: PropTypes.shape({}),
+      mutate: PropTypes.func,
+      writeQuery: PropTypes.func,
     }),
   };
 
@@ -36,12 +45,16 @@ class ClientProvider extends PureComponent {
     } catch (e) {
       throw e;
     } finally {
+      this.props.client.writeQuery({
+        query: CACHE_LOADED,
+        data: { cacheLoaded: true },
+      });
       if (SplashScreen && SplashScreen.hide) SplashScreen.hide();
     }
   }
 
   render() {
-    return <ApolloProvider {...this.props} client={client} />;
+    return <ApolloProvider {...this.props} />;
   }
 }
 
