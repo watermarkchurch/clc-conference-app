@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
-import SplashScreen from 'react-native-splash-screen';
+// import SplashScreen from 'react-native-splash-screen';
 import gql from 'graphql-tag';
 
 import { resolvers, schema } from '../store';
@@ -49,7 +49,7 @@ class ClientProvider extends PureComponent {
         query: CACHE_LOADED,
         data: { cacheLoaded: true },
       });
-      if (SplashScreen && SplashScreen.hide) SplashScreen.hide();
+      // if (SplashScreen && SplashScreen.hide) SplashScreen.hide();
     }
   }
 
