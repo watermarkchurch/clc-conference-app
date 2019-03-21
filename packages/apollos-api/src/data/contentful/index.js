@@ -8,3 +8,4 @@ export * as Breakouts from './Breakouts';
 export * as Announcement from './Announcement';
 export * as Location from './Location';
 export * as Speaker from './Speaker';
+export * as Link from './Link';
