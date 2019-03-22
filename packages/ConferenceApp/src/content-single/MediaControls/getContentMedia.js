@@ -11,10 +11,8 @@ export default gql`
             uri
           }
         }
-        videos {
-          sources {
-            uri
-          }
+        media {
+          uri
         }
       }
     }
