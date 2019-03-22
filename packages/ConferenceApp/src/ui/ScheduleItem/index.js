@@ -16,8 +16,8 @@ import Icon from '../Icon';
 
 import Liked from './Liked';
 
-const LabelText = styled(({ theme }) => ({
-  color: theme.colors.primary,
+const LabelText = styled(({ theme, expired }) => ({
+  ...(!expired ? { color: theme.colors.primary } : {}),
   fontSize: 10,
 }))(H6);
 
@@ -33,8 +33,9 @@ const EventInfo = styled(({ theme }) => ({
   flexShrink: 1,
 }))(View);
 
-const ScheduleCell = styled(({ theme }) => ({
+const ScheduleCell = styled(({ theme, expired }) => ({
   height: theme.sizing.baseUnit * 5,
+  opacity: expired ? 0.6 : 1,
 }))(Cell);
 
 const ScheduleCellRowPositioner = styled({
@@ -70,7 +71,7 @@ const ScheduleItem = ({
   ...other
 }) => {
   let cell = (
-    <ScheduleCell {...other}>
+    <ScheduleCell expired={moment(endTime) < new Date()} {...other}>
       <ScheduleCellRowPositioner>
         {startTime ? (
           <TimeContainer>
@@ -79,7 +80,11 @@ const ScheduleItem = ({
           </TimeContainer>
         ) : null}
         <EventInfo>
-          {label ? <LabelText>{label}</LabelText> : null}
+          {label ? (
+            <LabelText expired={moment(endTime) < new Date()}>
+              {label}
+            </LabelText>
+          ) : null}
           <H5 numberOfLines={2}>{title}</H5>
           {summary && !label ? (
             <SecondaryText numberOfLines={title.length > 30 ? 1 : 2}>

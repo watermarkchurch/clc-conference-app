@@ -10,8 +10,10 @@ import {
   ThemeMixin,
   withThemeMixin,
 } from '@apollosproject/ui-kit';
+import moment from 'moment';
 import TabBar from '../../ui/TabBar';
 import headerOptions from '../headerOptions';
+import AppStateRefetch from '../../ui/AppStateRefetch';
 
 import Day from './Day';
 
@@ -21,6 +23,7 @@ const getDays = gql`
       days {
         id
         title
+        date
       }
     }
   }
@@ -62,19 +65,41 @@ class Schedule extends PureComponent {
     return (
       <BackgroundView>
         <Query query={getDays} fetchPolicy="cache-and-network">
-          {({ loading, data: { conference: { days = [] } = {} } = {} }) => {
+          {({
+            loading,
+            data: { conference: { days = [] } = {} } = {},
+            refetch,
+          }) => {
             if (loading && !days.length) return <ActivityIndicator />;
+
+            let initialIndex = days.findIndex(
+              (day) => moment(day.date) > new Date()
+            ); // find the first day that falls after today
+            if (initialIndex === -1) {
+              initialIndex = days.length - 1;
+            } else {
+              initialIndex -= 1;
+            }
+
             return (
-              <TabView
-                routes={days.map((day) => ({ key: day.id, title: day.title }))}
-                renderScene={({ route }) => <Day id={route.key} />}
-                renderTabBar={(props) => (
-                  <ThemedTabBar
-                    {...props}
-                    renderLabel={({ route }) => <H6>{route.title}</H6>}
-                  />
-                )}
-              />
+              <>
+                <AppStateRefetch refetch={refetch} />
+
+                <TabView
+                  initialIndex={initialIndex}
+                  routes={days.map((day) => ({
+                    key: day.id,
+                    title: day.title,
+                  }))}
+                  renderScene={({ route }) => <Day id={route.key} />}
+                  renderTabBar={(props) => (
+                    <ThemedTabBar
+                      {...props}
+                      renderLabel={({ route }) => <H6>{route.title}</H6>}
+                    />
+                  )}
+                />
+              </>
             );
           }}
         </Query>
