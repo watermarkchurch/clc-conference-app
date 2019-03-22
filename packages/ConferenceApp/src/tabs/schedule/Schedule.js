@@ -10,6 +10,7 @@ import {
   ThemeMixin,
   withThemeMixin,
 } from '@apollosproject/ui-kit';
+import moment from 'moment';
 import TabBar from '../../ui/TabBar';
 import headerOptions from '../headerOptions';
 
@@ -21,6 +22,7 @@ const getDays = gql`
       days {
         id
         title
+        date
       }
     }
   }
@@ -64,8 +66,19 @@ class Schedule extends PureComponent {
         <Query query={getDays} fetchPolicy="cache-and-network">
           {({ loading, data: { conference: { days = [] } = {} } = {} }) => {
             if (loading && !days.length) return <ActivityIndicator />;
+
+            let initialIndex = days.findIndex(
+              (day) => moment(day.date) > new Date()
+            ); // find the first day that falls after today
+            if (initialIndex === -1) {
+              initialIndex = days.length - 1;
+            } else {
+              initialIndex -= 1;
+            }
+
             return (
               <TabView
+                initialIndex={initialIndex}
                 routes={days.map((day) => ({ key: day.id, title: day.title }))}
                 renderScene={({ route }) => <Day id={route.key} />}
                 renderTabBar={(props) => (
