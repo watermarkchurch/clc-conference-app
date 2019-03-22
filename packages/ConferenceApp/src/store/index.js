@@ -210,7 +210,10 @@ export const resolvers = {
         trackInfo
       );
 
-      const { mediaPlayer } = cache.readQuery({ query });
+      let { mediaPlayer } = defaults;
+      try {
+        ({ mediaPlayer } = cache.readQuery({ query }));
+      } catch (e) {} // eslint-disable-line
 
       const newMediaPlayerState = {
         __typename: 'MediaPlayerState',

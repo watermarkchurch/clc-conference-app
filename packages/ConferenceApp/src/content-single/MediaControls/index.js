@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Query, Mutation } from 'react-apollo';
 import { View } from 'react-native';
-import { get } from 'lodash';
 
 import { playVideoMutation } from 'ConferenceApp/src/ui/MediaPlayer/mutations';
 import { Icon, styled, Button } from '@apollosproject/ui-kit';
@@ -48,31 +47,27 @@ class MediaControls extends PureComponent {
   renderControls = ({
     loading,
     error,
-    data: {
-      node: { videos, title, parentChannel = {}, coverImage = {} } = {},
-    } = {},
+    data: { node: { media, title, coverImage = {} } = {} } = {},
   }) => {
     if (loading || error) return null;
 
-    const videoSource = get(videos, '[0].sources[0]', null);
     const coverImageSources = (coverImage && coverImage.sources) || [];
 
     return (
       <Mutation mutation={playVideoMutation}>
         {(play) => (
           <Container>
-            {videoSource ? (
+            {media && media.uri ? (
               <MediaButtonBorder>
                 <MediaButton
                   type="primary"
                   onPress={() =>
                     play({
                       variables: {
-                        mediaSource: videoSource,
+                        mediaSource: media,
                         posterSources: coverImageSources,
                         title,
                         isVideo: true,
-                        artist: parentChannel.name,
                       },
                     })
                   }

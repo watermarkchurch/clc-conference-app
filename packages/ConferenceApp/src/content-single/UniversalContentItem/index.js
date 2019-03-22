@@ -13,6 +13,7 @@ import {
 } from '@apollosproject/ui-kit';
 import HTMLContent from '../HTMLContent';
 import ChildContentFeed from '../ChildContentFeed';
+import MediaControls from '../MediaControls';
 import Location from './Location';
 import Speakers from './Speakers';
 import Time from './Time';
@@ -42,6 +43,7 @@ const UniversalContentItem = ({ content, loading }) => {
           <ContentContainer
             hasCoverImage={coverImageSources && coverImageSources.length}
           >
+            <MediaControls contentId={content.id} />
             <PaddedView horizontal={false}>
               {content.label ? <LabelText>{content.label}</LabelText> : null}
               <H2 isLoading={!content.title && loading}>{content.title}</H2>

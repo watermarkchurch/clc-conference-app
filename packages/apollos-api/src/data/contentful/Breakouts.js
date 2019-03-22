@@ -32,6 +32,7 @@ export const schema = gql`
       first: Int
       after: String
     ): ContentItemsConnection
+    media: VideoMediaSource
 
     parentChannel: ContentChannel
 

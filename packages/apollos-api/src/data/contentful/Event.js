@@ -24,6 +24,7 @@ export const schema = gql`
     ): ContentItemsConnection
 
     parentChannel: ContentChannel
+    media: VideoMediaSource
 
     speakers: [Speaker]
     location: Location

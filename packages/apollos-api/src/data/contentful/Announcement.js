@@ -14,6 +14,8 @@ export const schema = gql`
     htmlContent: String
     summary: String
 
+    media: VideoMediaSource
+
     childContentItemsConnection(
       first: Int
       after: String
@@ -37,5 +39,6 @@ export const resolver = {
     htmlContent: ({ fields }) =>
       fields.description ? marked(fields.description) : null,
     coverImage: ({ fields }) => fields.art,
+    media: ({ fields }) => ({ uri: fields.mediaUrl }),
   },
 };

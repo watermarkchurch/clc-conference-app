@@ -40,6 +40,8 @@ export const schema = gql`
     htmlContent: String
     summary: String
 
+    media: VideoMediaSource
+
     childContentItemsConnection(
       first: Int
       after: String
