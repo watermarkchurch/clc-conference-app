@@ -15,7 +15,7 @@ class AppStateRefetch extends Component {
     AppState.removeEventListener('change', this._handleAppStateChange);
   }
 
-  _handleAppStateChange = nextAppState => {
+  _handleAppStateChange = (nextAppState) => {
     if (nextAppState === 'active') {
       this.props.refetch();
     }
