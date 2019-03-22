@@ -217,6 +217,7 @@ class Onboarding extends Component {
                       <Button title="Let's Go!" onPress={this.handleClose} />
                     </PaddedView>
                     <PaddedView />
+                    <PaddedView />
                   </ActionRow>
                 </Slide>
               ),
