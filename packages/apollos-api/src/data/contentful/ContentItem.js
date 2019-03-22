@@ -3,7 +3,7 @@ import { camelCase, upperFirst } from 'lodash';
 import natural from 'natural';
 import sanitizeHtmlNode from 'sanitize-html';
 import marked from 'marked';
-
+import { resolver as cloudinaryResolver } from '@apollosproject/data-connector-cloudinary';
 import ContentfulDataSource from './ContentfulDataSource';
 
 const enforceProtocol = (uri) => (uri.startsWith('//') ? `https:${uri}` : uri);
@@ -105,7 +105,7 @@ export const resolver = {
     uri: ({ url }) => enforceProtocol(url),
   },
   ImageMediaSource: {
-    uri: ({ url }) => enforceProtocol(url),
+    uri: ({ url }) => cloudinaryResolver.ImageMediaSource.uri({ uri: url }),
   },
   ContentItemsConnection: {
     edges: (items) =>

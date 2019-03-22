@@ -48,10 +48,7 @@ const TrackInfo = styled(({ theme }) => ({
   width: '100%',
 }))(View);
 
-const TrackName = styled(({ theme }) => ({
-  height: theme.sizing.baseUnit,
-  overflow: 'hidden',
-}))(H5);
+const TrackName = H5;
 
 const TrackArtist = styled(({ theme }) => ({
   height: theme.sizing.baseUnit,
@@ -126,7 +123,7 @@ class MiniControls extends Component {
     } = {},
   }) => {
     Animated.spring(this.dismissAnimator, {
-      toValue: isPlaying ? 0 : 0.8,
+      toValue: isPlaying ? 0 : 0.9,
       overshootClamping: true,
       useNativeDriver: true,
     }).start();
@@ -159,7 +156,7 @@ class MiniControls extends Component {
                 <TrackInfoTouchable onPress={() => goFullscreen()}>
                   <TrackInfo>
                     <TrackName>{title}</TrackName>
-                    <TrackArtist>{artist}</TrackArtist>
+                    {artist ? <TrackArtist>{artist}</TrackArtist> : null}
                   </TrackInfo>
                 </TrackInfoTouchable>
               </TrackInfoTouchableBackground>

@@ -219,9 +219,7 @@ export const resolvers = {
         __typename: 'MediaPlayerState',
         isPlaying: true,
         isVisible: true,
-        isFullscreen: mediaTrack.isVideo
-          ? true
-          : (mediaPlayer && mediaPlayer.isFullscreen) || false,
+        isFullscreen: true,
         currentTrack: mediaTrack,
         currentTime: 0,
         showVideo: mediaTrack.isVideo,
