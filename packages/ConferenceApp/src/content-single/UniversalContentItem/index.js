@@ -30,34 +30,36 @@ const LabelText = styled(({ theme }) => ({ color: theme.colors.primary }))(H6);
 const UniversalContentItem = ({ content, loading }) => {
   const coverImageSources = get(content, 'coverImage.sources', []);
   return (
-    <BackgroundView>
-      <FlexedScrollView>
-        {coverImageSources.length ||
-        (loading && get(content, 'coverImage') !== null) ? (
-          <GradientOverlayImage
-            isLoading={!coverImageSources.length && loading}
-            source={coverImageSources}
-          />
-        ) : null}
-        <SafeAreaView forceInset={{ bottom: 'always', top: 'always' }}>
-          <ContentContainer
-            hasCoverImage={coverImageSources && coverImageSources.length}
-          >
-            <MediaControls contentId={content.id} />
-            <PaddedView horizontal={false}>
-              {content.label ? <LabelText>{content.label}</LabelText> : null}
-              <H2 isLoading={!content.title && loading}>{content.title}</H2>
-            </PaddedView>
-            <HTMLContent contentId={content.id} />
-          </ContentContainer>
-          <Time contentId={content.id} />
-          <Location contentId={content.id} />
-          <ChildContentFeed contentId={content.id} />
-          <Speakers contentId={content.id} />
-        </SafeAreaView>
-        <PaddedView />
-      </FlexedScrollView>
-    </BackgroundView>
+    <>
+      <BackgroundView>
+        <FlexedScrollView>
+          {coverImageSources.length ||
+          (loading && get(content, 'coverImage') !== null) ? (
+            <GradientOverlayImage
+              isLoading={!coverImageSources.length && loading}
+              source={coverImageSources}
+            />
+          ) : null}
+          <SafeAreaView forceInset={{ bottom: 'always', top: 'always' }}>
+            <ContentContainer
+              hasCoverImage={coverImageSources && coverImageSources.length}
+            >
+              <PaddedView horizontal={false}>
+                {content.label ? <LabelText>{content.label}</LabelText> : null}
+                <H2 isLoading={!content.title && loading}>{content.title}</H2>
+              </PaddedView>
+              <HTMLContent contentId={content.id} />
+            </ContentContainer>
+            <Time contentId={content.id} />
+            <Location contentId={content.id} />
+            <ChildContentFeed contentId={content.id} />
+            <Speakers contentId={content.id} />
+          </SafeAreaView>
+          <PaddedView />
+        </FlexedScrollView>
+      </BackgroundView>
+      <MediaControls contentId={content.id} />
+    </>
   );
 };
 
