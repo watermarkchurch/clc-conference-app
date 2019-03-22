@@ -3455,22 +3455,7 @@ exports[`the FullscreenPlayer component should render miniplayer with audio 1`] 
                           "color": "#303030",
                           "fontFamily": "AvenirNext-DemiBold",
                           "fontSize": 14,
-                          "height": 16,
                           "lineHeight": 20.16,
-                          "overflow": "hidden",
-                        }
-                      }
-                    />
-                    <Text
-                      style={
-                        Object {
-                          "color": "#C7C7C7",
-                          "fontFamily": "AvenirNext-Bold",
-                          "fontSize": 12,
-                          "height": 16,
-                          "lineHeight": 17.28,
-                          "marginTop": -2.5,
-                          "textTransform": "uppercase",
                         }
                       }
                     />
@@ -5584,22 +5569,7 @@ exports[`the FullscreenPlayer component should render miniplayer with video 1`] 
                           "color": "#303030",
                           "fontFamily": "AvenirNext-DemiBold",
                           "fontSize": 14,
-                          "height": 16,
                           "lineHeight": 20.16,
-                          "overflow": "hidden",
-                        }
-                      }
-                    />
-                    <Text
-                      style={
-                        Object {
-                          "color": "#C7C7C7",
-                          "fontFamily": "AvenirNext-Bold",
-                          "fontSize": 12,
-                          "height": 16,
-                          "lineHeight": 17.28,
-                          "marginTop": -2.5,
-                          "textTransform": "uppercase",
                         }
                       }
                     />
