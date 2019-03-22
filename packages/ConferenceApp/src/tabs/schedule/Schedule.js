@@ -13,6 +13,7 @@ import {
 import moment from 'moment';
 import TabBar from '../../ui/TabBar';
 import headerOptions from '../headerOptions';
+import AppStateRefetch from '../../ui/AppStateRefetch';
 
 import Day from './Day';
 
@@ -64,7 +65,11 @@ class Schedule extends PureComponent {
     return (
       <BackgroundView>
         <Query query={getDays} fetchPolicy="cache-and-network">
-          {({ loading, data: { conference: { days = [] } = {} } = {} }) => {
+          {({
+            loading,
+            data: { conference: { days = [] } = {} } = {},
+            refetch,
+          }) => {
             if (loading && !days.length) return <ActivityIndicator />;
 
             let initialIndex = days.findIndex(
@@ -77,17 +82,24 @@ class Schedule extends PureComponent {
             }
 
             return (
-              <TabView
-                initialIndex={initialIndex}
-                routes={days.map((day) => ({ key: day.id, title: day.title }))}
-                renderScene={({ route }) => <Day id={route.key} />}
-                renderTabBar={(props) => (
-                  <ThemedTabBar
-                    {...props}
-                    renderLabel={({ route }) => <H6>{route.title}</H6>}
-                  />
-                )}
-              />
+              <>
+                <AppStateRefetch refetch={refetch} />
+
+                <TabView
+                  initialIndex={initialIndex}
+                  routes={days.map((day) => ({
+                    key: day.id,
+                    title: day.title,
+                  }))}
+                  renderScene={({ route }) => <Day id={route.key} />}
+                  renderTabBar={(props) => (
+                    <ThemedTabBar
+                      {...props}
+                      renderLabel={({ route }) => <H6>{route.title}</H6>}
+                    />
+                  )}
+                />
+              </>
             );
           }}
         </Query>

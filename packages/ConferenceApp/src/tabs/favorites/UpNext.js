@@ -3,6 +3,7 @@ import { withNavigation } from 'react-navigation';
 import { compose } from 'recompose';
 import GradientView from 'react-native-linear-gradient';
 import { Query } from 'react-apollo';
+import { AppState } from 'react-native';
 import PropTypes from 'prop-types';
 
 import {
@@ -16,6 +17,7 @@ import {
 } from '@apollosproject/ui-kit';
 import gql from 'graphql-tag';
 import ScheduleItem from '../../ui/ScheduleItem';
+import AppStateRefetch from '../../ui/AppStateRefetch';
 
 const HeaderBackgroundView = compose(
   styled(({ theme }) => ({
@@ -62,6 +64,10 @@ const query = gql`
 `;
 
 class UpNext extends PureComponent {
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this._handleAppStateChange);
+  }
+
   handleOnPress = (id) =>
     id
       ? this.props.navigation.navigate('ContentSingle', {
@@ -75,9 +81,11 @@ class UpNext extends PureComponent {
         query={query}
         variables={{ likedIds: this.props.likedIds }}
         fetchPolicy={'network-only'}
+        pollInterval={300000} // 5 minutes
       >
-        {({ data: { conference: { upNext = {} } = {} } = {} }) => (
+        {({ data: { conference: { upNext = {} } = {} } = {}, refetch }) => (
           <React.Fragment>
+            <AppStateRefetch refetch={refetch} />
             <HeaderBackgroundView vertical={false}>
               <H5>Up Next for You</H5>
             </HeaderBackgroundView>
