@@ -45,11 +45,10 @@ class HorizontalContentFeed extends Component {
 
     return (content && content.length) || loading ? (
       <React.Fragment>
-        <PaddedView
-          vertical={false}
-          isLoading={(!content || !content.length) && loading}
-        >
-          <H4 padded>Sessions</H4>
+        <PaddedView vertical={false}>
+          <H4 padded isLoading={(!content || !content.length) && loading}>
+            Sessions
+          </H4>
         </PaddedView>
         {content.map(this.renderItem)}
       </React.Fragment>
