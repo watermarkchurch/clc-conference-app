@@ -174,7 +174,7 @@ class Onboarding extends Component {
               <SlideTitle>Customize Your Schedule</SlideTitle>
               <BodyText>
                 Explore the schedule and tracks based on specific ministry
-                areas. Star your favorites and they will be added to your
+                areas. Star your favorites and they will be added to your{' '}
                 {'"My CLC"'} tab.
               </BodyText>
             </Slide>
