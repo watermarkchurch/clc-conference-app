@@ -46,6 +46,7 @@ class Tracks extends PureComponent {
   componentDidMount() {
     this._navListener = this.props.navigation.addListener('didFocus', () => {
       StatusBar.setBarStyle('light-content');
+      StatusBar.setBackgroundColor('#F8A61A'); // todo: don't hard-code color value
     });
   }
 

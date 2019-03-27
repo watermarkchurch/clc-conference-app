@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Platform } from 'react-native';
 import { Query } from 'react-apollo';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
@@ -27,7 +28,7 @@ class ContentSingle extends PureComponent {
   };
 
   static navigationOptions = {
-    header: NavigationHeader,
+    header: Platform.OS === 'iOS' ? NavigationHeader : null,
   };
 
   get itemId() {

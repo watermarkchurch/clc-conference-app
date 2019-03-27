@@ -1,7 +1,9 @@
-import { H3 } from '@apollosproject/ui-kit';
+import { H3, styled } from '@apollosproject/ui-kit';
 
 export default {
-  headerTitle: H3,
+  headerTitle: styled(({ theme }) => ({
+    paddingHorizontal: theme.sizing.baseUnit,
+  }))(H3),
   headerStyle: {
     shadowColor: 'transparent',
     borderBottomWidth: 0,

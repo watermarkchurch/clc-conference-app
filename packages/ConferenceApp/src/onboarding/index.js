@@ -148,15 +148,15 @@ class Onboarding extends Component {
       >
         <StatusBar hidden />
         <Animated.Image
-          source={require('./slide-orange.jpg')}
+          source={require('./slide-orange.png')}
           style={style.slideImage}
         />
         <Animated.Image
-          source={require('./slide-purple.jpg')}
+          source={require('./slide-purple.png')}
           style={[style.slideImage, { opacity: animatedIndex }]}
         />
         <Animated.Image
-          source={require('./slide-gray.jpg')}
+          source={require('./slide-gray.png')}
           style={[
             style.slideImage,
             { opacity: Animated.subtract(animatedIndex, 1) },
