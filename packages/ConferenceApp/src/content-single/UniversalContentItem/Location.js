@@ -50,7 +50,11 @@ class Location extends PureComponent {
           return (
             <Touchable onPress={() => this.handlePress(data.node.location)}>
               <Cell>
-                <OpaqueIcon name="map" size={14} />
+                <OpaqueIcon
+                  name="map"
+                  size={14}
+                  isLoading={!get(data, 'node.location') && loading}
+                />
                 <CellText isLoading={!get(data, 'node.location') && loading}>
                   {get(data, 'node.location.title')}
                 </CellText>

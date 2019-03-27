@@ -210,15 +210,16 @@ export const resolvers = {
         trackInfo
       );
 
-      const { mediaPlayer } = cache.readQuery({ query });
+      let { mediaPlayer } = defaults;
+      try {
+        ({ mediaPlayer } = cache.readQuery({ query }));
+      } catch (e) {} // eslint-disable-line
 
       const newMediaPlayerState = {
         __typename: 'MediaPlayerState',
         isPlaying: true,
         isVisible: true,
-        isFullscreen: mediaTrack.isVideo
-          ? true
-          : (mediaPlayer && mediaPlayer.isFullscreen) || false,
+        isFullscreen: true,
         currentTrack: mediaTrack,
         currentTime: 0,
         showVideo: mediaTrack.isVideo,

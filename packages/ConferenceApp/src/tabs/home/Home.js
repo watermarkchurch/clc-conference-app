@@ -13,6 +13,7 @@ import ContentCardConnected, {
 } from 'ConferenceApp/src/ui/ContentCardConnected';
 
 import { contentItemFragment } from 'ConferenceApp/src/content-single/getContentItem';
+import AppStateRefetch from '../../ui/AppStateRefetch';
 
 import headerOptions from '../headerOptions';
 
@@ -83,19 +84,23 @@ class Home extends PureComponent {
         <SafeAreaView style={StyleSheet.absoluteFill}>
           <Query query={getUserFeed} fetchPolicy="cache-and-network">
             {({ loading, error, data, refetch }) => (
-              <FeedView
-                ListItemComponent={ContentCardConnected}
-                ListHeaderComponent={
-                  <LogoTitle source={require('./CLC-center.png')} />
-                }
-                content={get(data, 'conference.announcements.edges', []).map(
-                  (edge) => edge.node
-                )}
-                isLoading={loading}
-                error={error}
-                refetch={refetch}
-                onPressItem={this.handleOnPress}
-              />
+              <>
+                <AppStateRefetch refetch={refetch} />
+
+                <FeedView
+                  ListItemComponent={ContentCardConnected}
+                  ListHeaderComponent={
+                    <LogoTitle source={require('./CLC-center.png')} />
+                  }
+                  content={get(data, 'conference.announcements.edges', []).map(
+                    (edge) => edge.node
+                  )}
+                  isLoading={loading}
+                  error={error}
+                  refetch={refetch}
+                  onPressItem={this.handleOnPress}
+                />
+              </>
             )}
           </Query>
         </SafeAreaView>

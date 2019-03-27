@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { withNavigation } from 'react-navigation';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { get } from 'lodash';
@@ -51,7 +51,11 @@ class Time extends PureComponent {
           return (
             <>
               <Cell>
-                <OpaqueIcon name="time" size={14} />
+                {!get(data, 'node.startTime') && loading ? (
+                  <View />
+                ) : (
+                  <OpaqueIcon name="time" size={14} />
+                )}
                 <CellText isLoading={!get(data, 'node.startTime') && loading}>
                   {moment(get(data, 'node.startTime')).format(
                     this.props.condensed ? 'ddd h:mma' : 'dddd h:mma'

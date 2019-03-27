@@ -36,7 +36,7 @@ const getFavorites = gql`
 
 class Favorites extends PureComponent {
   static navigationOptions = ({ screenProps }) => ({
-    title: 'My CLC.',
+    title: 'My CLC',
     ...headerOptions,
     headerStyle: {
       ...headerOptions.headerStyle,

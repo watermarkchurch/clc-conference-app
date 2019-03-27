@@ -1,15 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import { styled } from '@apollosproject/ui-kit';
 import LikeButton from '../ui/LikeButton';
+import { MediaPlayerSpacer } from '../ui/MediaPlayer';
 
-const StyledLikeButton = styled(({ theme }) => ({
+const Wrapper = styled(({ theme }) => ({
   position: 'absolute',
   bottom: theme.sizing.baseUnit,
   right: theme.sizing.baseUnit,
-}))(LikeButton);
+}))(View);
 
-const ActionContainer = ({ itemId }) => <StyledLikeButton itemId={itemId} />;
+const ActionContainer = ({ itemId }) => (
+  <Wrapper>
+    <LikeButton itemId={itemId} />
+    <MediaPlayerSpacer />
+  </Wrapper>
+);
 
 ActionContainer.propTypes = {
   itemId: PropTypes.string,
