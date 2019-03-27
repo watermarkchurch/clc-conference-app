@@ -87,3 +87,5 @@ source-*.tar.gz
 terraform.tfstate
 terraform.tfstate.backup
 terraform.tfvars
+
+.idea
