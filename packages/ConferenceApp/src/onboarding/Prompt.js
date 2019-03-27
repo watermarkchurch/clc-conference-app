@@ -19,7 +19,10 @@ const Prompt = () => (
     {({ data: { cacheLoaded } = {}, loading }) => (
       <Query query={getOnboardedStatus}>
         {({ data: { didOnboard } = {}, loading: innerLoading }) => {
-          if (cacheLoaded && !didOnboard && !loading && !innerLoading) {
+          if (
+            true ||
+            (cacheLoaded && !didOnboard && !loading && !innerLoading)
+          ) {
             setTimeout(() => NavigationService.navigate('Onboarding'), 1);
           }
           return null;

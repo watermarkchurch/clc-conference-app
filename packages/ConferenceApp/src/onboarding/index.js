@@ -6,6 +6,7 @@ import {
   Image,
   StatusBar,
   Platform,
+  Dimensions,
 } from 'react-native';
 import { withApollo } from 'react-apollo';
 import SafeAreaView from 'react-native-safe-area-view';
@@ -29,7 +30,9 @@ export Prompt from './Prompt';
 
 const style = StyleSheet.create({
   slideImage: {
-    flex: 1,
+    ...StyleSheet.absoluteFill,
+    width: '100%',
+    height: '100%',
     resizeMode: 'cover',
   },
 });
@@ -98,6 +101,10 @@ class Onboarding extends Component {
 
   viewWidth = new Animated.Value(1);
 
+  handleScroll = Animated.event([
+    { nativeEvent: { contentOffset: { x: this.scrollPos } } },
+  ]);
+
   componentDidMount() {
     this.props.client.writeQuery({
       query: getOnboarded,
@@ -110,6 +117,18 @@ class Onboarding extends Component {
   handlePromptNotifications = () => {
     OneSignal.registerForPushNotifications();
     this.handleClose();
+  };
+
+  handlePageScroll = (e: any) => {
+    const screenWidth = Dimensions.get('window').width;
+
+    const { offset, position } = e.nativeEvent;
+    const contentOffset = offset * screenWidth + position * screenWidth;
+    this.handleScroll({
+      nativeEvent: {
+        contentOffset: { x: contentOffset },
+      },
+    });
   };
 
   handleClose = () => {
@@ -128,27 +147,21 @@ class Onboarding extends Component {
         ])}
       >
         <StatusBar hidden />
-        <View style={StyleSheet.absoluteFill}>
-          <Animated.Image
-            source={require('./slide-orange.jpg')}
-            style={style.slideImage}
-          />
-        </View>
-        <View style={StyleSheet.absoluteFill}>
-          <Animated.Image
-            source={require('./slide-purple.jpg')}
-            style={[style.slideImage, { opacity: animatedIndex }]}
-          />
-        </View>
-        <View style={StyleSheet.absoluteFill}>
-          <Animated.Image
-            source={require('./slide-gray.jpg')}
-            style={[
-              style.slideImage,
-              { opacity: Animated.subtract(animatedIndex, 1) },
-            ]}
-          />
-        </View>
+        <Animated.Image
+          source={require('./slide-orange.jpg')}
+          style={style.slideImage}
+        />
+        <Animated.Image
+          source={require('./slide-purple.jpg')}
+          style={[style.slideImage, { opacity: animatedIndex }]}
+        />
+        <Animated.Image
+          source={require('./slide-gray.jpg')}
+          style={[
+            style.slideImage,
+            { opacity: Animated.subtract(animatedIndex, 1) },
+          ]}
+        />
         <LogoWrapper>
           <SafeAreaView forceInset={{ top: 'always' }}>
             <LogoImage source={require('./logo.png')} />
@@ -158,9 +171,8 @@ class Onboarding extends Component {
           <ThemedSwiper
             loop={false}
             showsButtons={false}
-            onScroll={Animated.event([
-              { nativeEvent: { contentOffset: { x: this.scrollPos } } },
-            ])}
+            onScroll={this.handleScroll}
+            onPageScroll={this.handlePageScroll}
             scrollEventThrottle={16}
           >
             <Slide themeMixin={{ type: 'dark' }}>
