@@ -52,6 +52,7 @@ class Favorites extends PureComponent {
   componentDidMount() {
     this._navListener = this.props.navigation.addListener('didFocus', () => {
       StatusBar.setBarStyle('light-content');
+      StatusBar.setBackgroundColor('#3E2B2E'); // todo: don't hard-code color value
     });
   }
 

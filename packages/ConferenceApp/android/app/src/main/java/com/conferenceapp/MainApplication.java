@@ -3,8 +3,9 @@ package com.conferenceapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.swmansion.reanimated.ReanimatedPackage;
+import com.github.droibit.android.reactnative.customtabs.CustomTabsPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.brentvatne.react.ReactVideoPackage;
@@ -34,8 +35,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReanimatedPackage(),
+            new CustomTabsPackage(),
             new RNGestureHandlerPackage(),
-            new SplashScreenReactPackage(),
             new ReactNativeOneSignalPackage(),
             new RNCWebViewPackage(),
             new ReactVideoPackage(),

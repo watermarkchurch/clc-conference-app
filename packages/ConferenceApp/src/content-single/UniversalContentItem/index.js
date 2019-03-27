@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Platform } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
@@ -25,7 +25,14 @@ const ContentContainer = styled(({ hasCoverImage, theme }) => ({
   paddingBottom: 0,
 }))(PaddedView);
 
-const LabelText = styled(({ theme }) => ({ color: theme.colors.primary }))(H6);
+const LabelText = styled(({ theme }) => ({
+  color: theme.colors.primary,
+  ...(Platform.OS === 'android'
+    ? {
+        paddingTop: 5,
+      }
+    : {}),
+}))(H6);
 
 const UniversalContentItem = ({ content, loading }) => {
   const coverImageSources = get(content, 'coverImage.sources', []);

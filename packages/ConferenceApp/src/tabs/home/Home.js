@@ -64,6 +64,7 @@ class Home extends PureComponent {
   componentDidMount() {
     this._navListener = this.props.navigation.addListener('didFocus', () => {
       StatusBar.setBarStyle('dark-content');
+      StatusBar.setBackgroundColor('#EEF2F3'); // todo: don't hard-code color value
     });
   }
 

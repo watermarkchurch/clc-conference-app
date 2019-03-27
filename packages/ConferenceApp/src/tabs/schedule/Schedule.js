@@ -4,12 +4,14 @@ import gql from 'graphql-tag';
 import { StatusBar } from 'react-native';
 import {
   BackgroundView,
-  TabView,
+  // TabView,
   ActivityIndicator,
   H6,
   ThemeMixin,
   withThemeMixin,
 } from '@apollosproject/ui-kit';
+import { TabView } from 'react-native-tab-view';
+
 import moment from 'moment';
 import TabBar from '../../ui/TabBar';
 import headerOptions from '../headerOptions';
@@ -51,9 +53,14 @@ class Schedule extends PureComponent {
     ),
   });
 
+  state = {
+    index: 0,
+  };
+
   componentDidMount() {
     this._navListener = this.props.navigation.addListener('didFocus', () => {
       StatusBar.setBarStyle('light-content');
+      StatusBar.setBackgroundColor('#EF5E24'); // todo: don't hard-code color value
     });
   }
 
@@ -84,14 +91,16 @@ class Schedule extends PureComponent {
             return (
               <>
                 <AppStateRefetch refetch={refetch} />
-
                 <TabView
-                  initialIndex={initialIndex}
-                  routes={days.map((day) => ({
-                    key: day.id,
-                    title: day.title,
-                  }))}
+                  navigationState={{
+                    index: this.state.index,
+                    routes: days.map((day) => ({
+                      key: day.id,
+                      title: day.title,
+                    })),
+                  }}
                   renderScene={({ route }) => <Day id={route.key} />}
+                  onIndexChange={(index) => this.setState({ index })}
                   renderTabBar={(props) => (
                     <ThemedTabBar
                       {...props}

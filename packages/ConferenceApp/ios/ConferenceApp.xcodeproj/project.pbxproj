@@ -13,7 +13,6 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* ConferenceAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ConferenceAppTests.m */; };
 		02E8FA25B6D74D60A054C097 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5521C8284FFB491D89A9F9EE /* libBVLinearGradient.a */; };
-		0BE2D14EB8764CA797790EA8 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD88C38E814140959B87537F /* libSplashScreen.a */; };
 		0D60B2A74DC14BA7AF33CCAE /* Inter-UI-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66958ACA167242B990D7FEA1 /* Inter-UI-Regular.otf */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		12EA8D59C5DB484FA35853EF /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D8232484160438A8819C3FD /* libReactNativeConfig.a */; };
@@ -66,6 +65,7 @@
 		D373340CB4574A46AA1715EE /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F97ED6048C407E87BB6F42 /* libRNCWebView.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
+		EFDAAB55847742669351BD9A /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FB39C8181B4C30A5D262D1 /* libRNReanimated.a */; };
 		F0834B516C25481F89623502 /* Inter-UI-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 342672ED1E8D4A1F8BBECB64 /* Inter-UI-BoldItalic.otf */; };
 		F99A0D9D12EE41A4841B8303 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551A8BA08B9649C2BCDA182A /* libRNSVG.a */; };
 		FBA9CDB4FD694672A07DCDE8 /* Inter-UI-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C1E0876914748D4B41F5F58 /* Inter-UI-Medium.otf */; };
@@ -303,13 +303,6 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTLinking;
 		};
-		7941895822248B930014A75B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 65D244B4FA3E40B8A5F4521D /* SplashScreen.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D7682761D8E76B80014119E;
-			remoteInfo = SplashScreen;
-		};
 		794189AC22248FA90014A75B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E1A5668D78F04E32A6504768 /* RNGestureHandler.xcodeproj */;
@@ -344,6 +337,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
+		};
+		798BDD1F224B20470012A864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7849E807E16542D6868867C6 /* RNReanimated.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNReanimated;
 		};
 		799DFC4F224341C8009CC62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -528,9 +528,9 @@
 		5670C1801F214BF59D2C01F0 /* RNCWebView.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCWebView.xcodeproj; path = "../node_modules/react-native-webview/ios/RNCWebView.xcodeproj"; sourceTree = "<group>"; };
 		5D8232484160438A8819C3FD /* libReactNativeConfig.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeConfig.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		65D244B4FA3E40B8A5F4521D /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		66958ACA167242B990D7FEA1 /* Inter-UI-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Regular.otf"; path = "../assets/fonts/Inter-UI-Regular.otf"; sourceTree = "<group>"; };
 		6DA3DEEC2D19479081EFFC35 /* libRCTOneSignal.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOneSignal.a; sourceTree = "<group>"; };
+		7849E807E16542D6868867C6 /* RNReanimated.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNReanimated.xcodeproj; path = "../node_modules/react-native-reanimated/ios/RNReanimated.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7974D995221D0B0200F30F27 /* ConferenceApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ConferenceApp.entitlements; path = ConferenceApp/ConferenceApp.entitlements; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -541,7 +541,6 @@
 		90EA509D5BDE4180990B0084 /* libRNDeviceInfo-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNDeviceInfo-tvOS.a"; sourceTree = "<group>"; };
 		99C0DD7BBA994F7AA3EE4C1F /* libReactNativeConfig-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libReactNativeConfig-tvOS.a"; sourceTree = "<group>"; };
 		A30D918D217440FD88A3C215 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
-		AD88C38E814140959B87537F /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AE17A113A185434CB08B5EC9 /* DroidSerif-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-BoldItalic.ttf"; path = "../assets/fonts/DroidSerif-BoldItalic.ttf"; sourceTree = "<group>"; };
 		AE7D042F03A342B1AFBF8E02 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
@@ -557,6 +556,7 @@
 		D76BEDD5AE5A4838B16E47AD /* Inter-UI-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-BlackItalic.otf"; path = "../assets/fonts/Inter-UI-BlackItalic.otf"; sourceTree = "<group>"; };
 		E1A5668D78F04E32A6504768 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		E5B79C1329DF454D906A6DFE /* Inter-UI-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Bold.otf"; path = "../assets/fonts/Inter-UI-Bold.otf"; sourceTree = "<group>"; };
+		E6FB39C8181B4C30A5D262D1 /* libRNReanimated.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNReanimated.a; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F2861DE8BB184FFFBC8CAE96 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
@@ -600,9 +600,9 @@
 				D1E3A95F51A24B18852E93F3 /* libRCTVideo.a in Frameworks */,
 				D373340CB4574A46AA1715EE /* libRNCWebView.a in Frameworks */,
 				4FEBE818CCC04218B9077D81 /* libRCTOneSignal.a in Frameworks */,
-				0BE2D14EB8764CA797790EA8 /* libSplashScreen.a in Frameworks */,
 				25AEFA7E5CA14BAE841FAD4B /* libRNGestureHandler.a in Frameworks */,
 				B88F95749B054BB18F239C88 /* libDBCustomTabs.a in Frameworks */,
+				EFDAAB55847742669351BD9A /* libRNReanimated.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,18 +782,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7941895522248B930014A75B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7941895922248B930014A75B /* libSplashScreen.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		794189A922248FA80014A75B /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				794189AD22248FA90014A75B /* libRNGestureHandler.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		798BDD1C224B20470012A864 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				798BDD20224B20470012A864 /* libRNReanimated.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -824,9 +824,9 @@
 				B63136DBD6F7445DA8414A61 /* libMusicControl-tvOS.a */,
 				1B978CF0508F4889A09F3F04 /* libRNSVG-tvOS.a */,
 				6DA3DEEC2D19479081EFFC35 /* libRCTOneSignal.a */,
-				AD88C38E814140959B87537F /* libSplashScreen.a */,
 				AE7D042F03A342B1AFBF8E02 /* libRNGestureHandler.a */,
 				35AD1D4FCD744A5CA6259743 /* libDBCustomTabs.a */,
+				E6FB39C8181B4C30A5D262D1 /* libRNReanimated.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -951,9 +951,9 @@
 				A30D918D217440FD88A3C215 /* RCTVideo.xcodeproj */,
 				5670C1801F214BF59D2C01F0 /* RNCWebView.xcodeproj */,
 				4CABBB336DC64E92923A8D17 /* RCTOneSignal.xcodeproj */,
-				65D244B4FA3E40B8A5F4521D /* SplashScreen.xcodeproj */,
 				E1A5668D78F04E32A6504768 /* RNGestureHandler.xcodeproj */,
 				D6E807D3B6324D259038DA46 /* ReactNativeCustomTabs.xcodeproj */,
+				7849E807E16542D6868867C6 /* RNReanimated.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1236,6 +1236,10 @@
 					ProjectRef = E1A5668D78F04E32A6504768 /* RNGestureHandler.xcodeproj */;
 				},
 				{
+					ProductGroup = 798BDD1C224B20470012A864 /* Products */;
+					ProjectRef = 7849E807E16542D6868867C6 /* RNReanimated.xcodeproj */;
+				},
+				{
 					ProductGroup = 79F5212F2222F983001F0CD8 /* Products */;
 					ProjectRef = 8DE8C60BB8FB4E55B2BAD61E /* RNScreens.xcodeproj */;
 				},
@@ -1246,10 +1250,6 @@
 				{
 					ProductGroup = 79F521232222F983001F0CD8 /* Products */;
 					ProjectRef = 8614CAA859BD4B1592FD1E41 /* SafariViewManager.xcodeproj */;
-				},
-				{
-					ProductGroup = 7941895522248B930014A75B /* Products */;
-					ProjectRef = 65D244B4FA3E40B8A5F4521D /* SplashScreen.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1480,13 +1480,6 @@
 			remoteRef = 78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		7941895922248B930014A75B /* libSplashScreen.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSplashScreen.a;
-			remoteRef = 7941895822248B930014A75B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		794189AD22248FA90014A75B /* libRNGestureHandler.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1520,6 +1513,13 @@
 			fileType = archive.ar;
 			path = "libjsiexecutor-tvOS.a";
 			remoteRef = 7974D97A221D083000F30F27 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		798BDD20224B20470012A864 /* libRNReanimated.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNReanimated.a;
+			remoteRef = 798BDD1F224B20470012A864 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		799DFC50224341C8009CC62D /* libDBCustomTabs.a */ = {
@@ -1825,32 +1825,15 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-custom-tabs/ios/ReactNativeCustomTabs",
+					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 				);
 				INFOPLIST_FILE = ConferenceAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1881,32 +1864,15 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-custom-tabs/ios/ReactNativeCustomTabs",
+					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 				);
 				INFOPLIST_FILE = ConferenceAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1940,9 +1906,9 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-custom-tabs/ios/ReactNativeCustomTabs",
+					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 				);
 				INFOPLIST_FILE = ConferenceApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1977,9 +1943,9 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-custom-tabs/ios/ReactNativeCustomTabs",
+					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 				);
 				INFOPLIST_FILE = ConferenceApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2019,31 +1985,14 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-custom-tabs/ios/ReactNativeCustomTabs",
+					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 				);
 				INFOPLIST_FILE = "ConferenceApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -2083,31 +2032,14 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-custom-tabs/ios/ReactNativeCustomTabs",
+					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 				);
 				INFOPLIST_FILE = "ConferenceApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -2146,31 +2078,14 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-custom-tabs/ios/ReactNativeCustomTabs",
+					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 				);
 				INFOPLIST_FILE = "ConferenceApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -2209,31 +2124,14 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-custom-tabs/ios/ReactNativeCustomTabs",
+					"$(SRCROOT)/../node_modules/react-native-reanimated/ios/**",
 				);
 				INFOPLIST_FILE = "ConferenceApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
