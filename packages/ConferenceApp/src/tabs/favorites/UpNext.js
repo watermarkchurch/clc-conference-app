@@ -11,7 +11,6 @@ import {
   H5,
   PaddedView,
   styled,
-  ErrorCard,
   withThemeMixin,
   withTheme,
   Card,
