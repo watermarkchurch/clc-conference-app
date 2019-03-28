@@ -117,8 +117,8 @@ android {
         applicationId "org.watermark.clc"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
