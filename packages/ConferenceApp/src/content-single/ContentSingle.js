@@ -28,7 +28,7 @@ class ContentSingle extends PureComponent {
   };
 
   static navigationOptions = {
-    header: Platform.OS === 'iOS' ? NavigationHeader : null,
+    header: Platform.OS === 'ios' ? NavigationHeader : null,
   };
 
   get itemId() {
