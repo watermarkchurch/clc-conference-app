@@ -9,6 +9,7 @@ import {
   H6,
   ThemeMixin,
   withThemeMixin,
+  ErrorCard,
 } from '@apollosproject/ui-kit';
 import { TabView } from 'react-native-tab-view';
 
@@ -75,9 +76,11 @@ class Schedule extends PureComponent {
           {({
             loading,
             data: { conference: { days = [] } = {} } = {},
+            error,
             refetch,
           }) => {
             if (loading && !days.length) return <ActivityIndicator />;
+            if (error) return <ErrorCard error={error} />;
 
             let initialIndex = days.findIndex(
               (day) => moment(day.date) > new Date()
@@ -87,6 +90,8 @@ class Schedule extends PureComponent {
             } else {
               initialIndex -= 1;
             }
+            initialIndex = Math.max(initialIndex, 0);
+            initialIndex = Math.min(initialIndex, days.length - 1);
 
             return (
               <>

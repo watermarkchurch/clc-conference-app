@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
+import { View } from 'react-native';
 
 import {
   TableView,
@@ -83,7 +84,7 @@ class Speakers extends PureComponent {
                     onPress={() => this.handleOnPress(item)}
                     key={item.id}
                   >
-                    <>
+                    <View>
                       <Cell>
                         <Avatar
                           isLoading={loading && !speakers.length}
@@ -95,7 +96,7 @@ class Speakers extends PureComponent {
                         <Caret />
                       </Cell>
                       <Divider />
-                    </>
+                    </View>
                   </Touchable>
                 ))}
               </TableView>

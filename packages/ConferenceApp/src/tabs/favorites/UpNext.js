@@ -83,21 +83,28 @@ class UpNext extends PureComponent {
         fetchPolicy={'network-only'}
         pollInterval={300000} // 5 minutes
       >
-        {({ data: { conference: { upNext = {} } = {} } = {}, refetch }) => (
-          <React.Fragment>
-            <AppStateRefetch refetch={refetch} />
-            <HeaderBackgroundView vertical={false}>
-              <H5>Up Next for You</H5>
-            </HeaderBackgroundView>
-            <CardBackground>
-              <TouchableScale onPress={() => this.handleOnPress(upNext.id)}>
-                <Card>
-                  <ScheduleItemWithSpacing {...upNext} />
-                </Card>
-              </TouchableScale>
-            </CardBackground>
-          </React.Fragment>
-        )}
+        {({
+          data: { conference: { upNext = {} } = {} } = {},
+          refetch,
+          error,
+          loading,
+        }) =>
+          error ? null : (
+            <React.Fragment>
+              <AppStateRefetch refetch={refetch} />
+              <HeaderBackgroundView vertical={false}>
+                <H5>Up Next for You</H5>
+              </HeaderBackgroundView>
+              <CardBackground>
+                <TouchableScale onPress={() => this.handleOnPress(upNext.id)}>
+                  <Card isLoading={loading && !upNext.id}>
+                    <ScheduleItemWithSpacing {...upNext} />
+                  </Card>
+                </TouchableScale>
+              </CardBackground>
+            </React.Fragment>
+          )
+        }
       </Query>
     );
   }
