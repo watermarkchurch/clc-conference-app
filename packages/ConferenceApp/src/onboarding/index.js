@@ -178,7 +178,7 @@ class Onboarding extends Component {
             <Slide themeMixin={{ type: 'dark' }}>
               <SlideTitle>Meet the Church Leaders Conference App</SlideTitle>
               <BodyText>
-                Your go-to resource for schedule, maps, news and of course -
+                Your go-to resource for schedule, maps, news, and of course -
                 Farkle rules.
               </BodyText>
             </Slide>
