@@ -11,6 +11,7 @@ import NavigationService from './NavigationService';
 import ContentSingle from './content-single';
 import Tabs from './tabs';
 import Onboarding, { Prompt as OnboardingPrompt } from './onboarding';
+import { track } from './analytics';
 
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: 'dark-content',
@@ -32,6 +33,18 @@ const AppNavigator = createAppContainer(
   )
 );
 
+function getActiveRoute(navigationState) {
+  if (!navigationState) {
+    return null;
+  }
+  const route = navigationState.routes[navigationState.index];
+  // dive into nested navigators
+  if (route.routes) {
+    return getActiveRoute(route);
+  }
+  return route;
+}
+
 const App = () => (
   <Providers>
     <BackgroundView>
@@ -39,6 +52,16 @@ const App = () => (
       <AppNavigator
         ref={(navigatorRef) => {
           NavigationService.setTopLevelNavigator(navigatorRef);
+        }}
+        onNavigationStateChange={(prevState, currentState) => {
+          const route = getActiveRoute(currentState);
+          track({
+            eventName: 'ScreenView',
+            properties: {
+              route: route.name,
+              ...route.params,
+            },
+          });
         }}
       />
       <OnboardingPrompt />
