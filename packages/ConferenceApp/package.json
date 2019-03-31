@@ -32,6 +32,9 @@
     "apollo-link-http": "1.5.13",
     "apollo-link-schema": "1.2.1",
     "apollo-upload-client": "10.0.0",
+    "appcenter": "^1.13.0",
+    "appcenter-analytics": "^1.13.0",
+    "appcenter-crashes": "^1.13.0",
     "buffer": "^5.2.1",
     "events": "^3.0.0",
     "graphql": "^14.1.1",
@@ -90,7 +93,10 @@
       "node_modules/.*/node_modules/react-native"
     ],
     "setupFiles": [
-      "./jest.setup.js"
+      "./jest.setup.js",
+      "<rootDir>/node_modules/appcenter/test/AppCenterMock.js",
+      "<rootDir>/node_modules/appcenter-analytics/test/AppCenterAnalyticsMock.js",
+      "<rootDir>/node_modules/appcenter-crashes/test/AppCenterCrashesMock.js"
     ]
   },
   "rnpm": {

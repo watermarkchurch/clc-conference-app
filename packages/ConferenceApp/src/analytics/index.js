@@ -2,6 +2,7 @@
 import gql from 'graphql-tag';
 import DeviceInfo from 'react-native-device-info';
 import { Platform } from 'react-native';
+import Analytics from 'appcenter-analytics';
 
 import { client } from '../client';
 
@@ -37,29 +38,11 @@ const propertiesToGqlInput = (props = []) =>
     value: props[key],
   }));
 
-export const track = ({ eventName, properties }) => {};
-// client.mutate({
-//   mutation: trackMutation,
-//   variables: {
-//     input: {
-//       anonymousId,
-//       deviceInfo,
-//       eventName,
-//       properties: propertiesToGqlInput(properties),
-//     },
-//   },
-// });
+export const track = ({ eventName, properties }) => {
+  Analytics.trackEvent(eventName, properties);
+};
 
 export const identify = () => {};
-// client.mutate({
-//   mutation: identifyMutation,
-//   variables: {
-//     input: {
-//       anonymousId,
-//       deviceInfo,
-//     },
-//   },
-// });
 
 export const events = {
   LikeContent: 'Like Content',
