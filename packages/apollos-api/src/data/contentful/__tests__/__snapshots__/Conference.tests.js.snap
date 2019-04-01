@@ -17,13 +17,14 @@ Object {
     "cacheControl": Object {
       "hints": Array [
         Object {
-          "maxAge": 600,
+          "maxAge": 3600,
           "path": Array [
             "conference",
           ],
+          "scope": undefined,
         },
         Object {
-          "maxAge": 0,
+          "maxAge": 300,
           "path": Array [
             "conference",
             "upNext",
@@ -36,7 +37,11 @@ Object {
   },
   "http": Object {
     "headers": Headers {
-      Symbol(map): Object {},
+      Symbol(map): Object {
+        "Cache-Control": Array [
+          "max-age=300, public",
+        ],
+      },
     },
   },
 }
@@ -59,13 +64,14 @@ Object {
     "cacheControl": Object {
       "hints": Array [
         Object {
-          "maxAge": 600,
+          "maxAge": 3600,
           "path": Array [
             "conference",
           ],
+          "scope": undefined,
         },
         Object {
-          "maxAge": 0,
+          "maxAge": 300,
           "path": Array [
             "conference",
             "upNext",
@@ -78,7 +84,11 @@ Object {
   },
   "http": Object {
     "headers": Headers {
-      Symbol(map): Object {},
+      Symbol(map): Object {
+        "Cache-Control": Array [
+          "max-age=300, public",
+        ],
+      },
     },
   },
 }
@@ -101,13 +111,14 @@ Object {
     "cacheControl": Object {
       "hints": Array [
         Object {
-          "maxAge": 600,
+          "maxAge": 3600,
           "path": Array [
             "conference",
           ],
+          "scope": undefined,
         },
         Object {
-          "maxAge": 0,
+          "maxAge": 300,
           "path": Array [
             "conference",
             "upNext",
@@ -120,7 +131,11 @@ Object {
   },
   "http": Object {
     "headers": Headers {
-      Symbol(map): Object {},
+      Symbol(map): Object {
+        "Cache-Control": Array [
+          "max-age=300, public",
+        ],
+      },
     },
   },
 }
@@ -140,10 +155,35 @@ Object {
     "cacheControl": Object {
       "hints": Array [
         Object {
-          "maxAge": 600,
+          "maxAge": 3600,
           "path": Array [
             "conference",
           ],
+          "scope": undefined,
+        },
+        Object {
+          "maxAge": 3600,
+          "path": Array [
+            "conference",
+            "id",
+          ],
+          "scope": undefined,
+        },
+        Object {
+          "maxAge": 3600,
+          "path": Array [
+            "conference",
+            "title",
+          ],
+          "scope": undefined,
+        },
+        Object {
+          "maxAge": 3600,
+          "path": Array [
+            "conference",
+            "code",
+          ],
+          "scope": undefined,
         },
       ],
       "version": 1,
@@ -153,7 +193,7 @@ Object {
     "headers": Headers {
       Symbol(map): Object {
         "Cache-Control": Array [
-          "max-age=600, public",
+          "max-age=3600, public",
         ],
       },
     },
