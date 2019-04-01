@@ -28,7 +28,7 @@
     "@apollosproject/data-connector-onesignal": "^0.8.0-alpha.9",
     "@apollosproject/data-schema": "^0.8.0-alpha.9",
     "@apollosproject/server-core": "^0.8.0-alpha.9",
-    "appdynamics": "4.5.13",
+    "appdynamics": "^4.5.13",
     "apollo-datasource-rest": "^0.3.2",
     "apollo-link-http": "^1.5.11",
     "apollo-server": "2.4.8",
