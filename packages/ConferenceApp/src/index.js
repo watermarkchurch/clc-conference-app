@@ -58,7 +58,7 @@ const App = () => (
           track({
             eventName: 'ScreenView',
             properties: {
-              route: route.name,
+              route: route.routeName,
               ...route.params,
             },
           });
