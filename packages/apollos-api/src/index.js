@@ -1,8 +1,26 @@
 import dotenv from 'dotenv/config'; // eslint-disable-line
+import appdynamics from 'appdynamics';
 import config from './config'; // eslint-disable-line
 import server from './server';
 
 export { testSchema } from './server'; // eslint-disable-line import/prefer-default-export
+
+if (
+  process.env.APPD_HOST &&
+  process.env.APPD_ACCOUNTNAME &&
+  process.env.APPD_ACCESSKEY
+) {
+  appdynamics.profile({
+    controllerHostName: process.env.APPD_HOST,
+    controllerPort: 443,
+    controllerSslEnabled: true,
+    accountName: process.env.APPD_ACCOUNTNAME,
+    accountAccessKey: process.env.APPD_ACCESSKEY,
+    applicationName: 'wcc-clc-api',
+    tierName: 'heroku-web',
+    nodeName: 'heroku-dyno',
+  });
+}
 
 // Use the port, if provided.
 const { PORT } = process.env;

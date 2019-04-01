@@ -4,11 +4,13 @@
   "private": true,
   "main": "lib/index.js",
   "scripts": {
-    "start": "if test \"$NOW_ENV\" = \"true\" ; then yarn start:now ; else yarn start:dev ; fi",
+    "start":
+      "if test \"$NOW_ENV\" = \"true\" ; then yarn start:now ; else yarn start:dev ; fi",
     "start:dev": "nodemon ./src/index.js --exec babel-node --delay 2",
     "start:now": "babel-node ./src/index.js",
     "start:prod": "NODE_ENV=production node ./lib/index.js",
-    "build": "NODE_ENV=production rm -rf ./lib && mkdir -p lib && babel ./src -d ./lib",
+    "build":
+      "NODE_ENV=production rm -rf ./lib && mkdir -p lib && babel ./src -d ./lib",
     "test": "jest",
     "test:watch": "jest --maxWorkers=2 --watch",
     "lint": "eslint ./src --ext .js",
@@ -26,6 +28,7 @@
     "@apollosproject/data-connector-onesignal": "^0.8.0-alpha.9",
     "@apollosproject/data-schema": "^0.8.0-alpha.9",
     "@apollosproject/server-core": "^0.8.0-alpha.9",
+    "appdynamics": "4.5.13",
     "apollo-datasource-rest": "^0.3.2",
     "apollo-link-http": "^1.5.11",
     "apollo-server": "2.4.8",
@@ -58,17 +61,13 @@
   },
   "jest": {
     "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
       "<rootDir>/src/**/?(*.)(spec|test|tests).{js,jsx,mjs}"
     ],
     "automock": false,
-    "setupFiles": [
-      "./jest.js"
-    ],
+    "setupFiles": ["./jest.js"],
     "testEnvironment": "node"
   }
 }
