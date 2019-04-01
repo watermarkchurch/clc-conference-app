@@ -3,7 +3,7 @@ import { camelCase, upperFirst } from 'lodash';
 import natural from 'natural';
 import sanitizeHtmlNode from 'sanitize-html';
 import marked from 'marked';
-import { resolver as cloudinaryResolver } from '@apollosproject/data-connector-cloudinary';
+import withCloudinary from '@apollosproject/data-connector-cloudinary/lib/cloudinary';
 import ContentfulDataSource from './ContentfulDataSource';
 
 const enforceProtocol = (uri) => (uri.startsWith('//') ? `https:${uri}` : uri);
@@ -105,7 +105,15 @@ export const resolver = {
     uri: ({ url }) => enforceProtocol(url),
   },
   ImageMediaSource: {
-    uri: ({ url }) => cloudinaryResolver.ImageMediaSource.uri({ uri: url }),
+    uri: ({ url }) =>
+      withCloudinary(`https:${url}`, {
+        // https://cloudinary.com/documentation/node_image_manipulation#apply_common_image_transformations
+        width: 'auto',
+        quality: '60',
+        dpr: 'auto',
+        fetch_format: 'auto',
+        crop: 'limit',
+      }),
   },
   ContentItemsConnection: {
     edges: (items) =>
