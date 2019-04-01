@@ -2805,7 +2805,7 @@ appcenter@1.13.0, appcenter@^1.13.0:
   version "4.5.13"
   resolved "https://cdn.appdynamics.com/packages/nodejs/4.5.13.0/appdynamics-zmq-node.tgz#9054b840e6b13467506a22e93f44868d42e97455"
 
-appdynamics@4.5.13:
+appdynamics@^4.5.13:
   version "4.5.13"
   resolved "https://registry.yarnpkg.com/appdynamics/-/appdynamics-4.5.13.tgz#ea9ecfdc10c61bf735e03b5c79648711db599239"
   integrity sha512-9R1XHib4/XaEErSjACexhsihwIQ/A6tIsNZdNRHoCsUv1/Ve8nESk192Iss4dvc1AvPNsCSq0PTmxvvSw8+RAQ==
